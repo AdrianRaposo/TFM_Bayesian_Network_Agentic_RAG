@@ -1,0 +1,28 @@
+mistralai
+python-dotenv
+requests
+pandas
+beautifulsoup4
+openpyxl
+requests
+tqdm
+tiktoken
+transformers
+psycopg[binary]>=3.1
+sentence-transformers
+# Install PyTorch according to your system configuration:
+# CPU: pip install torch torchvision torchaudio
+# GPU (CUDA 12.x): pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+#Agentic Rag specific
+langchain>=0.3.0
+langchain-openai>=0.2.0
+langgraph>=0.2.36
+chainlit>=1.1.402
+pydantic>=2.7.0
+openai
+ranx
+seaborn
+langchain-google-genai
+langchain-ollama
+datasets
+ragas

@@ -1,0 +1,10 @@
+# 0772 COMPARING BAYESIAN NETWORK, ARTIFICIAL NEURAL NETWORKS, CLASSIFICATION TREES AND CLASSICAL LOGISTIC MODELS IN QUANTITATIVE RISK ASSESSMENT: AN APPLICATION TO THE EUROPEAN REGISTRY OF FOREIGN BODY INJURIES IN CHILDREN 
+
+D Gregori*, P Berchialla, F Foltran Correspondence: University of Padova, Via Loredan 18 Padova, 35100, Italy
+10.1136/ip.2010.029215.772
+
+Risk assessment is the systematic study of decisions subject to uncertain consequences.
+An increasing interest has been focused on modelling techniques like Bayesian networks (BNs) since their capability of (1) combining in the probabilistic framework different type of evidence including both expert judgements and objective data; (2) overturn previous believes in the light of the new information being received and (3) making predictions even with incomplete data.
+In this work we proposed a comparison among BNs and other classical Quantitative Risk Assessment techniques such as neural networks, classification trees and logistic regression. Hybrid approaches, which combine classification trees and BNs, are also considered. Among BNs a clear distinction between purely data driven framework and BN which are built using expert knowledge is made.
+The aim is directed to evaluate among this set of Quantitative Risk Assessment tools which best can be applied to assess the safety of children who are exposed to the risk of inhalation/insertion/aspiration of consumer products. The issue of preventing injuries in children is of paramount importance, and in particular in fields where product design is involved, a proper risk assessment can be of great usefulness. Data of the European Registry of Foreign Bodies Injuries are a valuable set of starting evidence to build up such risk models.
+Results showed that BNs appeared to have both the easy of interpretability and accuracy in making classification, thus outperforming other methods.

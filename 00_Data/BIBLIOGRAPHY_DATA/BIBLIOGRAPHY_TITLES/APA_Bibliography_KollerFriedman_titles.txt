@@ -1,0 +1,787 @@
+Learning factor graphs in polynomial time &  sample complexity
+A learning algorithm for Boltzmann machines
+The generalized distributive law
+A new look at the statistical identification model
+Random sampling approach to state estimation in switching  environments
+New advances in inference by recursive conditioning
+Optimal time–space tradeo in probabilistic inference
+Hidden Markov support vector machines
+HUGIN—a shell for building Bayesian  belief universes for expert systems
+Information integration theory: A brief survey
+How functional measurement can yield validated interval scales of mental  quantities
+MUNIN — an expert EMG assistant
+The correlated  correspondence algorithm for unsupervised registration of nonrigid surfaces
+Port-royal logic
+E cient algorithms for combinatorial problems on graphs with bounded,  decomposability—a survey
+Complexity of finding embeddings in a  k-tree
+Inferring parameters and structure of latent variable models by variational  Bayes
+Nonlinear Programming: Analysis and Methods
+Graphical models for preference and utility
+Thin junction trees
+Counterfactual probabilities: Computational methods, bounds and  applications
+Probabilistic evaluation of counterfactual queries
+Multitarget multisensor tracking: Advanced applications
+Tracking and Data Association
+Estimation with Application to Tracking and  Navigation
+Context-specific Bayesian clustering for gene expression data
+Tractable variational structures for approximating graphical  models
+Generalizing Swendsen-Wang to sampling arbitrary posterior  probabilities
+Stochastic stero matching over scale
+Information and Exponential Families in Statistical Theory
+The minimum description length principle in coding  and modeling
+Contingency table interactions
+Update rules for parameter estimation in Bayesian  networks
+An essay towards solving a problem in the doctrine of chances
+Variational Bayesian learning of directed graphical models  with hidden variables
+Random algorithms for the loop cutset problem
+The loop cutset problem
+A su ciently fast algorithm for finding close to optimal clique  trees
+Perfect tree-like Markovian distributions
+Automatic selection of loop breakers for genetic  linkage analysis
+On the desirability of acyclic database  schemes
+The ALARM monitoring system:  A case study with two probabilistic inference techniques for belief networks
+egret in decision making under uncertainty
+Dynamic Programming
+A dual optimization framework for some problems of infor mation theory and statistics
+An introduction to the principles of morals and legislation
+A maximum entropy approach to natural  language processing
+Bayesian Theory
+Specimen theoriae novae de mensura sortis (exposition of a new theory on  the measurement of risk)
+Near Shannon limit error-correcting coding:  Turbo codes
+Nonserial Dynamic Programming
+Nonlinear Programming (2nd ed
+Neuro-Dynamic Programming
+Spatial interaction and the statistical analysis of lattice systems
+On the statistical analysis of dirty pictures (with discussion)
+Statistical theory of superlattices
+Cutset sampling for bayesian networks
+On triangulating dynamic graphical models
+Graphical model architectures for speech recognition
+Adaptive probabilistic networks with  hidden variables
+Space-e cient inference in dynamic probabilistic  networks
+Pattern Recognition and Machine Learning
+Approximating posterior distributions  in belief networks using mixtures
+Causal Models in the Social Sciences
+A continuation method for nash equilibria in structured  games
+Pre-processing for  triangulation of probabilistic networks
+Pseudo-Boolean optimization
+Probabilistic network construction using the minimum description length  principle
+A POMDP formulation of preference elicitation problems
+UCP-Networks: A directed graphical represen tation of conditional utilities
+Decision theoretic planning: Structural assumptions  and computational leverage
+Exploiting structure in policy construction
+Stochastic dynamic programming with  factored representations
+Context-specific independence in  Bayesian networks
+Convex Optimization
+Discovering the hidden structure of complex  dynamic systems
+Approximate learning of dynamic models
+Tractable inference for complex stochastic processes
+Exploiting the architecture of dynamic systems
+Fast approximate energy minimization via graph cuts
+Local utility elicitation in GAI models
+Decision-theoretic troubleshooting: A framework for repair  and experiment
+Empirical analysis of predictive algorithms for  collaborative filtering
+Classification and Regression Trees
+Rule-Based Expert Systems: The MYCIN Experiments  of the Stanford Heuristic Programming Project
+Tracking and surveillance in wide-area spatial environ ments using the Abstract Hidden Markov Model
+Theory refinement on Bayesian networks
+Learning classification trees
+Operations for learning with graphical models
+A guide to the literature on learning probabilistic networks from data
+The recursive derivation of likelihoods  on complex pedigrees
+Probability functions on complex  pedigrees
+Importance sampling algorithms for the propaga tion of probabilities in belief networks
+Statistical Inference
+Expert Systems and Probabilistic Network Models
+Sensitivity analysis in discrete Bayesian networks
+Acting Rationally with Incomplete Utility Information
+Utilities as random variables: Density estimation and  structure discovery
+Making rational decisions using adaptive utility  elicitation
+When do numbers really matter? Journal of Artificial  Intelligence Research 17, 265–287
+E cient estimation of the value of information in Monte Carlo  models
+Autoclass: a Bayesian  classification system
+Bayesian classification
+Bayesian classification (AutoClass): Theory and results
+Multitarget-multisensor data association  using the tree-reweighted max-product algorithm
+Mixture Kalman filters
+AIS-BN: An adaptive importance sampling algorithm for  evidential reasoning in large Bayesian networks
+Learning bayesian networks from data:  An information-theory based approach
+Subjective probability elicitation techniques: A performance comparison
+Learning Bayesian networks is NP-Complete
+Learning equivalence classes of Bayesian-network structures
+Learning Bayesian networks: Search  methods and experimental results
+Large-sample learning of Bayesian networks  is hard
+A clinician’s tool for analyzing non-compliance
+A transformational characterization of equivalent Bayesian network  structures
+Learning equivalence classes of Bayesian network structures
+Optimal structure identification with greedy search
+E cient approximations for the marginal likelihood  of Bayesian networks with hidden variables
+A Bayesian approach to learning Bayesian  networks with local structure
+Approximating discrete probability distributions with depen dence trees
+Discriminative training methods for hidden Markov models: Theory and  experiments with perceptron algorithms
+Probabilistic inference using belief networks is NP-hard
+A Bayesian method for the induction of probabilistic  networks from data
+Causal discovery from a mixture of experimental and observational  data
+A method for using belief networks as influence diagrams
+Introduction to Algorithms
+Representation and solution of decision problems using sequen tial decision diagrams
+Elements of Information Theory
+Local propagation in conditional gaussian Bayesian networks
+Probabilistic Networks  and Expert Systems
+Algebra of Probable Inference
+Credal networks
+I-divergence geometry of probability distributions and minimization problems
+First-order probabilistic models for  coreference resolution
+Asymptotic model selection for naive Bayesian networks
+Appoximating probabilistic inference in Bayesian belief networks  in NP-hard
+An optimal approximation algorithm for Baysian inference
+Psychological aspects influencing elicitation of subjective probability
+Generalized iterative scaling for log-linear models
+Argument calculus and networks
+Constant space reasoning in dynamic Bayesian networks
+Recursive conditioning
+A di erential approach to inference in Bayesian networks
+On the relation between Kappa calculus and probabilistic  reasoning
+The sample complexity of learning fixed-structure Bayesian networks
+Learning polytrees
+Conditional independence in statistical theory (with discussion)
+Conditional independence for statistical operations
+Statistical theory: The prequential approach
+Applications of a general propagation algorithm for probabilistic expert system
+Influence diagrams for causal modelling and inference
+Fundamentals of statistical causality
+Hybrid propagation in junction trees
+Computer-aided  diagnosis of acute abdominal pain
+Foresight: Its logical laws, its subjective sources
+Variational MCMC
+A model for reasoning about persistence and causation
+Mini-Buckets: A general scheme for generating approximations in automated  reasoning
+Bucket elimination: A unifying framework for reasoning
+Constraint Processing
+Iterative join-graph propagation
+A scheme for approximating probabilistic inference
+Probability and Statistics
+Inducing features of random fields
+EM, MCMC, and chain flipping for structure  from motion with unknown correspondence
+On a least squares adjustment of a sampled frequency table  when the expected marginal totals are known
+Maximum likelihood from incomplete data via  the EM algorithm
+Multiresolution instance-based learning
+E cient stepwise selection in decomposable  models
+Parameter adjustment in Bayes networks: The generalized noisy OR-gate
+Myopic value of information in influence diagrams
+On sequential simulation-based methods for Bayesian filtering
+Sequential Monte Carlo Methods in Practice
+Rao-Blackwellised particle filtering for  dynamic Bayesian networks
+On sequential Monte Carlo sampling methods for  Bayesian filtering
+Methods for the Economic  Evaluation of Health Care Programmes, 2nd Edition
+Probabilistic Reasoning in Decision Support Systems: From Computation to  Common Sense
+Inference i possibilistic hypergraphs
+Using combinatorial optimization within  max-product belief propagation
+Model design in the prospector consultant system for  mineral exploration
+Pattern Classification and Scene Analysis
+Pattern Classification, Second Edition
+Performance guarantees for regularized maximum  entropy density estimation
+Biological Sequence Analysis: Probabilistic  Models of Proteins and Nucleic Acids
+Duality of I projections and maximum likelihood estimation  for log-linear models under cone constraints
+Incorporating expressive graphical models in variational  approximations: Chain-graphs and hidden variables
+Convex potentials and their conjugates in analog mean-field optimization
+Learning hidden variable networks: The information bottle neck approach
+Residual belief propagation: Informed scheduling for  asynchronous message passing
+Discovering hidden variables: A  structure-based approach
+“Ideal Parent” structure learning for continuous  variable networks
+Data perturbation for escaping  local maxima in learning
+Learning causal Bayesian network structures from experimental  data
+A general model for the analysis of pedigree data
+Value of evidence on influence diagrams
+An Introduction to Probability Theory and Its Applications (third ed
+E cient belief propagation for early vision
+Interval influence diagrams
+The hierarchical Hidden Markov Model: Analysis and  applications
+Interdependence and additivity in multivariate, unidimensional expected  utility theory
+Utility Theory for Decision Making
+Optimizing exact genetic linkage computations
+Sampling from the gamma distribution on a computer
+Monte Carlo — Concept, Algorithms, and Applications
+Markov localization for mobile robots in dynamic  environments
+Large margin classification using the perceptron algorithm
+Extending factor graphs so as to unify directed and undirected graphical models
+Accumulator networks: suitors of local probability propagation
+A revolution: Belief propagation in graphs with cycles
+Graphical Models for Machine Learning and Digital Communication
+Learning belief networks in the presence of missing values and hidden  variables
+The Bayesian structural em algorithm
+Bayesian network classifiers
+Likelihood computations using value abstraction
+Learning probabilistic relational models
+Learning Bayesian networks with local structure
+Learning Bayesian networks with local structure
+Being Bayesian about Bayesian network structure: A Bayesian  approach to structure discovery in Bayesian networks
+Learning the structure of dynamic probabilistic  networks
+Gaussian process networks
+On the sample complexity of learning Bayesian networks
+Discovering weakly-interacting factors in a complex stochastic  process
+The chain graph Markov property
+Game Theory
+Weighting and integrating evidence for stochastic simulation in  Bayesian networks
+Backward simulation in Bayesian networks
+Testing identifiability of causal models
+Markov Chain Monte Carlo: Stochastic Simulation for Bayesian  Inference
+Constrained approximate maximum  entropy learning
+Algebraic statistics in model selection
+A characterization of the bivariate normal-Wishart distribution
+Learning gaussian networks
+Knowledge representation and inference in similarity  networks and Bayesian multinets
+Stratified exponential families: Graphical  models and model selection
+Asymptotic model selection for directed networks  with hidden variables
+Graphical models and exponential families
+A variational inference procedure allowing internal  structure for overlapping clusters and deterministic constraints
+On the logic of causal models
+Logical and algorithmic properties of conditional independence  and graphical models
+d-separation: From theorems to algorithms
+Identifying independence in Bayesian networks
+Sampling based approaches to calculating marginal densities
+Bayesian Data Analysis
+Simulating normalizing constants: From importance sampling  to bridge sampling to path sampling
+Inference from iterative simulation using multiple sequences
+Stochastic relaxation, Gibbs distributions, and the  Bayesian restoration of images
+Probabilistic relational models
+Learning probabilistic models of link  structure
+Introduction to Statistical Relational Learning
+Bayesian inference in econometric models using Monte Carlo integration
+Constrained Monte Carlo maximum likelihood for dependent  data
+Annealing Markov chain Monte Carlo with applications to  ancestral inference
+Markov chain Monte Carlo maximum likelihood
+Factorial learning and the em algorithm
+Propagation algorithms for variational Bayesian learning
+Variational learning for switching state-space models
+Supervised learning from incomplete data via an EM  approach
+Factorial hidden Markov models
+Elementary Principles of Statistical Mechanics
+Consistency of maximum likelihood and pseudo-likelihood estimators for Gibb sian distributions
+Derivative-free adaptive rejection sampling for Gibbs sampling
+Adaptive rejection Metropolis sampling within Gibbs  sampling
+Markov Chain Monte Carlo in Practice
+A language and program for complex Bayesian  modeling
+Adaptive rejection sampling for Gibbs sampling
+Decomposable graphical Gaussian model determina tion
+Convergent propagation algorithms via oriented trees
+Fixing max-product: Convergent message passing al gorithms for MAP LP-relaxations
+Tabu search
+Computation, Causation, Discovery
+Methodology for Monte Carlo smoothing with  application to time-varying autoregressions
+Algorithmic Graph Theory and Perfect Graphs
+Probability and the Weighing of Evidence
+Exponential priors for maximum entropy models
+The multivariate analysis of qualitative data: Interaction among multiple  classification
+Novel approach to nonlinear/non-Gaussian Bayesian  state estimation
+Experience with a model of sequential diagnosis
+Reversible jump Markov chain Monte Carlo computation and Bayesian model  determination
+On use of the EM algorithm for penalized likelihood estimation
+Exact maximum a posteriori estimation for binary  images
+Structural extension to logistic regression: Discriminant pa rameter learning of belief net classifiers
+E cient solution algorithms for  factored MDPs
+Asymptotic comparison of estimators in the Ising model
+Problem-focused incremental elicitation of multi-attribute utility  models
+A hybrid approach to reasoning with partially elicited preference  models
+The General Log-Linear Model
+Reasoning about Uncertainty
+Some network flow problems solved with pseudo-Boolean programming
+Markov fields on finite graphs and lattices
+Monte Carlo techniques to estimate the conditional expecta tion in multi-stage non-linear filtering
+Bayesian methods for  elucidating genetic regulatory networks
+The Elements of Statistical Learning
+Convergent message-passing algorithms for inference over  general graphs with convex free energies
+Probabilistic Similarity Networks
+Causal independence for knowledge acquisition and inference
+A tutorial on learning with Bayesian networks
+Causal independence for probability assessment and in ference using Bayesian networks
+Decision-theoretic troubleshooting
+Dependency  networks for inference, collaborative filtering, and data visualization
+Learning Bayesian networks: a unification for discrete and  Gaussian domains
+Learning Bayesian networks: The  combination of knowledge and statistical data
+Toward normative expert systems: Part I
+A Bayesian perspective on confidence
+Real-world applications of Bayesian net works
+Embedded Bayesian network classifiers
+A Bayesian approach to causal discovery
+Probabilistic entity-relationship models, PRMs,  and plate models
+An evaluation of the diagnostic accuracy of Pathfinder
+Toward normative expert systems
+A decision-based view of causality
+Propagation of uncertainty in Bayesian networks by probabilistic logic  sampling
+Search-based algorithms to bound diagnostic probabilities in very large belief  networks
+Mixing exact and importance sampling propagation algorithms  in dependence graphs
+Stable fixed points of loopy belief propagation are minima of the Bethe free  energy
+On the uniqueness of loopy belief propagation fixed points
+Convexity arguments for e cient minimization of the Bethe and Kikuchi free  energies
+Approximate inference and constrained optimization
+Approximate infer ence techniques with expectation constraints
+Expectation propagation for approximate inference in dynamic  Bayesian networks
+Generalized belief propagation for approximate inference in  hybrid Bayesian networks
+Approximate expectation maximization
+Auxiliary variable methods for Markov chain Monte Carlo with applications
+Training products of experts by minimizing contrastive divergence
+A fast learning algorithm for deep belief nets
+Reducing the dimensionality of data with neural net works
+Optimal perceptual inference
+The wake-sleep algorithm for unsupervised  neural networks
+Learning and robust learning of product distributions
+Discovering structure in continuous variables using bayesian  networks
+Belief propagation in loopy bayesian networks: experimental  results
+Display of information for time-critical decision making
+Decision theory in expert systems and artificial  intelligence
+Bounded conditioning: Flexible inference for  decisions under scarce resources
+Decision analysis: Perspectives on inference, decision, and experimentation
+Risk preference
+Influence diagrams
+The Principle and Applications of Decision Analysis
+Information value theory
+Microrisks for medical decision analysis
+Inference in belief networks: A procedural guide
+Generalized pseudo-likelihood estimates for Markov random fields  on lattice
+Accuracy bounds for belief propagation
+Message errors in belief propagation
+Loopy belief propagation: Convergence and  e ects of message errors
+Bayesian  network and nonparametric heteroscedastic regression for nonlinear modeling of genetic net work
+Nearest neighbors in high-dimensional spaces
+PAMPAS: Real-valued graphical models for computer vision
+Condensation — conditional density propagation for visual  tracking
+A smoothing filter for condensation
+An introduction to spatial point processes and Markov random fields
+Exact optimization for Markov random fields with convex priors
+Beitrag zur theorie des ferromagnetismus
+Tutorial on variational approximation methods
+Computing upper and lower bounds on likelihoods in  intractable networks
+Recursive algorithms for approximating probabilities in  graphical models
+A variational approach to bayesian logistic regression models  and their extensions
+Improving the mean field approximation via the use of mixture  models
+Variational probabilistic inference and the QMR-DT network
+Nonequilibrium equality for free energy di erences
+Probability Theory: The Logic of Science
+From influence diagrams to junction trees
+Unconstrained influence diagrams
+Cautious propagation in Bayesian networks
+An introduction to Bayesian Networks
+An algebra of Bayesian belief  universes for knowledge-based systems
+The Markov chain Monte Carlo method
+A consistent model selection procedure for Markov random fields  based on penalized pseudolikelihood
+Patient-specific explanation in models  of chronic disease
+An introduction to variational  approximations methods for graphical models
+Learning in Graphics Models
+The scaled unscented transformation
+A new extension of the Kalman filter to nonlinear systems
+Judgment under Uncertainty: Heuristics and  Biases
+New results in linear filtering and prediction theory
+A new approach to linear filtering and prediction problems
+Stochastic simulation algorithms for dynamic  probabilistic networks
+Bayes factors
+Graphical models for game theory
+Exact inference of hidden structure from sample data in  noisy-or networks
+An information-theoretic analysis of hard and soft  assignment methods for clustering
+Decisions with Multiple Objectives: Preferences and Value  Tradeo s
+Bayesian logic programming: Theory and tool
+A theory of cooperative phenomena
+State-Space Models with Regime-Switching: Classical and Gibbs Sampling Approaches with Applications
+A computational model for combined causal and diagnostic reasoning  in inference systems
+Optimization by simulated annealing
+Monte Carlo filter and smoother for non-Gaussian nonlinear state space  models
+Triangulation of graph — Algorithms giving small total state space
+A computational scheme for reasoning in dynamic probabilistic networks
+dHugin: A computational system for dynamic time-sliced Bayesian networks
+HUGS: Combining exact inference and Gibbs sampling in junction trees
+Nested junction trees
+Making sensitivity analysis computationally e cient
+Exact Bayesian structure discovery in Bayesian networks
+Multi-robot decision making using coordination graphs
+Using the max-plus algorithm for multiagent decision making in  coordination graphs
+Using learning for approximation in stochastic processes
+A general algorithm for approximate inference  and its application to hybrid Bayes nets
+Multi-agent influence diagrams for representing and solving games
+Multi-agent influence diagrams for representing and solving  games
+Computing factored value functions for policies in structured MDPs
+Object-oriented Bayesian networks
+Convergent tree-reweighted message passing for energy minimization
+Comparison of energy minimization algorithms for highly  connected graphs
+On the optimality of tree reweighted max-product  message passing
+What energy functions can be minimized via graph cuts?  IEEE Transactions on Pattern Analysis and Machine Intelligence 26(2)
+A dynamic adaptation of AD-trees for e cient machine  learning on large data sets
+MRF optimization via dual decomposition:  Message-passing revisited
+A new framework for approximate labeling via graph-cuts
+Fast, approximately optimal solutions for  single and dynamic MRFs
+E cient methods for computing linkage likelihoods of recessive diseases in  inbred pedigrees
+Bayesian Artificial Intelligence
+Markov properties of non-recursive causal models
+On characterizing inclusion of Bayesian networks
+Nonuniform dynamic discretization in hybrid networks
+Near-optimal nonmyopic value of information in graphical  models
+Optimal nonmyopic value of information in graphical  models: E cient algorithms and theoretical limits
+Notes on the Theory of Choice
+Iterative decoding of compound codes by probability propa gation in graphical models
+Factor graphs and the sum-product algorithm
+Factor graphs and the sum-product algorithm
+Information Theory and Statistics
+An analysis of convex relaxations for MAP  estimation
+Solving Markov random fields using second order  cone programming relaxations
+Can  preference scores for discrete states be used to derive preference scores for an entire path of  events? An application to prenatal diagnosis
+Studies in Subjective Probability
+Game networks
+Expected utility networks
+Word alignment via quadratic  assignment
+Conditional random fields: Probabilistic models  for segmenting and labeling sequence data
+Using causal information and local measures to learn Bayesian  networks
+Extensions to pedigree analysis
+Sensitivity analysis for probability assessments in Bayesian networks
+Lectures on contingency tables (2 ed
+Propagation of probabilities, means, and variances in mixed graphical  association models
+Graphical Models
+Representing and solving decision problems with limited  information
+The EM algorithm for graphical association models with missing data
+Stable local computation with conditional Gaussian distri butions
+Local computations with probabilities on graphical  structures and their application to expert systems
+Graphical models for associations between variables,  some of which are qualitative and some quantitative
+A tutorial on energy based learning
+E cient structure learning of Markov networks  using L1-regularization
+Testing Statistical Hypotheses
+Bound propagation
+Hybrid Bayesian Networks for Reasoning about Complex Systems
+Monitoring a complex physical  system using a hybrid dynamic Bayes net
+Inference in hybrid networks: Theoretical limits and practical  algorithms
+Bayesian fault detection and diagnosis in  dynamic systems
+Exact inference in networks with discrete children of  continuous parents
+Markov Random Field Modeling in Image Analysis
+An asymptotic analysis of generative, discriminative, and pseu dolikelihood estimators
+Inference about means for incomplete multivariate data
+Statistical Analysis with Missing Data
+On the limited memory method for large scale optimization
+Covariance structure of the Gibbs sampler with applications  to the comparisons of estimators and sampling schemes
+Regret theory: An alternative theory of rational choice under  uncertainty
+Subsampling the Gibbs sampler
+Ensemble learning for hidden markov models
+Near shannon limit performance of low density parity  check codes
+Bayesian model averaging and  model selection for Markov equivalence classes of acyclic graphs
+Model selection and accounting for model uncertainty in  graphical models using Occam’s window
+Bayesian graphical models for discrete data
+Solving influence diagrams using HUGIN, Shafer-Shenoy and  lazy propagation
+Walk-sums and belief propagation in Gaussian  graphical models
+A new look at survey propagation and its  generalizations
+Foundations of Statistical Natural Language Processing
+Simulated tempering: A new Monte Carlo scheme
+Systematic vs
+Decayed MCMC filtering
+Discrete factor analysis: Learning hidden variables in Bayesian  networks
+E ciently inducing features of conditional random fields
+Multi-conditional learning: Genera tive/discriminative training for clustering and classification
+Conditional models of identity uncertainty with application  to noun coreference
+Generalized Linear Models
+Turbo decoding as an instance of  Pearl’s “belief propagation” algorithm
+The turbo decision algorithm
+The EM Algorithm and Extensions
+Causal inference and causal explanation with background knowledge
+Strong completeness and faithfulness in Bayesian networks
+Graphical Models: Selecting causal and statistical models
+Finding a path is harder than finding a tree
+Structure and parameter learning for causal independence  and causal interaction models
+Tractable Bayesian learning of tree belief networks
+Learning with mixtures of trees
+Globally optimal solutions for energy minimization  in stereo vision using reweighted belief propagation
+Equation of state  calculation by fast computing machines
+Application of influence diagrams  to prostate intensity-modulated radiation therapy plan selection
+Probabilistic diagnosis using a reformulation of the INTERNIST-1/QMR knowledge base
+BLOG: Relational modeling with unknown objects
+BLOG: Probabilis tic models with unknown objects
+BLOG: Probabilistic  models with unknown objects
+Internist-1, an experimental computer-based diagnostic  consultant for general internal medicine
+Discriminative models, not discriminative training
+Expectation propagation for the generative aspect model
+Algorithms for maximum-likelihood logistic regression
+Expectation propagation for approximate Bayesian inference
+An e cient Markov chain Monte  Carlo method for distributions with intractable normalisation constants
+FastSLAM: A factored solution to  the simultaneous localization and mapping problem
+Learning Bayesian belief networks with neural network  estimators
+Su cient conditions for convergence of the sum-product  algorithm
+The anchors hierarchy: Using the triangle inequality to survive high dimensional data
+Optimal reinsertion: A new search operator for accelerated  and more accurate bayesian network structure learning
+Cached su cient statistics for e cient machine learning with  large datasets
+Uncertainty: A Guide to Dealing with Uncertainty in  Quantitative Risk and Policy Analysis
+Randomized Algorithnms
+A new second-order cone programming relaxation for  max-cut problems
+Bayesian map learning in dynamic environments
+Dynamic Bayesian Networks: A tutorial
+Linear time inference in hierarchical HMMs
+The factored frontier algorithm for approximate inference in  DBNs
+Inference and learning in hybrid Bayesian networks
+Loopy belief propagation for approximate inference:  an empirical study
+Bayesian learning in undirected graphical models: Ap proximate MCMC algorithms
+MCMC for doubly-intractable distributions
+Learning Bayesian networks from incomplete data with  stochastic search algorithms
+PAC-learning bounded tree-width graphical models
+Potential influence diagrams
+Sampling from multimodal distributions using tempered transitions
+Annealed importance sampling
+Slice sampling
+Asymmetric parallel Boltzmann machines are belief networks
+Probabilistic inference using Markov chain Monte Carlo methods
+A new view of the EM algorithm that justifies incremental  and other variants
+Learning Bayesian Networks
+Approximate inference algorithms for two-layer Bayesian networks
+On discriminative vs
+Factored particles for scalable monitoring
+Answering queries from context-sensitive probabilistic knowledge  bases
+On local optima in learning Bayesian networks
+Welldefined decision scenarios
+Representing and solving asymmetric Bayesian decision prob lems
+Using robdds for inference in  Bayesian networks with troubleshooting as an example
+An e cient algorithm for finding the M most probable configurations in  probabilistic expert systems
+Evaluating influence diagrams with LIMIDs
+Continuous time Bayesian networks
+Learning continuous time Bayesian networks
+Decision-theoretic analysis of  prenatal testing strategies
+Parameter updating in a Bayes network
+General Irreducible Markov Chains and Non-Negative Operators
+Mc’s for mcmc’ists
+A Munin  network for the median nerve — A case study on loops
+Influence Diagrams, Belief Nets and Decision Analysis
+On Representing and Solving Influence Diagrams
+Expectation consistent free energies for approximate inference
+Accelerating em: An empirical study
+Adaptive importance sampling for estimation in structured  domains
+A Course in Game Theory
+From HMMs to segment models: A unified  view of stochastic modeling for speech recognition
+Minimal graphical representation of Kikuchi regions
+Computational Complexity
+Statistical Field Theory
+MAP complexity results and approximation methods
+Approximating MAP using local search
+Solving MAP exactly using systematic search
+Complexity results and approximation strategies for MAP  explanations
+A di erential semantics for jointree algorithms
+The user of linear graphs in Gauss elimination
+Sample propagation
+Thin junction tree filters for simultaneous localization and mapping
+Identity uncertainty and  citation matching
+Tracking many objects with many sensors
+Methods for measuring levels of well-being for a health  status index
+A constraint-propagation approach to probabilistic reasoning
+Fusion, propagation and structuring in belief networks
+Evidential reasoning using stochastic simulation of causal models
+Probabilistic Reasoning in Intelligent Systems
+Causal diagrams for empirical research
+Causality: Models, Reasoning, and Inference
+Identifying independencies in causal graphs with feedback
+GRAPHOIDS: A graph-based logic for reasoning about relevance  relations
+A theory of inferred causation
+Inferring subnetworks from preturbed  expression profiles
+Plausibility of diagnostic hypotheses
+Grafting: Fast, incremental feature selection  by gradient descent in function space
+A mean field theory learning algorithm for neural  networks
+spook: A system for probabilistic  object-oriented knowledge representation
+Reasoning about the value of decision-model refinement: Methods  and application
+Decision Analysis with Continuous and Discrete Variables: A Mixture Distribution  Approach
+Average-case analysis of a search algorithm for estimating prior and posterior  probabilities in Bayesian networks with extreme probabilities
+Probabilistic Horn abduction and Bayesian networks
+The use of conflicts in searching Bayesian networks
+Exploiting causal independence in Bayesian network inference
+Joint inference in information extraction
+Optimal Monte Carlo estimation of belief network inference
+The sensitivity of belief  networks to imprecise probabilities: An experimental investigation
+Knowledge engineering for  large belief networks
+Markov Decision Processes: Discrete Stochastic Dynamic Programming
+Solving asymmetric decision problems with influence  diagrams
+Bayesian conditional random fields
+A tutorial on Hidden Markov Models and selected applications in speech  recognition
+An introduction to hidden Markov models
+The Foundations of Mathematics and other Logical Essays
+Gaussian Processes for Machine Learning
+The infinite gaussian mixture model
+Quadratic programming relaxations for metric labelling  and Markov random field MAP estimation
+From qualitative to quantitative probabilistic networks
+Markov logic networks
+Properties of cyclic graphical models
+Incremental feature selection and l1 regularization for relaxed  maximum-entropy modeling
+Stochastic Simulation
+Stochastic complexity (with discussion)
+Beyond the Kalman Filter: Particle Filters for  Tracking Applications
+Rao-Blackwellisation of sampling schemes
+Monte Carlo Statistical Methods (2nd ed
+Estimation of e ects of sequential treatments by  reparameterizing directed acyclic graphs
+Triangulated graphs and the elimination process
+A First Course in Probability (third ed
+Digital tapestry
+Estimating causal e ects of treatments in randomized and nonrandomized  studies
+Inference and missing data
+An analysis of belief propagation on the turbo  decoding graph with Gaussian densities
+Artificial Intelligence: A Modern Approach (2 ed
+Variational Methods in Statistics
+Causal protein-signaling  networks derived from multiparameter single-cell data
+Modern Quantum Mechanics
+A linear constraint satisfaction approach to cost-based abduction
+On the generation of alternative explanations with implications for belief  revision
+Mean field theory for sigmoid belief networks
+Mixed memory Markov models: Decomposing complex stochastic  processes as mixture of simpler ones
+Exploiting tractable substructures in intractable networks
+The theory of statistical decision
+Foundations of Statistics
+Faster linkage analysis computations for pedigrees with loops or unused  alleles
+High-accuracy stereo depth maps using structured light
+Theory of Statistics
+Sintaksicheskiy analiz dvumernykh zritelnikh singnalov v usloviyakh  pomekh (syntactic analysis of two-dimensional visual signals in noisy conditions)
+Solution to structural recognition (max,+)-problems by  their equivalent transformations (part 1)
+Solution to structural recognition (max,+)-problems by  their equivalent transformations (part 2)
+Estimating the dimension of a model
+Learning module networks
+Rich probabilistic models for  gene expression
+Geometry, moments and conditional independence trees with  hidden variables
+On the geometry of Bayesian graphical models with hidden  variables
+On the geometry of Bayesian graphical models with hidden  variables
+Probabilistic inference and influence diagrams
+E cient value of information computation
+Global conditioning for probabilistic inference  in belief networks
+Thinking backwards for knowledge acquisition
+Gaussian influence diagrams
+Using influence diagrams for probabilistic inference  and decision making
+Evaluating influence diagrams
+Evidence absorption and propagation through evidence reversals
+Bayes-ball: The rational pastime
+Symbolic probabilistic inference in  belief networks
+Simulation approaches to general probabilistic inference  on belief networks
+Decision making using probabilistic inference methods
+Readings in Uncertain Reasoning
+Probability propagation
+A mathematical theory of communication
+Support Vector Machines and other kernel-based learning  methods
+A valuation-based language for expert systems
+Valuation network representation and solution of asymmetric decision prob lems
+Axioms for probability and belief-function propagation
+Valuation-based systems for Bayesian decision analysis
+Learning and inferring image segmentations  using the GBP typical cut algorithm
+Explanation, irrelevance and statistical independence
+Finding MAPs for belief networks in NP-hard
+A practical algorithm for finding optimal triangulations
+An empirical analysis of likelihood-weighting simulation on a  large, multiply connected medical belief network
+Probabilistic diagnosis using a reformulation of the INTERNIST-1/QMR knowledge base
+A simple approach for finding the globally optimal Bayesian  network structure
+Finding optimal bayesian networks by dynamic programming
+Introduction to the Theory of Computation (Second ed
+Bayesian computation via the Gibbs sampler and related Markov  chain Monte Carlo methods
+Influence diagrams for statistical modeling
+Structuring conditional relationships in influence  diagrams
+Probabilistic independence networks for hidden  Markov probability models
+New outer bounds on the marginal polytope
+Tightening LP relaxations  for MAP using message passing
+Gaussian Markov distributions over finite graphs
+Probabilistic encoding in decision analysis
+Sequential updating of conditional probabilities on  directed graphical structures
+Bayesian analysis in  expert systems
+Directed cyclic graphical representations of feedback models
+An algorithm for fast recovery of sparse causal  graphs
+Causation, Prediction and Search
+An algorithm for causal inference in the presence  of latent variables and selection bias
+Maximum likelihood bounded tree-width Markov networks
+A generalization of the noisy-or model
+A probabilistic approach to hierarchical model-based diagnosis
+On chain graph models for description of conditional  independence structures
+Nonparametric belief propagation
+Local training and belief propagation
+Collective segmentation and labeling of distant entities in  information extraction
+Piecewise training of undirected models
+An introduction to conditional random fields for relational  learning
+Dynamic conditional random  fields: Factorized probabilistic models for labeling and segmenting sequence data
+A construction of Bayesian networks from databases based on an MDL scheme
+Nonuniversal critical dynamics in Monte Carlo simulations
+Replica Monte Carlo simulation of spin-glasses
+A comparative study of energy minimization methods for Markov  random fields with smoothness-based priors
+Pedigree analysis for genetic counseling
+Tools for Statistical Inference
+Simple linear-time algorithms to test chordality of graphs,  test acyclicity of hypergraphs, and selectively reduce acyclic hypergraphs
+Discriminative probabilistic models for relational data
+Relational Markov networks
+Learning associative Markov networks
+Max margin Markov networks
+Loopy belief propagation and Gibbs measures
+Dynamic programming and influence diagrams
+The unified propagation and scaling algorithm
+Energy-based models for sparse over complete representations
+Ordering-based search: A simple and e ective algorithm for  learning bayesian networks
+Sur la compensation de quelques erreurs quasisystematiques par la methode des  moindres carrees
+Accelerated quantification of Bayesian networks with incomplete data
+Learning mixtures of Bayesian  networks
+BUGS: A program to perform Bayesian inference  using Gibbs sampling
+Probabilistic Robotics
+Robust Monte Carlo localization for mobile  robots
+Simultaneous  localization and mapping with sparse extended information filters
+A real-time expectation maximization algorithm for acquiring multi-planar maps of  indoor environments with mobile robots
+FastSLAM: An  e cient solution to the simultaneous localization and mapping problem with unknown data  association
+On the testable implications of causal models with hidden variables
+Regression shrinkage and selection via the lasso
+Markov chains for exploring posterior distributions
+Active learning for parameter estimation in Bayesian networks
+Active learning for structure in Bayesian networks
+A utility maximization model for evaluation of  health care programs
+Support vector machine learning  for interdependent and structured output spaces
+Judgment under uncertainty: Heuristics and biases
+The unscented particle  f  ilter
+The unscented particle filter
+Matrix Iterative Analysis
+Causal networks: Semantics and expressiveness
+Causal networks: Semantics and expressiveness
+Equivalence and synthesis of causal models
+An algorithm for deciding if a set of observed independencies has  a causal explanation
+Multi-agent algorithms for solving graphical games
+Accelerated training  of conditional random fields with stochastic gradient methods
+Error bounds for convolutional codes and an asymptotically optimum  decoding algorithm
+Theory of games and economic behavior (first ed
+Theory of games and economic behavior (second  ed
+Decision Analysis and Behavioral Research
+Consistent families of measures and their extensions
+Estimating the “wrong” graphical model: Benefits in the computation limited setting
+Tree-based reparameterization framework for  analysis of sum-product and related algorithms
+Tree-reweighted belief propagation and  approximate ML estimation by pseudo-moment matching
+Tree consistency and bounds on the  performance of the max-product algorithm and its generalizations
+MAP estimation via agreement on trees:  Message-passing and linear programming
+Tree-based reparameterization for approx imate estimation on loopy graphs
+Exact map estimates by (hyper)tree  agreement
+A new class of upper bounds on the log  partition function
+Graphical models, exponential families, and variational  inference
+Semidefinite relaxations for approximate inference on  graphs with cycles
+High-dimensional graphical model selec tion using 1-regularized logistic regression
+A mathematical approach to  medical diagnosis — application to congenital heart disease
+Interpreting images by propagating bayesian beliefs
+Correctness of local probability propagation in graphical models with loops
+Comparing the mean field method and belief propagation for approximate  inference in MRFs
+Correctness of belief propagation in Gaussian graphical  models of arbitrary topology
+On the optimality of solutions of the max-product belief  propagation algorithm in arbitrary graphs
+MAP estimation, linear programming and belief  propagation with convex free energies
+On the choice of regions for generalized belief propagation
+Structured region graphs: Morphing EP into GBP
+Bayesian random fields: The Bethe-Laplace approximation
+Structure learning in Markov random fields
+Belief optimization for binary networks: a stable alternative to  loopy belief propagation
+Reasoning about preference models
+From knowledge bases to decision models
+Modular utility representation for decision-theoretic planning
+Foundamental concepts of qualitative probabilistic networks
+An integrated, conditional model of  information extraction and coreference with application to citation matching
+Linear recursive equations, covariance selection and path analysis
+A linear programming approach to max-sum problem: A review
+Mixture models, Monte Carlo, Bayesian updating and dynamic models
+Graphical Models in Applied Multivariate Statistics
+Variational approximations between mean field theory and the junction  tree algorithm
+Causality and econometrics
+A non-parametric bayesian method for inferring  hidden causes
+Correlation and causation
+The method of path coe cients
+A generalized mean field algorithm for variational in ference in exponential families
+Linear programming relaxations and  belief propagation — an empirical study
+Minimizing and learning energy functions  for side-chain prediction
+Finding the M most probable configurations using loopy belief  propagation
+Constructing free-energy approximations and  generalized belief propagation algorithms
+Generalized belief propagation
+Use of the Gibbs sampler in expert systems
+CCCP algorithms to minimize the Bethe and Kikuchi free energies: Convergent  alternatives to belief propagation
+Probabilistic inference in influence diagrams
+A simple approach to Bayesian network computations
+Exploiting contextual independence in probabilistic inference
+Incremental computation of the value of perfect information  in stepwise-decomposable influence diagrams
+Hierarchical latent class models for cluster analysis
+Deterministic approximate inference techniques for conditionally  Gaussian state space models
+Speech recognition with dynamic Bayesian networks

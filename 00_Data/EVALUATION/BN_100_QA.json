@@ -1,0 +1,797 @@
+[
+    {
+        "question": "What is the formal definition of a Bayesian Network and how is its joint probability distribution factorized?",
+        "answer": "A Bayesian Network (BN) is a probabilistic graphical model that represents a set of random variables and their conditional dependencies through a Directed Acyclic Graph (DAG). Formally, a BN is defined as a pair $B = (G, P)$, where $G=(V, E)$ is the DAG with nodes $V$ representing the random variables $X = \\{X_1, X_2, \\dots, X_n\\}$ and $E$ are the edges representing direct dependencies. The component $P$ denotes the joint probability distribution. Based on the Markov property, where each node is conditionally independent of its non-descendants given its parents, the joint distribution is factorized as the product of the local conditional probabilities:\n$$P(X_1, X_2, \\dots, X_n) = \\prod_{i=1}^{n} P(X_i | Pa(X_i))$$\nwhere $Pa(X_i)$ denotes the set of parent nodes of $X_i$ in graph $G$.",
+        "references": [
+            "Pearl, J. (1988). Probabilistic Reasoning in Intelligent Systems: Networks of Plausible Inference. Morgan Kaufmann.",
+            "Koller, D., & Friedman, N. (2009). Probabilistic Graphical Models: Principles and Techniques. MIT Press.",
+            "Heckerman, D., Geiger, D., & Chickering, D. M. (1995). Learning Bayesian networks: The combination of knowledge and statistical data. Machine Learning, 20 (3), 197–243."
+        ]
+    },
+    {
+        "question": "How is a Dynamic Bayesian Network (DBN) structured and mathematically defined for time-series modeling?",
+        "answer": "A Dynamic Bayesian Network (DBN) extends Bayesian networks to model probability distributions over semi-infinite collections of random variables that evolve over time, $X[t]$. A DBN is generally defined by a pair $(B_0, B_{\\rightarrow})$. $B_0$ is a Bayesian network that defines the initial probability distribution $P(X_0)$ at time $t=0$. $B_{\\rightarrow}$ is a two-slice temporal Bayesian network (2TBN) that defines the conditional distribution between two adjacent time slices, assuming a first-order Markov property and stationarity (time invariance). The joint distribution for a time horizon $T$ is expressed by \"unrolling\" the network:\n\n\n$$P(X_{0:T}) = P(X_0) \\prod_{t=1}^{T} P(X_t | X_{t-1})$$\nAt the node level, the transition probability factorizes as:\n$$P(X_t | X_{t-1}) = \\prod_{i=1}^{N} P(X_{i,t} | Pa(X_{i,t}))$$\nwhere $Pa(X_{i,t})$ can include parents in the same time slice $t$ or in the previous slice $t-1$.",
+        "references": [
+            "Murphy, K. P. (2002). Dynamic Bayesian networks: representation, inference and learning (Doctoral dissertation). University of California, Berkeley.",
+            "Friedman, N., Murphy, K., & Russell, S. (1998). Learning the structure of dynamic probabilistic networks. In Proceedings of the Fourteenth Conference on Uncertainty in Artificial Intelligence (pp. 139-147)."
+        ]
+    },
+    {
+        "question": "What is the \"Markov Blanket\" of a variable in a Bayesian Network and what is its importance in feature selection?",
+        "answer": "The Markov Blanket of a target variable $T$, denoted as $MB(T)$, is defined as the minimum subset of variables in the dataset such that $T$ is conditionally independent of all other remaining variables given $MB(T)$. Formally, if $V$ is the total set of variables, then for any $Y \\in V \\setminus (MB(T) \\cup \\{T\\})$, it holds that $T \\perp Y | [cite_start]MB(T)$. In a faithful Bayesian network, the Markov Blanket of a node consists of its parents, its children, and the other parents of its children (spouses). Its importance lies in the fact that $MB(T)$ contains all the statistical information necessary to predict $T$; therefore, in feature selection problems, identifying the Markov Blanket is theoretically sufficient for the optimal classification or prediction of the target variable.",
+        "references": [
+            "Pearl, J. (1988). Probabilistic Reasoning in Intelligent Systems: Networks of Plausible Inference. Morgan Kaufmann.",
+            "Tsamardinos, I., & Aliferis, C. F. (2003). Towards scalable and data efficient learning of Markov boundaries. International Journal of Approximate Reasoning, 32 (2-3), 211-232.",
+            "Aliferis, C. F., et al. (2010). Local causal and markov blanket induction for causal discovery and feature selection for classification part i: Algorithms and empirical evaluation. Journal of Machine Learning Research, 11, 171-234."
+        ]
+    },
+    {
+        "question": "What does the PC algorithm consist of for learning Bayesian network structures, and on which theorem is it based?",
+        "answer": "The PC algorithm (Peter & Clark) is a constraint-based algorithm for learning the structure of a Bayesian network (specifically a CPDAG, Completed Partially Directed Acyclic Graph). The algorithm starts with a complete undirected graph and removes edges based on conditional independence tests. It is based on the theorem stating that if two vertices $X$ and $Y$ are not adjacent in the true DAG, then there exists a set of vertices $Z$ (which can be the empty set) that d-separates $X$ and $Y$. The algorithm iteratively tests conditional independence $Ind(X, Y | Z)$ by increasing the cardinality of $Z$. If such a set $Z$ is found, the edge $X-Y$ is removed and $Z$ is recorded as the separation set. Subsequently, v-structures (colliders) are oriented and propagation rules (Meek rules) are applied to orient other edges without creating cycles or new colliders.",
+        "references": [
+            "Spirtes, P., Glymour, C., & Scheines, R. (2000). Causation, prediction, and search (2nd ed.). MIT Press.",
+            "Kalisch, M., & Bühlmann, P. (2007). Estimating high-dimensional directed acyclic graphs with the PC-algorithm. Journal of Machine Learning Research, 8, 613-636."
+        ]
+    },
+    {
+        "question": "How is the Bayesian Score defined for evaluating the structure of a network $G$ given a dataset $D$?",
+        "answer": "The Bayesian Score evaluates the quality of a network structure $G$ by calculating the posterior probability of the structure given the data, $P(G|D)$. Since $P(G|D) \\propto P(D|G)P(G)$, and often assuming that $P(G)$ is uniform, the problem reduces to maximizing the marginal likelihood $P(D|G)$. For discrete variables with Dirichlet priors and assuming parameter independence, the score (known as the BD score) is calculated in closed form as:\n\n\n$$P(D|G) = \\prod_{i=1}^{n} \\prod_{j=1}^{q_i} \\frac{\\Gamma(\\alpha_{ij})}{\\Gamma(\\alpha_{ij} + N_{ij})} \\prod_{k=1}^{r_i} \\frac{\\Gamma(\\alpha_{ijk} + N_{ijk})}{\\Gamma(\\alpha_{ijk})}$$\nwhere $n$ is the number of variables, $q_i$ are the parent configurations of variable $X_i$, $r_i$ are the states of $X_i$, $N_{ijk}$ is the count of data where $X_i=k$ and its parents are in configuration $j$, $\\alpha_{ijk}$ are the hyperparameters of the Dirichlet prior distribution, and $\\Gamma(\\cdot)$ is the Gamma function.",
+        "references": [
+            "Heckerman, D., Geiger, D., & Chickering, D. M. (1995). Learning Bayesian networks: The combination of knowledge and statistical data. Machine Learning, 20 (3), 197–243.",
+            "Cooper, G. F., & Herskovits, E. (1992). A Bayesian method for the induction of probabilistic networks from data. Machine Learning, 9 (4), 309–347."
+        ]
+    },
+    {
+        "question": "What is the d-separation criterion and what are the conditions for a path to be blocked?",
+        "answer": "d-separation is a graphical criterion used to determine conditional independence between variables in a Bayesian network. Two nodes $X$ and $Y$ are d-separated given a set of evidence $Z$ if and only if all undirected paths between them are blocked by $Z$. A path is blocked if it meets any of the following conditions:\n\n\n* The path contains a sequential structure $i \\rightarrow m \\rightarrow j$ or divergent structure $i \\leftarrow m \\rightarrow j$, and the intermediate node $m$ belongs to $Z$ (is observed).\n* The path contains a convergent structure (collider) $i \\rightarrow m \\leftarrow j$, and neither the node $m$ nor any of its descendants belong to $Z$ (they are not observed). If $X$ and $Y$ are d-separated by $Z$, then they are conditionally independent given $Z$ ($X \\perp Y | Z$).",
+        "references": [
+            "Pearl, J. (1988). Probabilistic Reasoning in Intelligent Systems: Networks of Plausible Inference. Morgan Kaufmann.",
+            "Verma, T., & Pearl, J. (1988). Causal networks: Semantics and expressiveness. In Proceedings of the 4th Workshop on Uncertainty in Artificial Intelligence (pp. 19-34)."
+        ]
+    },
+    {
+        "question": "How does the \"Noisy-OR\" model work and what is its mathematical expression for calculating conditional probability?",
+        "answer": "The Noisy-OR model is a compact parametrization for Conditional Probability Tables (CPT) used when multiple binary causes $X_1, \\dots, X_n$ can independently produce a binary effect $Y$. It is assumed that each cause $X_i$ has a probability $p_i$ of producing the effect by itself, and there is an inhibition probability $q_i = 1 - p_i$ that the active cause does not produce the effect. The probability that the effect $Y$ is present ($Y=1$) given a subset of active causes is calculated assuming the inhibition mechanisms are independent:\n$$P(Y=1 | X_1, \\dots, X_n) = 1 - \\prod_{i: X_i=1} q_i = 1 - \\prod_{i=1}^{n} q_i^{X_i}$$\nOften, a \"leak probability\" $q_0$ is included to model unobserved causes, modifying the formula to $P(Y=1 | \\mathbf{X}) = 1 - q_0 \\prod_{i: X_i=1} q_i$.",
+        "references": [
+            "Pearl, J. (1988). Probabilistic Reasoning in Intelligent Systems: Networks of Plausible Inference. Morgan Kaufmann.",
+            "Henrion, M. (1987). Some practical issues in constructing belief networks. In Uncertainty in Artificial Intelligence (pp. 161-173).",
+            "Diez, F. J. (1993). Parameter adjustment in Bayes belief networks. In Uncertainty in Artificial Intelligence (pp. 99-105)."
+        ]
+    },
+    {
+        "question": "What is a Continuous-Time Bayesian Network (CTBN) and how does it differ from a DBN in transition modeling?",
+        "answer": "A Continuous-Time Bayesian Network (CTBN) is a graphical model describing stochastic processes where variables change states in continuous time, unlike DBNs which discretize time into fixed steps. In a CTBN, the evolution of each discrete variable $X$ is governed by a Conditional Intensity Matrix (CIM), denoted as $Q_{X|Pa(X)}$. This matrix contains the transition intensities $q_{xy}$ between states $x$ and $y$. The diagonal elements are defined as $q_{xx} = - \\sum_{y \\neq x} q_{xy}$. The probability of remaining in a state $x$ decays exponentially over time according to the intensity $-q_{xx}$. This allows for modeling systems where events occur at irregular rates and captures the explicit temporal duration of states.",
+        "references": [
+            "Nodelman, U., Shelton, C. R., & Koller, D. (2002). Continuous time Bayesian networks. In Proceedings of the Eighteenth Conference on Uncertainty in Artificial Intelligence (pp. 378-387).",
+            "Nodelman, U., Shelton, C. R., & Koller, D. (2003). Learning continuous time Bayesian networks. In Proceedings of the Nineteenth Conference on Uncertainty in Artificial Intelligence (pp. 451-458)."
+        ]
+    },
+    {
+        "question": "How is the MMHC (Max-Min Hill-Climbing) algorithm defined and what advantages does it offer as a hybrid algorithm?",
+        "answer": "The MMHC algorithm is a hybrid method for learning Bayesian network structures that combines constraint-based and score-based (score-and-search) techniques. The algorithm consists of two phases:\n* Local Phase (MMPC): Uses conditional independence tests to learn the skeleton of the graph (undirected edges) by identifying probable Candidate Parents and Children (CPC) for each variable. This drastically reduces the search space.\n* Global Phase: Performs a greedy search (Hill-Climbing) with a Bayesian score (such as BDeu or BIC) to orient the edges, restricted only to those edges identified in the first phase. This combination allows for scalability to thousands of variables (an advantage of constraint-based methods) while maintaining high accuracy and statistical robustness (an advantage of score-based methods).",
+        "references": [
+            "Tsamardinos, I., Brown, L. E., & Aliferis, C. F. (2006). The max-min hill-climbing Bayesian network structure learning algorithm. Machine Learning, 65 (1), 31-78."
+        ]
+    },
+    {
+        "question": "What is the MDL (Minimum Description Length) principle applied to Bayesian Network learning?",
+        "answer": "The MDL principle selects the model that minimizes the total description length of the data, which is composed of the description length of the model (network) plus the description length of the data given the model. For a network $B$ and data $D$, the MDL score is approximately defined as:\n$$MDL(B, D) = - \\log P(D|B) + \\frac{\\log N}{2} |B|$$\n* The first term is the negative log-likelihood (fit to the data).\n* The second term is a complexity penalty, where $N$ is the sample size and $|B|$ is the number of free parameters in the network. Minimizing this score is equivalent to maximizing the BIC (Bayesian Information Criterion) score, favoring simpler models that explain the data well to avoid overfitting.",
+        "references": [
+            "Lam, W., & Bacchus, F. (1994). Learning Bayesian belief networks: An approach based on the MDL principle. Computational Intelligence, 10 (3), 269-293.",
+            "Rissanen, J. (1978). Modeling by shortest data description. Automatica, 14 (5), 465-471.",
+            "Friedman, N., Geiger, D., & Goldszmidt, M. (1997). Bayesian network classifiers. Machine Learning, 29 (2-3), 131–163."
+        ]
+    },
+    {
+        "question": "What are the differences between Exact Inference and Approximate Inference in Bayesian Networks?",
+        "answer": "Exact Inference aims to calculate the analytical posterior probability $P(X|E)$ (where $E$ is evidence) using algorithms like Variable Elimination or the Junction Tree Algorithm. These are efficient in small or sparse networks but become computationally intractable (NP-hard) in large, highly connected networks.\nApproximate Inference is used when exact methods are too costly. It relies on stochastic techniques like Monte Carlo (MCMC), Gibbs Sampling, or Importance Sampling to estimate probabilities through a large number of samples. While it provides an estimate rather than an exact value, it scales much better for complex, high-dimensional models.",
+        "references": [
+            "Pearl, J. (1988). Probabilistic Reasoning in Intelligent Systems.",
+            "Koller, D., & Friedman, N. (2009). Probabilistic Graphical Models."
+        ]
+    },
+    {
+        "question": "How is \"Likelihood Weighting\" used in Bayesian inference?",
+        "answer": "Likelihood Weighting is an importance sampling algorithm used for approximate inference. Unlike logic sampling, it ensures that generated samples are consistent with the observed evidence $E$. For each sample, variables in $E$ are fixed to their observed values, and a weight $w$ is calculated as the product of the probabilities of the evidence variables given their parents: $w = \\prod P(e_i | Pa(e_i))$. The posterior probability is then approximated by normalizing the sum of the weights of the samples that match the query state.",
+        "references": [
+            "Shachter, R. D., & Peot, M. A. (1990). Simulation approaches to general probabilistic inference on belief networks.",
+            "Vundavilli, et al. (2019). Detecting drought regulators using stochastic inference in Bayesian networks."
+        ]
+    },
+    {
+        "question": "What is the difference between \"Causal\" and \"Diagnostic\" reasoning in a BN?",
+        "answer": "* Causal Reasoning (Top-Down): It flows from causes to effects. For example, given that a patient has \"Flu,\" what is the probability they have a \"Fever\"? It follows the direction of the edges in the DAG.\n* Diagnostic Reasoning (Bottom-Up): It flows from effects to causes. For example, given the symptom \"Fever,\" what is the probability that the cause is \"Flu\"? This requires applying Bayes' Theorem to \"invert\" the direction of the edges.",
+        "references": [
+            "Korb, K. B., & Nicholson, A. E. (2010). Bayesian Artificial Intelligence."
+        ]
+    },
+    {
+        "question": "What is a \"Collider\" and how does it affect independence when observed?",
+        "answer": "A collider (or v-structure) is a configuration where two or more edges point to the same node ($X \\rightarrow Z \\leftarrow Y$). In this state, $X$ and $Y$ are initially independent. However, if the collider $Z$ (or any of its descendants) is observed, a \"dependency path\" is opened between $X$ and $Y$, making them dependent. This phenomenon is known as explaining away.",
+        "references": [
+            "Pearl, J. (2009). Causality: Models, Reasoning, and Inference."
+        ]
+    },
+    {
+        "question": "How is the BIC (Bayesian Information Criterion) used in structure learning?",
+        "answer": "The BIC score is a metric used to select the best network structure among several candidates, balancing the model's fit and its simplicity. It is defined as:\n$$BIC = \\ln(L) - \\frac{k}{2} \\ln(n)$$\nwhere $L$ is the maximum likelihood, $k$ is the number of parameters, and $n$ is the number of observations. A higher BIC (or lower negative BIC) indicates a better model. It penalizes complex models to prevent overfitting.",
+        "references": [
+            "Schwarz, G. (1978). Estimating the dimension of a model. Annals of Statistics."
+        ]
+    },
+    {
+        "question": "What is \"Parameter Learning\" in BNs when data is missing?",
+        "answer": "When the dataset is incomplete (missing values), the Expectation-Maximization (EM) algorithm is used. The process is iterative:\n - E-step (Expectation): Missing values are \"filled in\" by calculating their expected value using the current model and the observed data.\n - M-step (Maximization): Parameters (CPTs) are updated using the completed data as if it were a full dataset.\nThis repeats until the likelihood converges.",
+        "references": [
+            "Lauritzen, S. L. (1995). The EM algorithm for graphical models."
+        ]
+    },
+    {
+        "question": "How do \"Sensitivity Analysis\" work in a Bayesian Network?",
+        "answer": "Sensitivity Analysis investigates how much the output of the model (the posterior probability of a query) changes in response to variations in the input parameters (local probabilities in the CPTs). It helps identify which variables or parameters have the greatest impact on the final decision, which is crucial for validating model robustness.",
+        "references": [
+            "Kjærulff, U. B., & van der Gaag, L. C. (2000). Making sensitivity analysis computationally efficient."
+        ]
+    },
+    {
+        "question": "What is a \"Naive Bayes\" classifier and what is its main limitation?",
+        "answer": "A Naive Bayes classifier is a simplified Bayesian Network where it is assumed that all feature variables $X_1, \\dots, X_n$ are conditionally independent given the class variable $C$. Graphically, it is represented as $C$ being the parent of all $X_i$. Its main limitation is the strong independence assumption, which rarely holds in real-world data, although it performs surprisingly well in practice (e.g., in spam filters).",
+        "references": [
+            "Bielza, C., & Larrañaga, P. (2014). Discrete Bayesian Network Classifiers: A Survey."
+        ]
+    },
+    {
+        "question": "What is the role of \"Interventions\" in Causal Bayesian Networks?",
+        "answer": "In Causal BNs, an intervention (represented by the $do(x)$ operator) consists of forcing a variable $X$ to take a specific value, regardless of its natural parents. This is different from mere observation because it \"breaks\" the edges pointing to $X$, allowing the calculation of the true causal effect of $X$ on other variables, avoiding correlations caused by common hidden causes (confounders).",
+        "references": [
+            "Pearl, J. (2000). Causality."
+        ]
+    },
+    {
+        "question": "Why are Bayesian Networks considered \"White Box\" models?",
+        "answer": "Bayesian Networks are considered interpretable or white-box models because they provide an explicit graphical representation of the relationships between variables. Unlike \"black-box\" models (like deep neural networks), BNs allow:\n   * Visualization of direct cause-effect relationships.\n   * Integration of explicit expert knowledge.\n   * Explaining the reasoning behind a prediction by tracing the flow of probabilities through the graph.",
+        "references": [
+            "Qazi, A., et al. (2021). Customized risk assessment in military shipbuilding.",
+            "Ramos, et al. (2021). Data-Driven Network Dynamical Model."
+        ]
+    },
+    {
+        "question": "What are the two main approaches for learning the structure of a Bayesian Network from data?",
+        "answer": "The two main approaches for learning the structure of a Bayesian Network are:\n   * Constraint-based algorithms: These algorithms use statistical tests of conditional independence (such as Chi-square or mutual information) to identify the dependency and independence relationships in the data. The goal is to build a graph that reflects the observed independence constraints, as seen in the PC or IAMB algorithms.\n   * Score-based algorithms: These algorithms assign a score to each possible candidate network structure based on how well it fits the data (for example, using BIC or BDeu). They then use heuristic search methods (such as hill-climbing or tabu search) to find the structure that maximizes this score.",
+        "references": [
+            "Scutari, M., & Denis, J.-B. (2021). Bayesian networks: With examples in R (2nd ed.). CRC Press.",
+            "Tsamardinos, I., et al. (2006). The max-min hill-climbing Bayesian network structure learning algorithm. Machine Learning, 65(1), 31–78.",
+            "Heckerman, D., et al. (1995). Learning Bayesian networks: The combination of knowledge and statistical data. Machine Learning, 20(3), 197–243."
+        ]
+    },
+    {
+        "question": "How is the likelihood function formulated in Markov Networks and how does it differ from factorization in Bayesian Networks?",
+        "answer": "Unlike Bayesian Networks, which use a directed graph and factorize the joint probability using the chain rule conditioned on parents, Markov Networks (undirected graphs) represent the joint probability distribution as the product of potential functions over the maximal cliques of the graph. The probability distribution, often called a Gibbs distribution, is defined as:\n\n\n$$P(X_0, \\dots, X_{n-1}) = \\frac{1}{Z} \\prod_{c \\in C} g_c(X_c)$$\nWhere $C$ is the set of maximal cliques, $g_c(X_c)$ are the potential functions over the variables in the clique, and $Z$ is the partition function (normalization constant). The need to calculate $Z$, which involves an exponential sum over all possible combinations of values, makes parameter estimation and inference computationally more expensive than in directed Bayesian networks.",
+        "references": [
+            "Schlüter, F. (2014). A survey on independence-based Markov networks learning.",
+            "Pearl, J. (1988). Probabilistic Reasoning in Intelligent Systems.",
+            "Vishwanathan, S. V. N., et al. (2006). Accelerated training of conditional random fields with stochastic gradient methods. ICML."
+        ]
+    },
+    {
+        "question": "What does the \"Relational Information Bottleneck\" (RIB) algorithm consist of when applied to parameter learning in relational probabilistic models?",
+        "answer": "The Relational Information Bottleneck (RIB) algorithm is an extension of the Information Bottleneck (IB) framework designed to learn parameters in statistical relational languages that can be translated into Bayesian Networks with hidden variables. RIB seeks to overcome the local maxima that the Expectation-Maximization (EM) algorithm typically falls into by introducing an annealing parameter $\\gamma$. The algorithm maximizes an objective function that balances information compression and the preservation of relevant information:\n\n\n$$\\mathcal{L}_{EM} = \\sum_{i} \\mathbb{E}_Q[\\log Q(CH_i|Y)] + \\sum_{i} \\mathbb{E}_Q[\\log Q(T_i|Y)] - \\gamma \\mathbb{E}_Q[\\log P(\\mathbf{X}, \\mathbf{CH}, \\mathbf{T})] + \\dots$$\nRIB modifies the maximization step (M-step) of the standard IB to account for parameter tying, ensuring that parameters for families of variables that are instances of the same logical rule are identical, calculated through the aggregate counting of all instances.",
+        "references": [
+            "Riguzzi, F., & Di Mauro, N. (2012). Applying the information bottleneck to statistical relational learning. Machine Learning, 86(1), 89-114.",
+            "Elidan, G., & Friedman, N. (2005). Learning hidden variable networks: The information bottleneck approach. JMLR, 6, 81-127."
+        ]
+    },
+    {
+        "question": "How is the joint distribution defined in an Extended Dynamic Bayesian Network (eDBN) for process mining and anomaly detection?",
+        "answer": "An Extended Dynamic Bayesian Network (eDBN) expands traditional DBNs to model event sequences (logs) by incorporating functional dependencies and the possibility of new, unseen values. The joint distribution over a sequence of events $\\langle e_1, \\dots, e_m \\rangle$ is defined as:\n\n\n$$P(\\langle e_1, \\dots, e_m \\rangle) = \\prod_{e \\in \\langle e_1, \\dots, e_m \\rangle} \\prod_{A \\in \\mathcal{A}} P(e.A | C_k(e) | Parents(A))$$\nThis probability consists of three parts: a function to handle new values ($value_A(x)$), standard conditional dependency modified to handle unseen parent combinations ($Relation(x_i|Parents(X_i))$), and a specific function for functional dependencies ($FDM_{X,Y}(y|x)$), which models strict deterministic rules within the probabilistic network.",
+        "references": [
+            "Pauwels, S., & Calders, T. (2019). An anomaly detection technique for business processes based on extended dynamic bayesian networks. SAC, 53-60."
+        ]
+    },
+    {
+        "question": "What is an Additive Bayesian Network (ABN) and how does it generalize the concept of a Generalized Linear Model (GLM)?",
+        "answer": "An Additive Bayesian Network (ABN) is a graphical model that extends Generalized Linear Models (GLM) to multiple dependent variables by factorizing their joint distribution. In an ABN model $\\mathcal{A}$, it is assumed that each node $X_j$, given its set of parents $Pa_j$, follows a distribution from the exponential family (such as Binomial, Gaussian, or Poisson). The conditional probability is parameterized as:\n\n\n$$P(X_j | Pa_j) = \\exp \\left( \\frac{X_j \\eta(\\theta_j) - A(\\theta_j)}{d} H(X_j, Pa_j) \\right)$$\nWhere the mean of variable $X_j$ depends on its parents additively on the scale of the link function. For binary variables with a logit link, this results in a classic logistic regression where the covariates are the parent nodes in the graph.",
+        "references": [
+            "Kratzer, G., et al. (2019). Additive Bayesian Network Modeling with the R Package abn.",
+            "Lewis, F. I., & Ward, M. P. (2013). Improving epidemiologic data analyses through the use of Bayesian networks. Emerging themes in epidemiology, 10(1), 4."
+        ]
+    },
+    {
+        "question": "How is the Expectation-Maximization (EM) algorithm used for parameter learning in Bayesian Networks with missing data?",
+        "answer": "When a database contains missing values or latent variables, the likelihood function depends on these unknown values, preventing direct optimization. The EM algorithm iteratively optimizes the expected likelihood through two steps:\n\n\n   * E-step (Expectation): Calculates the expected value of latent or missing variables using current parameters $\\theta^{(i)}$ to form the function $Q(\\theta, \\theta^{(i)}) = E_Z[\\log P(Y, Z|\\theta)|Y, \\theta^{(i)}]$.\n   * M-step (Maximization): Updates the parameters by maximizing this $Q$ function.\n   * $$Q(\\theta, \\theta^{(i)}) = \\sum_{Z} \\log P(Y, Z|\\theta)P(Z|Y, \\theta^{(i)})$$\nThis process allows for learning Conditional Probability Tables (CPT) or Gaussian node parameters even when data is incomplete.",
+        "references": [
+            "Dempster, A. P., et al. (1977). Maximum likelihood from incomplete data via the EM algorithm. Journal of the Royal Statistical Society, 39(1), 1-38.",
+            "Zhang, W., et al. (2020). An Integrated Model for Risk Assessment of Urban Road Collapse.",
+            "Ben Dhaou, I. et al. (2017). Automatic Classification of Variable Stars with Missing Data."
+        ]
+    },
+    {
+        "question": "What does the Hierarchical Dirichlet Process (HDP) method consist of for parameter estimation in Bayesian network classifiers?",
+        "answer": "The Hierarchical Dirichlet Process (HDP) method is applied to parameter estimation in Bayesian network classifiers (BNCs) to smooth probability estimates and share statistical information between similar contexts. Instead of estimating each conditional distribution $P(X_c|y, x_1, \\dots, x_n)$ independently, which can suffer from data sparsity, the HDP model structures parameters in a hierarchy. A leaf node with parameters $\\theta_{X_c|\\dots}$ is drawn from a base distribution (parent in the hierarchy) with parameters $\\phi$, which in turn is drawn from a higher level:\n\n\n$$\\theta_{X_c|y,x_1,\\dots,x_n} \\sim \\text{Dir}(\\phi_{X_c|y,x_1,\\dots,x_{n-1}}, \\alpha)$$\nThis allows leaf estimates (\"back-off estimates\") to share statistical strength with their neighboring nodes and ancestors, improving accuracy when data is scarce.",
+        "references": [
+            "Petitjean, F., et al. (2018). Accurate parameter estimation for Bayesian network classifiers using hierarchical Dirichlet processes. Machine Learning, 107, 1303-1331.",
+            "Teh, Y. W., et al. (2006). Hierarchical dirichlet processes. JASA, 101(476), 1566-1581."
+        ]
+    },
+    {
+        "question": "How is a \"Chain Event Graph\" (CEG) defined and what is its advantage over a standard Bayesian Network?",
+        "answer": "A Chain Event Graph (CEG) is a probabilistic graphical model derived from an asymmetric event tree. It is formally defined by a directed graph $C = (V, E)$ where nodes represent situations and edges represent events with associated primitive probabilities $\\pi(v'|v)$. Unlike standard Bayesian Networks, which assume a symmetric dependency structure, CEGs can efficiently model context-specific independencies and structural asymmetries in the sample space. The probability of a root-to-leaf path is calculated by multiplying the primitive probabilities along the edges. If independence between stages is assumed, the likelihood factorizes as:\n\n\n$$p(x|\\pi, C) = \\prod_{i=1}^{k} \\prod_{j=1}^{k_i} \\pi_{ij}^{x_{ij}}$$\nThis allows for a more compact and expressive representation for problems with asymmetric event topologies.",
+        "references": [
+            "Barclay, L. M., et al. (2013). Bayesian MAP model selection of chain event graphs.",
+            "Smith, J. Q., & Anderson, P. E. (2008). Conditional independence and chain event graphs. Artificial Intelligence, 172(1), 42-68."
+        ]
+    },
+    {
+        "question": "What is the process of \"unrolling\" in a Dynamic Bayesian Network (DBN) to define its semantics and joint distribution?",
+        "answer": "A Dynamic Bayesian Network (DBN) is typically defined by a pair $(B_1, B_{\\rightarrow})$, where $B_1$ is a static Bayesian network defining the prior distribution $P(X_1)$, and $B_{\\rightarrow}$ is a two-slice temporal network (2TBN) defining $P(X_t | X_{t-1})$. The semantics for a sequence of length $T$ are obtained through the \"unrolling\" process, which involves replicating the 2TBN structure for each time step from $t=1$ to $T$. The resulting joint probability distribution over all variables across all times is:\n\n\n$$P(X_{1:T}) = P(X_1) \\prod_{t=2}^{T} P(X_t | X_{t-1}) = \\prod_{i=1}^{N} P(X_{1,i}|Pa(X_{1,i})) \\prod_{t=2}^{T} \\prod_{i=1}^{N} P(X_{t,i} | Pa(X_{t,i}))$$\nThis process effectively converts the DBN into a large static Bayesian network, allowing the use of standard inference algorithms.",
+        "references": [
+            "Bhanja, S., et al. (2003). A stimulus-free graphical probabilistic switching model for sequential circuits using DBNs.",
+            "Ghasemi, F., et al. (2019). An intelligent situation awareness support system for safety-critical environments.",
+            "Murphy, K. P. (2002). Dynamic Bayesian Networks (PhD Thesis)."
+        ]
+    },
+    {
+        "question": "What is the Local Markov Property in a Bayesian Network?",
+        "answer": "The Local Markov Property states that, in a Bayesian Network, each node is conditionally independent of all its non-descendants given the set of its parent nodes. This property is fundamental because it allows the joint probability distribution to be expressed as the product of the conditional probability distributions of each variable given its parents. Thanks to this local factorization, computational complexity is significantly reduced compared to handling the full joint distribution directly.",
+        "references": [
+            "Korb, K. B., & Nicholson, A. E. (2010). Bayesian Artificial Intelligence. CRC Press.",
+            "Lauritzen, S. L. (1996). Graphical Models. Clarendon Press.",
+            "Pearl, J. (2014). Probabilistic Reasoning in Intelligent Systems. Elsevier."
+        ]
+    },
+    {
+        "question": "What are the three main categories of algorithms for learning the structure of a Bayesian Network from data and how do they fundamentally differ?",
+        "answer": "Structure learning algorithms are generally classified into three categories: constraint-based, score-and-search based, and hybrid approaches.\n      * Constraint-based algorithms, such as the PC algorithm, use statistical tests of conditional independence to determine the existence of edges and orient them based on d-separation and v-structures.\n      * Score-based algorithms treat learning as an optimization problem, assigning a score (such as BIC or BDeu) to each candidate structure to measure its fit to the data and using heuristic searches (like hill climbing or tabu search) to find the structure that maximizes that score.\n      * Hybrid approaches combine both methods, first using conditional independence tests to reduce the search space (skeleton of the graph) and then a score-based search to orient the edges.",
+        "references": [
+            "Scutari, M., & Denis, J. B. (2014). Bayesian Networks: With Examples in R.",
+            "Ribeiro, R. R. M., & Maciel, C. D. (2023). Bayesian Network Structural Learning Using Adaptive Genetic Algorithm with Varying Population Size. Machine Learning and Knowledge Extraction, 5, 1878–1902.",
+            "He, X., et al. (2023). Bayesian Network Structure Learning Using Improved A* with Constraints from Potential Optimal Parent Sets. Mathematics, 11, 3344."
+        ]
+    },
+    {
+        "question": "What are the fundamental differences between \"constraint-based\" and \"score-and-search based\" approaches, and which algorithm classically represents the first approach?",
+        "answer": "Constraint-based methods view structure learning as a constraint satisfaction problem; these algorithms perform statistical tests of conditional independence (CI) to determine dependency relationships and build the graph structure that best reflects these independencies. A classic algorithm of this type is the PC algorithm, which starts with a complete undirected graph, removes edges based on CI tests, and then orients remaining edges based on v-structures and DAG constraints. Conversely, score-based methods treat learning as an optimization problem, assigning a score to each candidate graph (like penalized likelihood) and using heuristic search algorithms (like hill-climbing) to maximize that score.",
+        "references": [
+            "Scutari, M. (2017). Bayesian Network Constraint-Based Structure Learning Algorithms: Parallel and Optimized Implementations in the bnlearn R Package. Journal of Statistical Software, 77(2), 1–20.",
+            "Xu, Z., & Srihari, S. N. (n.d.). Bayesian Network Structure Learning Using Causality. University of Buffalo.",
+            "Ribeiro, R. R. M., & Maciel, C. D. (2023). Bayesian Network Structural Learning Using Adaptive Genetic Algorithm with Varying Population Size. Machine Learning and Knowledge Extraction, 5, 1878.",
+            "Polotskaya, K., et al. (2024). Bayesian Networks for the Diagnosis and Prognosis of Diseases: A Scoping Review. Machine Learning and Knowledge Extraction, 6, 1243–1262."
+        ]
+    },
+    {
+        "question": "How is a Continuous-Time Bayesian Network (CTBN) formally defined and what replaces Conditional Probability Tables (CPTs) in this model?",
+        "answer": "A CTBN describes the dynamic characteristics of a structured state space through the temporal evolution of local variables. Formally, a CTBN $\\mathcal{N}$ over a set of variables $X$ is defined as a pair $\\mathcal{N} = \\langle \\mathcal{B}, \\mathcal{G} \\rangle$, where $\\mathcal{B}$ is an initial distribution $P_X^0$ and $\\mathcal{G}$ is a directed graph. Instead of static CPTs, CTBNs use Conditional Intensity Matrices (CIMs), denoted as $Q_{X_n|Pa(X_n)}$.\n\n\nThese matrices contain transition intensities $q_{x_ix_j}$ (the rate of moving from state $i$ to $j$) and $q_{x_i}$ (the instantaneous probability of leaving state $i$).",
+        "references": [
+            "Zhang, L., & Zheng, J. (2020). An Evidence-Based Risk Decision Support Approach for Metro Tunnel Construction.",
+            "Nodelman, U., Shelton, C. R., & Koller, D. (2002). Continuous time Bayesian networks. In Proceedings of the Eighteenth conference on Uncertainty in artificial intelligence (pp. 378-387). Morgan Kaufmann Publishers Inc"
+        ]
+    },
+    {
+        "question": "What is the general formula for the Bayesian score (such as the K2 or BDe metric) used to evaluate a network structure $G$ given data $D$?",
+        "answer": "Under the assumptions of parameter independence, sample independence, and Dirichlet priors, the marginal likelihood is calculated in closed form. For a structure $G$ with $n$ variables, $q_i$ parent configurations, $r_i$ states, and $N_{ijk}$ counts, the formula is:\n$$P(D|G) = \\prod_{i=1}^{n} \\prod_{j=1}^{q_i} \\left( \\frac{\\Gamma(\\alpha_{ij})}{\\Gamma(\\alpha_{ij} + N_{ij})} \\prod_{k=1}^{r_i} \\frac{\\Gamma(\\alpha_{ijk} + N_{ijk})}{\\Gamma(\\alpha_{ijk})} \\right)$$\nwhere $\\Gamma(\\cdot)$ is the Gamma function and $\\alpha_{ijk}$ are the hyperparameters (virtual counts) of the Dirichlet prior. The K2 metric is a special case of this formulation.",
+        "references": [
+            "Sesen, M. B., et al. (2013). Bayesian Networks for Clinical Decision Support in Lung Cancer Care. PLoS ONE, 8(12), e83062.",
+            "Gopalakrishnan, V., et al. (2010). Bayesian rule learning for biomedical data mining. Bioinformatics, 26(5), 668–675",
+            "Zhang, X., et al. (2014). Biological Network Inference With GRASP."
+
+        ]
+    },
+    {
+        "question": "What does the $do(X=x)$ operator represent in Causal Bayesian Networks and how does observational probability $P(Y|X=x)$ differ from interventional probability $P(Y|do(X=x))$?",
+        "answer": "The $do(X=x)$ operator represents an external intervention that forces variable $X$ to take the value $x$, regardless of its usual natural causes. In terms of structure, this simulates a \"surgery\" on the graph where all incoming edges to $X$ are removed, disconnecting it from its parents $Pa(X)$.\n\n\nMathematically, $P(Y|X=x)$ reflects the distribution of $Y$ conditioned on having observed $X=x$, which may include dependencies created by common causes (confounders). In contrast, the interventional probability $P(Y|do(X=x))$ is calculated on the mutilated graph and isolates the direct and indirect causal effect of $X$ on $Y$ without confounding bias.",
+        "references": [
+            "Barber, D. (2011). Bayesian Reasoning and Machine Learning.",
+            "Sazal, M. R., et al. (2020). Causal effects in microbiomes using interventional calculus.",
+            "Karwa, V., et al. (2011) ."
+        ]
+    },
+    {
+        "question": "How is the Markov Blanket ($MB$) of a variable $X$ specifically defined in terms of its graph relationships and why is it the optimal set for feature selection?",
+        "answer": "The Markov Blanket $MB(X)$ consists of: its parents, its children, and the spouses (the other parents of the children of $X$). It is defined as:\n$$MB(X) = Pa(X) \\cup Ch(X) \\cup \\{Pa(Y) \\mid Y \\in Ch(X)\\} \\setminus \\{X\\}$$\nIt is the theoretically optimal set for feature selection because, given the Markov Blanket, the variable $X$ (e.g., the class variable) is conditionally independent of all other variables in the network. This means $P(X|U) = P(X|MB(X))$, making any variable outside the MB redundant for the prediction of $X$.",
+        "references": [
+            "Bielza, C., & Larrañaga, P. (2014). Bayesian networks in neuroscience: a survey. Frontiers in Computational Neuroscience, 8, 131.",
+            "Scutari, M. (2017). Bayesian Network Constraint-Based Structure Learning Algorithms: Parallel and Optimized Implementations in the bnlearn R Package.",
+            "Zhu, X., et al. (2019). Causal learner: A toolbox for causal structure and Markov blanket learning. Neurocomputing.",
+            "Kim, S. Y., & Upneja, A. (2015). Classification of High Dimensionality Data through Feature Selection Using Markov Blanket."
+        ]
+    },
+    {
+        "question": "What does score-based structure learning for Bayesian Networks consist of?",
+        "answer": "It poses the problem as a combinatorial optimization where the goal is to find the graph structure $G$ that maximizes a score function given data $D$. The score measures how likely a particular structure is based on the data. Criteria like the Bayesian Information Criterion (BIC) are used to penalize model complexity and prevent overfitting. Mathematically, BIC is defined as:\n\n\n$$score_{BIC}(G:D) = \\log L(G:D) - \\frac{1}{2} |G| \\log N$$\nwhere $|G|$ is the number of independent parameters and $N$ is the sample size. Optimization is performed using heuristic search algorithms like Hill-Climbing or Tabu Search.",
+        "references": [
+            "Triepels, R., et al. (2018). Data-driven fraud detection in international shipping.",
+            "Vowels, M. J., et al. (2022). D'ya Like DAGs? A Survey on Structure Learning and Causal Discovery. ",
+            "Zhu, J., et al. (2024). Data-Driven Dynamic Bayesian Network Model for Safety Resilience Evaluation of Prefabricated Building Construction.."
+        ]
+    },
+    {
+        "question": "What are the advantages of using Bayesian Networks over other predictive models in risk assessment and diagnosis?",
+        "answer": "Bayesian Networks (BN) offer several distinct advantages over methods like neural networks or decision trees:\n      * They allow for the explicit incorporation of expert knowledge (prior) alongside historical data.\n      * They effectively handle situations with missing or incomplete data.\n      * They facilitate bidirectional reasoning: both prediction (forward) and diagnosis (backward/back-propagation) to identify root causes.\n      * Their graphical structure provides interpretability and transparency, allowing for the visualization of cause-and-effect relationships.",
+        "references": [
+            "Qazi, A., et al. (2021). Customized risk assessment in military shipbuilding.",
+            "Triepels, R., et al. (2018). Data-driven fraud detection in international shipping.",
+            "Lee, C., et al. (2004). Computational Discrimination of Breast Cancer for Korean Women Based on Epidemiologic Data Only.",
+            "Islam, M. S., et al. (2019). Complexity-based risk decision framework for cost overrun using fuzzy Bayesian network.",
+            "Nait-Said, R., et al. (2020). Data-Based Fault Diagnosis Model Using a Bayesian Causal Analysis Framework."
+        ]
+    },
+    {
+        "question": "What are Max-linear Bayesian Networks and how does their separation criterion differ from standard d-separation?",
+        "answer": "A Max-linear Bayesian Network is defined by a recursive system of max-linear structural equations: $X_i = \\bigvee_{j \\in pa(i)} c_{ij} X_j \\vee Z_i$, where dependencies are based on maximization operations instead of sums. In this context, standard d-separation is insufficient, and the concept of $\\ast$-separation ($I \\perp^\\ast J | K$) is introduced. A path is considered active only if it is a \"critical\" path where the maximums are reached. Conditional independencies can arise (e.g., $X_1 \\perp X_4 | X_2$) that are not captured by classical d-separation because non-critical paths become irrelevant.",
+        "references": [
+            "Améndola, C., et al. (2020). Conditional independence in max-linear Bayesian networks."
+        ]
+    },
+    {
+        "question": "What is the Naive Bayes Classifier and how does it relate structurally to a Bayesian Network?",
+        "answer": "The Naive Bayes classifier is the simplest form of a Bayesian Network. Structurally, it is represented as a network where the class variable $C$ is the parent node of all predictor variables (attributes) $X_1, \\dots, X_n$, with no connections between attributes.\n\n\nUnder the assumption of conditional independence given the class, the posterior probability is simplified to:\n$$p(c|x) \\propto p(c) \\prod_{i=1}^{n} p(x_i|c)$$\nDespite this strong and often unrealistic assumption, it is highly competitive and efficient. Extensions like Tree-Augmented Naive Bayes (TAN) relax this by allowing limited dependencies between attributes.",
+        "references": [
+            "Bielza, C., & Larrañaga, P. (2014). Discrete Bayesian Network Classifiers: A Survey."
+        ]
+    },
+    {
+        "question": "What does the BIC (Bayesian Information Criterion) scoring criterion consist of for model selection in Bayesian networks?",
+        "answer": "The Bayesian Information Criterion (BIC) is a scoring function based on penalized log-likelihood, used to evaluate how well a Bayesian network structure fits the data. The BIC is asymptotically consistent and decomposes the score into local parts dependent only on a variable and its parents. It is defined as:\n\n\n$$BIC(G|D) = \\log P(D|G) - \\frac{d}{2} \\log(N)$$\nwhere $\\log P(D|G)$ is the log-likelihood of the data given the graph, $d$ is the model dimension (number of free parameters), and $N$ is the number of observations. The term $\\frac{d}{2} \\log(N)$ acts as a penalty for model complexity to prevent overfitting.",
+        "references": [
+            "Schwarz, G. (1978). Estimating the Dimension of a Model. The Annals of Statistics, 6(2), 461-464.,",
+            "Neapolitan, R. E. (2004). Learning Bayesian Networks. Pearson Prentice Hall.,",
+            "Scutari, M. (2010). Learning Bayesian Networks with the bnlearn R Package. Journal of Statistical Software, 35(3), 1–22."
+        ]
+    },
+    {
+        "question": "What is the fundamental difference between generative and discriminative learning in Bayesian Network classifiers?",
+        "answer": "Generative learning in Bayesian network classifiers (BNC) seeks to maximize the joint likelihood of the data, $P(y, \\mathbf{x})$, by learning the parameters that describe how the total data is generated. This approach is computationally efficient, and parameters often have closed-form solutions. On the other hand, discriminative learning focuses on maximizing the Conditional Log-Likelihood (CLL), $P(y|\\mathbf{x})$, directly optimizing the model's ability to discriminate between classes given the features. Although discriminative learning is usually more effective for classification, it is computationally more expensive because no closed-form solution exists for the optimal parameters, requiring iterative optimization methods.\n\n\nReferencias:\n      * Friedman, N., Geiger, D., & Goldszmidt, M. (1997). Bayesian network classifiers. Machine Learning, 29, 131–163.,\n      * Carvalho, A. M., Roos, T., Oliveira, A. L., & Myllymäki, P. (2011). Discriminative learning of Bayesian networks via factorized conditional log-likelihood. Journal of Machine Learning Research, 12, 2181–2210.\n      * Grossman, D., & Domingos, P. (2004). Learning Bayesian Network Classifiers by Maximizing Conditional Likelihood. Proceedings of the 21st International Conference on Machine Learning, 46–53.,\n________________",
+        "references": []
+    },
+    {
+        "question": "Why is the problem of learning the optimal structure of a Bayesian Network considered NP-hard?",
+        "answer": "Learning the optimal structure of a Bayesian Network is considered an NP-hard problem due to the super-exponential explosion of the search space of possible Directed Acyclic Graphs (DAGs) as the number of nodes (variables) increases. Specifically, the number of possible DAGs grows recursively and becomes intractable for an exhaustive search even with a moderate number of variables, as the algorithm must not only evaluate dependencies but also satisfy the global acyclicity constraint.",
+        "references": [
+            "Chickering, D. M. (1996). Learning Bayesian Networks is NP-Complete. Learning from Data: Artificial Intelligence and Statistics V, 121–130.,,",
+            "Chickering, D. M., Heckerman, D., & Meek, C. (2004). Large-sample learning of Bayesian networks is NP-hard. Journal of Machine Learning Research, 5, 1287–1330.,",
+            "Robinson, R. (1977). Counting unlabeled acyclic digraphs. Lecture Notes in Mathematics, 622, 28–43.,"
+        ]
+    },
+    {
+        "question": "What is the \"Junction Tree\" algorithm and what is it used for in the context of Bayesian Networks?",
+        "answer": "The Junction Tree algorithm (or Clique Tree) is a method for exact inference used in Bayesian networks. It transforms the original Bayesian network (DAG) into a tree structure of cliques (groups of variables) through processes of moralization and triangulation, creating a chordal graph. Then, it uses a message-passing scheme between cliques to propagate evidence and calculate the posterior probabilities of the variables. This approach allows for handling multiply connected networks where simple belief propagation would not work directly due to undirected cycles.",
+        "references": [
+            "Lauritzen, S. L., & Spiegelhalter, D. J. (1988). Local computations with probabilities on graphical structures and their application to expert systems. Journal of the Royal Statistical Society. Series B (Methodological), 50(2), 157–224",
+            "Jensen, F. V., Lauritzen, S. L., & Olesen, K. G. (1990). Bayesian updating in causal probabilistic networks by local computations. Computational Statistics Quarterly, 4, 269–282",
+            "Koller, D., & Friedman, N. (2009). Probabilistic Graphical Models: Principles and Techniques. MIT Press.,"
+        ]
+    },
+    {
+        "question": "What is a Markov equivalence class and how is it represented graphically?",
+        "answer": "A Markov equivalence class is a set of Directed Acyclic Graph (DAG) structures that encode exactly the same set of conditional independencies and represent the same family of joint probability distributions. Two DAGs are equivalent if they have the same skeleton (underlying undirected graph) and the same set of \"v-structures\" (immoralities). Graphically, an equivalence class is represented by a Completed Partially Directed Acyclic Graph (CPDAG), also known as an essential graph, where edges that have the same direction in all members of the class are drawn as directed, and those that vary in direction are drawn as undirected edges.",
+        "references": [
+            "Chickering, D. M. (2002). Learning equivalence classes of Bayesian-network structures. Journal of Machine Learning Research, 2, 445–498.,,",
+            "Verma, T., & Pearl, J. (1990). Equivalence and Synthesis of Causal Models. Proceedings of the Sixth Annual Conference on Uncertainty in Artificial Intelligence, 255–270.,",
+            "Andersson, S. A., Madigan, D., & Perlman, M. D. (1997). A characterization of Markov equivalence classes for acyclic digraphs. The Annals of Statistics, 25, 505–541."
+        ]
+    },
+    {
+        "question": "How is a Gaussian Bayesian Network (GBN) defined and what type of distribution do its variables follow?",
+        "answer": "A Gaussian Bayesian Network (GBN) is a type of Bayesian network where all variables are continuous and all conditional probability distributions are modeled as linear Gaussians. Specifically, each variable $X_i$ follows a normal distribution whose mean is a linear function of the values of its parents, with a constant variance conditioned on the parents:\n$$X_i | \\Pi_{X_i} \\sim N(\\mu_{X_i} + \\beta_{X_i} \\Pi_{X_i}, \\sigma^2_{X_i})$$\nThis implies that the joint distribution of all variables in the network is a multivariate Gaussian distribution.",
+        "references": [
+            "Geiger, D., & Heckerman, D. (1994). Learning Gaussian networks. Proceedings of the Tenth Conference on Uncertainty in Artificial Intelligence, 235–243.,",
+            "Shimizu, S., Hoyer, P. O., Hyvärinen, A., & Kerminen, A. (2006). A linear non-gaussian acyclic model for causal discovery. Journal of Machine Learning Research, 7, 2003–2030.,",
+            "Lauritzen, S. L. (1992). Propagation of probabilities, means and variances in mixed graphical association models. Journal of the American Statistical Association, 87, 1098–1108."
+        ]
+    },
+    {
+        "question": "How does the Iterated Local Search with Momentum (ILSM) algorithm improve Bayesian Network structure learning compared to the standard Hill-Climbing algorithm?",
+        "answer": "The standard Hill-Climbing (HC) algorithm is prone to getting stuck in local optima during structure learning because it is a greedy method. The Iterated Local Search with Momentum (ILSM) algorithm improves upon this by introducing two main phases: a perturbation phase and a local search phase. ILSM integrates a \"momentum\" factor and uses specific perturbation operators (adding, deleting, and reversing edges) to jump out of local optima. By perturbing the current structure found by the local search, the algorithm explores new regions of the DAG search space. Experimental results show that ILSM achieves higher BDeu or BIC scores than HC and hybrid methods like MMHC in complex networks, achieving a better approximation of the global optimal structure.",
+        "references": [
+            "Wuan, L., & Liu, H. (2021). Improved Local Search with Momentum for Bayesian Networks Structure Learning. Entropy, 23, 750."
+        ]
+    },
+    {
+        "question": "What does the Data Augmentation method consist of for learning regression models based on Bayesian networks with incomplete data?",
+        "answer": "Learning regression models using Bayesian networks, such as Naïve Bayes or TAN, is complicated when there is missing data in both the explanatory variables and the response variable. The Data Augmentation (DA) method is an iterative approach used to estimate parameters in this context, especially when using densities such as Mixtures of Truncated Exponentials (MTE). The algorithm alternates between two steps:\n      * Imputation: Missing values of explanatory variables are filled in by simulating from their inferred posterior distributions, while the missing response variable is imputed using its conditional expectation given the configuration of the explanatory variables.\n      * Estimation: Model parameters are re-learned (e.g., through least squares) using the completed database. This process repeats until the mean squared error converges.",
+        "references": [
+            "Fernández, A., Nielsen, J. D., & Salmerón, A. (2010). Learning Bayesian networks for regression from incomplete databases. International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems."
+        ]
+    },
+    {
+        "question": "What does Inductive Transfer Learning applied to the PC algorithm (PC-TL) consist of for Bayesian network structure learning?",
+        "answer": "The PC-TL algorithm extends the standard PC algorithm for situations where data for the target task is scarce by incorporating information from related auxiliary tasks. Instead of relying solely on conditional independence tests from the target dataset, PC-TL combines dependency measures from the target task with those from auxiliary tasks. It uses a similarity measure that evaluates how close the auxiliary tasks are to the target, both globally and locally. The decision to remove or keep an edge is based on a weighted linear combination of the independence tests, where the weight (confidence) depends on the sample size and the similarity of the auxiliary tasks. This allows \"transferring\" structural knowledge to compensate for the lack of data in the main domain.",
+        "references": [
+            "Nicandro Cruz-Ramírez, N., et al. (2010). Inductive transfer for learning Bayesian networks. Machine Learning, 79, 227–255"
+        ]
+    },
+    {
+        "question": "How does the HMDBN (Hidden Markov induced Dynamic Bayesian Network) model address the limitation of stationarity in Gene Regulatory Network (GRN) inference?",
+        "answer": "Traditional Dynamic Bayesian Networks (DBN) assume that the network is stationary, meaning its structure and parameters remain constant over time. The HMDBN model overcomes this limitation by combining DBNs with Hidden Markov Models (HMM). In this approach, the temporal process is divided into segments, and each segment is associated with a hidden state that corresponds to a different network structure (hidden graph). In this way, the model allows the network topology to evolve over time. To learn this model, a Structural Expectation-Maximization (SEM) algorithm is used along with a specific scoring function called BWBIC (Baum-Welch BIC), which generalizes the BIC criterion for non-stationary networks by penalizing model complexity (number of hidden graphs and edges).",
+        "references": [
+            "Zhu, S., & Wang, Y. (2016). Hidden Markov induced Dynamic Bayesian Network for recovering time evolving gene regulatory networks. BMC Bioinformatics, 16(Suppl 18)."
+        ]
+    },
+    {
+        "question": "What does the IPCA-CMI algorithm consist of and how does it improve gene regulatory network inference compared to the standard PC algorithm?",
+        "answer": "The IPCA-CMI algorithm is a hybrid method for inferring gene regulatory networks (GRN) that combines Principal Component Analysis (PCA) with Conditional Mutual Information (CMI) and a Hill-Climbing search. Unlike linear methods, the use of CMI allows for the detection of non-linear dependencies. The algorithm starts with a complete graph and removes edges based on zero-order and higher-order conditional independence tests using CMI. The primary improvement lies in its selection of the separator set for independence tests: it utilizes a Hill-Climbing algorithm based on the Mutual Information Test (MIT) score to assign weights to variables and select a subset of the most likely \"neighbors,\" thereby reducing complexity and improving precision in skeleton detection and edge orientation compared to the standard PC or PCA-CMI algorithms.",
+        "references": [
+            "Norozi, N., & Ardekani, M. A. (2014). IPCA-CMI: An Algorithm for Inferring Gene Regulatory Networks based on a Combination of PCA-CMI and Hill Climbing algorithm. PLoS ONE, 9(3), e92600."
+        ]
+    },
+    {
+        "question": "How is identifiability defined in recursive max-linear models represented by Directed Acyclic Graphs (DAGs)?",
+        "answer": "In recursive max-linear models, each variable is defined as the maximum of weighted versions of its parents and a noise (innovation) variable. Identifiability refers to the ability to recover the DAG structure and edge weights from the observed joint distribution. It has been demonstrated that the \"minimum max-linear DAG\" (minimum ML DAG) is uniquely identifiable from the distribution. This DAG contains an edge $k \\to i$ if and only if $k \\to i$ is the only path of maximum weight from $k$ to $i$. Furthermore, the coefficients (weights) of the edges belonging to this minimum DAG are uniquely identifiable . however, it is not always possible to distinguish between different DAGs representing the same distribution if minimality is not assumed.",
+        "references": [
+            "Gissibl, N., & Klüppelberg, C. (2018). Identifiability and estimation of recursive max-linear models. Scandinavian Journal of Statistics, 45(1), 67-89."
+        ]
+    },
+    {
+        "question": "What does the \"Mixtures of Truncated Exponentials\" (MTE) technique consist of for inference in Hybrid Bayesian Networks and what advantages does it offer over discretization?",
+        "answer": "The MTE (Mixtures of Truncated Exponentials) technique is an approach for handling continuous and discrete variables in hybrid Bayesian networks without the limitations of traditional discretization or the assumption of normality (as in CLG models). MTE approximates probability density functions (PDF) and conditional density functions using a piecewise linear sum of exponential functions. Unlike discretization, which approximates density as constant within an interval (histogram), MTE allows for a much smoother and more precise fit, especially in the tails of distributions, which is critical in reliability and risk analysis. Additionally, MTEs are closed under multiplication and integration operations, allowing for exact inference using the Shenoy-Shafer architecture.",
+        "references": [
+            "Langseth, H., et al. (2009). Inference in hybrid Bayesian networks. Reliability Engineering & System Safety, 94, 1499–1509."
+        ]
+    },
+    {
+        "question": "What is the \"Gene-pool Optimal Mixing Evolutionary Algorithm\" (GOMEA) and how is it applied to Bayesian network structure learning?",
+        "answer": "GOMEA is an evolutionary algorithm that improves the search for the optimal structure of a Bayesian network (BN) by using Linkage Models to preserve high-quality building blocks during crossover. Instead of using standard crossover operators that might break important dependencies, GOMEA explicitly learns interactions between decision variables (BN edges) by constructing a Linkage Tree based on mutual information. During variation, the algorithm mixes solutions by copying subsets of dependent parameters (blocks) from a donor solution to a recipient solution, accepting the change only if it improves or equals the fitness, which allows it to escape local optima more efficiently than traditional evolutionary algorithms or hill-climbing.",
+        "references": [
+            "Orphanou, K., Thierens, D., & Bosman, P. A. N. (2018). Learning Bayesian Network Structures with GOMEA. GECCO ’18 Proceedings of the Genetic and Evolutionary Computation Conference."
+        ]
+    },
+    {
+        "question": "How does the IC* (Inductive Causation with Latent Variables) algorithm work to detect latent variables during structure learning?",
+        "answer": "The IC algorithm* is an extension of the PC algorithm designed to operate under the assumption of causal insufficiency, i.e., when latent (unobserved) variables may exist that act as common causes of observed variables. Unlike algorithms that produce a DAG, IC* returns a Partially Directed Acyclic Graph (PDAG) or PAG, representing a Markov equivalence class with latent variables. The algorithm uses conditional independence tests to identify the graph skeleton and then applies specific orientation rules. If it finds dependency patterns that cannot be explained by a cycle-free DAG over observed variables (e.g., certain \"collider\" structures or v-structures implying induced dependencies), it infers the existence of a latent variable or a bidirectional relationship (confounding) between the involved nodes.",
+        "references": [
+            "Yousefi, L., et al. (2021). Identifying latent variables in Dynamic Bayesian Networks with bootstrapping applied to Type 2 Diabetes. Journal of Intelligent Information Systems."
+        ]
+    },
+    {
+        "question": "What does the \"Greedy Hill-Climbing\" algorithm with Tabu search consist of for Bayesian Network structure learning?",
+        "answer": "The Greedy Hill-Climbing (HC) algorithm is a local search method that begins with an initial network structure (e.g., empty or random) and, at each step, applies local operators (adding, removing, or reversing an edge) to generate neighboring networks . it selects the change that maximizes the increase in a scoring function such as BIC or BDeu. However, HC tends to get stuck in local optima. Tabu search improves this by maintaining a \"tabu list\" of the last $L$ applied operators or visited states, prohibiting the reversal of these recent changes. This forces the algorithm to explore new regions of the search space even if the score temporarily decreases, allowing it to escape the attraction basins of sub-optimal local optima.",
+        "references": [
+            "Halbersberg, D., Wienreb, M., & Lerner, B. (2020). Joint maximization of accuracy and information for learning the structure of a Bayesian network classifier. Machine Learning, 109, 1039–1099."
+        ]
+    },
+    {
+        "question": "How is the notion of a \"Markov Blanket\" used in constraint-based learning algorithms like IAMB (Incremental Association Markov Blanket)?",
+        "answer": "In constraint-based structure learning, the Markov Blanket of a node $X$ is the minimum set of variables that makes $X$ conditionally independent of all other variables in the network. This set includes parents, children, and the other parents of $X$'s children. Algorithms like IAMB learn the structure in two phases: first, they identify the Markov Blanket for each node through conditional independence tests (a growth phase to add candidates and a reduction phase to remove false positives). Once the Markov Blankets are identified, the algorithm determines direct neighbors (parents and children) and finally orients the edges using rules based on d-separation and the identification of v-structures (colliders) to construct the final DAG.",
+        "references": [
+            "Daly, R., Shen, Q., & Aitken, S. (2011). Learning Bayesian networks: approaches and issues. Knowledge Engineering Review, 26, 99–157."
+        ]
+    },
+    {
+        "question": "What advantage does using \"Hybrid Semiparametric Bayesian Networks\" (HSPBN) offer over traditional Conditional Linear Gaussian (CLG) models?",
+        "answer": "Hybrid Semiparametric Bayesian Networks (HSPBN) extend CLG models by allowing more flexible and complex functional relationships between continuous variables and their parents. While CLG models assume that the conditional distribution of a continuous variable is a Gaussian whose mean is a linear function of its continuous parents (limiting modeling to linear and Gaussian relationships), HSPBNs use Conditional Kernel Density Estimators (CKDE). This allows for the modeling of multimodal, asymmetric distributions and arbitrary non-linear relationships without discretizing variables, offering a balance between the expressive capacity of non-parametric methods and the interpretable structure of Bayesian networks.",
+        "references": [
+            "Atienza, D., Bielza, C., & Larrañaga, P. (2022). Hybrid semiparametric Bayesian networks. Test, 31, 299–327."
+        ]
+    },
+    {
+        "question": "What is the difference between parameter learning via Maximum Likelihood Estimation (MLE) and Bayesian learning?",
+        "answer": "In BN parameter learning (estimating CPT probabilities), the Maximum Likelihood Estimation (MLE) method estimates parameters based solely on observed data, maximizing the probability of the data given the network (frequentist approach). In contrast, Bayesian estimation incorporates prior knowledge through a prior distribution over parameters (often a Dirichlet distribution). This prior distribution is updated with data to obtain a posterior distribution. The Bayesian approach is particularly useful when data is scarce, as it avoids overfitting and zero-probability issues where unobserved events are assumed impossible in MLE.",
+        "references": [
+            "Guo, Z., et al. (2021). Constrained Adjusted Maximum a Posteriori Estimation of Bayesian Network Parameters.",
+            "Chong, C., & Klüppelberg, C. (2018). Contagious defaults in a credit portfolio: a Bayesian network approach."
+        ]
+    },
+    {
+        "question": "What is Sensitivity Analysis in Bayesian Networks and what is its utility?",
+        "answer": "Sensitivity analysis is a technique to investigate how variation in model parameters (conditional or prior probabilities) or evidence inputs affects the network's outputs (posterior probabilities). It is used to validate the model, identify the most influential parameters requiring precise estimation, and evaluate the robustness of inferences. Common methods include calculating partial derivatives of the target probability with respect to parameters or using divergence measures like Kullback-Leibler.",
+        "references": [
+            "Laskey, K. B. (1995). Sensitivity analysis for probability assessments in Bayesian networks. IEEE Transactions on Systems, Man, and Cybernetics, 25(6), 901–909.",
+            "Castillo, E., Gutiérrez, J. M., & Hadi, A. S. (1997). Sensitivity Analysis in Discrete Bayesian Networks. IEEE Transactions on Systems, Man, and Cybernetics, 27(4), 412–423.",
+            "Kjaerulff, U., & van der Gaag, L. C. (2000). Making Sensitivity Analysis Computationally Efficient. Proceedings of the Sixteenth Conference on Uncertainty in Artificial Intelligence."
+        ]
+    },
+    {
+        "question": "What are Multi-Entity Bayesian Networks (MEBN) and what limitation of standard BNs do they solve?",
+        "answer": "Multi-Entity Bayesian Networks (MEBN) combine the expressive power of First-Order Logic with the inferential power of Bayesian Networks. Standard BNs are limited to reasoning about a fixed number of attributes and struggle to handle domains where the number of entities and their relationships can vary or are not determined a priori. MEBNs solve this by allowing the definition of probability distributions over an unlimited and variable number of interrelated hypotheses through modular fragments (MFrags). These fragments are instantiated dynamically to construct a Situation-Specific Bayesian Network (SSBN).",
+        "references": [
+            "Golestan, K., et al. (2016). Towards a Hybrid Approach to Context Reasoning for Underwater Robots. Appl. Sci., 7, 183.",
+            "Cai, B., et al. (2019). Uncertain Knowledge Reasoning Based on the Fuzzy Multi Entity Bayesian Networks."
+        ]
+    },
+    {
+        "question": "What does the Structural Expectation-Maximization (SEM) algorithm consist of for learning Bayesian networks with incomplete data?",
+        "answer": "The Structural Expectation-Maximization (SEM) algorithm adapts the standard EM algorithm to learn both the structure and the parameters of a BN when missing data exists. The process iterates through two steps until convergence:\n      * E-step (Expectation): Uses the current structure and parameters of the network to calculate expected statistics (or complete the data) for the missing entries.\n      * M-step (Maximization): Performs a search for the structure that maximizes a scoring function (such as BIC or BDeu) using the completed data from the E-step, and updates the parameters. This approach manages the structural uncertainty inherent in incomplete data rather than just optimizing parameters for a fixed structure.",
+        "references": [
+            "Benjumeda, M., et al. (2019). Tractable learning of Bayesian networks from partially observed data. Pattern Recognition, 91, 190–199.",
+            "Ke, Q., et al. (2022). Treatment of missing data in Bayesian network structure learning."
+        ]
+    },
+    {
+        "question": "What advantages do Bayesian Networks offer over Neural Networks and Fuzzy Logic in situation assessment systems?",
+        "answer": "Bayesian Networks (BN) offer several comparative advantages:\n      * Transparency (White Box): Unlike Neural Networks (NN), which are often \"black boxes,\" BNs have an explicit graphical structure representing causal or logical dependencies, which is consistent with human cognitive habits.\n      * Uncertainty Management: BNs follow formal Bayesian criteria for probability calculation and inference, unlike fuzzy logic where logical operations and inference methods can be difficult to determine objectively.\n      * Multiple Outputs: BNs provide probabilities for different states of multiple nodes simultaneously, offering various feasible solutions, whereas NNs and fuzzy logic traditionally offer a single output for known inputs.",
+        "references": [
+            "Zhang, H., et al. (2023). The Situation Assessment of UAVs Based on an Improved Whale Optimization BN Parameter Learning."
+        ]
+    },
+    {
+        "question": "What is the d-separation criterion and how does it relate to conditional independence in a BN?",
+        "answer": "d-separation (directed separation) is a graphical criterion that determines if two variables $X$ and $Y$ are conditionally independent given a set of variables $Z$ in a DAG. Two variables are d-separated if all paths between them are blocked by $Z$. A path is blocked if it contains an intermediate node $V$ such that:\n      * The connection is serial ($A \\rightarrow V \\rightarrow B$) or divergent ($A \\leftarrow V \\rightarrow B$) and $V$ is in $Z$ (is observed evidence).\n      * The connection is convergent ($A \\rightarrow V \\leftarrow B$, v-structure) and neither $V$ nor any of its descendants are in $Z$. If $X$ and $Y$ are d-separated by $Z$ in the graph, they are statistically independent given $Z$ in the probability distribution.",
+        "references": [
+            "Ballester-Ripoll, R., & Leonelli, M. (2022). The YODO algorithm: An efficient computational framework for sensitivity analysis in BNs.",
+            "Yu, J. (2020). BayesNetBP: An R Package for Probabilistic Reasoning in Bayesian Networks."
+        ]
+    },
+    {
+        "question": "How are regulatory relationships modeled using linear Gaussian Bayesian Networks?",
+        "answer": "In the context of regulatory networks (e.g., genetic), it is often assumed that the data is continuous. A Gaussian Bayesian Network models the conditional distribution of each node $X_i$ given its parents $Pa(X_i)$ as a linear regression with Gaussian noise:\n$$P(X_i | Pa(X_i)) \\sim N\\left(\\mu_i + \\sum_{X_j \\in Pa(X_i)} \\beta_{ij} (X_j - \\mu_j), \\sigma_i^2\\right)$$\n. This allows for modeling continuous expression levels directly and facilitates exact inference, although it assumes linear relationships between variables.",
+        "references": [
+            "Luna, I. T., et al. (2007). Uncovering Gene Regulatory Networks from Time-Series Microarray Data with Variational Bayesian Structural Expectation Maximization. EURASIP Journal on Bioinformatics and Systems Biology.",
+            "Wieczorek, J., et al. (2015). Uncovering distinct protein-network topologies in heterogeneous cell populations. BMC Systems Biology, 9:24.",
+            "Yu, J. (2020). BayesNetBP: An R Package for Probabilistic Reasoning in Bayesian Networks. Journal of Statistical Software."
+        ]
+    },
+    {
+        "question": "What is the difference between structural and parametric interventions in the context of causal inference with Bayesian Networks?",
+        "answer": "In causal inference with BNs, an intervention involves modifying the system to observe effects.\n      * Structural Intervention: Modifies the causal structure of the system. For example, by fixing the value of a variable via an external action ($do(X=x)$), incoming edges to that variable are removed (making it independent of its original causes) but outgoing edges (its effects) are maintained.\n      * Parametric Intervention: Affects the parameterization of the conditional probability distribution of the intervened variable given its parents, but leaves the causal structure intact (edges remain). This represents a change in the strength or nature of the relationship without breaking the causal dependency.",
+        "references": [
+            "Barua, S., et al. (2016). Using dynamic Bayesian networks to model technical risk management efficiency.",
+            "Amiri, A. M., et al. (2015). To do or not to do: finding causal relations in smart homes."
+        ]
+    },
+    {
+        "question": "What does the K2 algorithm consist of and what metric does it use for structure learning?",
+        "answer": "The K2 algorithm is a greedy heuristic search method for learning the structure of a Bayesian network from data, requiring a prior ordering of nodes as input. The algorithm starts assuming a node has no parents and incrementally adds the parent that maximizes the posterior probability of the resulting structure until no addition improves the score. The metric used, derived from a Bayesian scoring function, is calculated as:\n$$g(i, \\pi_i) = \\prod_{j=1}^{q_i} \\frac{(r_i - 1)!}{(N_{ij} + r_i - 1)!} \\prod_{k=1}^{r_i} N_{ijk}!$$\n. where $N_{ijk}$ is the number of cases where node $i$ has value $k$ and its parents have configuration $j$, $r_i$ is the number of states, and $q_i$ is the number of parent configurations.",
+        "references": [
+            "Cooper, G. F., & Herskovits, E. (1992). A Bayesian method for the induction of probabilistic networks from data. Machine Learning, 9 (4), 309–347."
+        ]
+    },
+    {
+        "question": "What are Conditional Probability Tables (CPTs) and how do they quantify dependencies in a discrete BN?",
+        "answer": "Conditional Probability Tables (CPTs) are the quantitative parameters associated with each node in a discrete Bayesian network. For a node $X_i$ with parents $Pa(X_i)$, the CPT specifies the probability $P(X_i = k | Pa(X_i) = j)$ for each possible state $k$ of $X_i$ and each combined configuration $j$ of the parents' states. These tables allow for the calculation of the joint distribution via the chain rule, and their size grows exponentially with the number of parents of the node.",
+        "references": [
+            "Jensen, F. V., & Nielsen, T. D. (2007). Bayesian Networks and Decision Graphs. Springer.",
+            "Neapolitan, R. E. (2004). Learning Bayesian Networks. Pearson Prentice Hall."
+        ]
+    },
+    {
+        "question": "How does the hybrid H2PC algorithm work for structure learning?",
+        "answer": "The H2PC algorithm (Hybrid HPC) is a hybrid method that combines constraint-based and score-based techniques. It first reconstructs the network skeleton using a constraint-based subroutine (HPC) to identify the parents and children (local neighborhood) of each variable, reducing the search space. Subsequently, it uses a greedy hill-climbing search maximizing a scoring function (such as BDeu) to orient the edges, restricting edge additions only to those discovered in the first phase. This allows it to scale to thousands of variables and handle datasets with few samples.",
+        "references": [
+            "Gasse, M., et al. (2014). A hybrid algorithm for Bayesian network structure learning with application to multi-label learning.",
+            "Tsamardinos, I., et al. (2006). The max-min hill-climbing Bayesian network structure learning algorithm."
+        ]
+    },
+    {
+        "question": "What is the \"order dependence\" problem in the original PC algorithm and how does the PC-stable variant solve it?",
+        "answer": "The original PC algorithm for structure (skeleton) learning is sensitive to the order of variables in the dataset. This occurs because the graph is updated dynamically: if an edge is incorrectly removed due to an early statistical error, it changes the adjacency sets (neighbors) of the remaining nodes, affecting which conditional independence tests are performed later. The PC-stable algorithm solves this by querying and \"fixing\" the neighbor sets of all nodes at the start of each level (defined by the size of the conditioning set $d$). This ensures that the removal of an edge in one level does not affect the conditioning sets of other tests within the same level, making the output independent of variable order.",
+        "references": [
+            "Colombo, D., & Maathuis, M. H. (2014). Order-independent constraint-based causal structure learning.",
+            "Spirtes, P., et al. (2000). Causation, Prediction, and Search. MIT Press."
+        ]
+    },
+    {
+        "question": "What are Conditional Linear Gaussian (CLG) nodes in hybrid Bayesian networks?",
+        "answer": "In hybrid Bayesian networks containing both discrete and continuous variables, a Conditional Linear Gaussian (CLG) node is a continuous variable $X$ whose parents can be a mixture of discrete variables ($D$) and continuous variables ($C$). The distribution of $X$ is modeled as a normal distribution where the mean is a linear function of the continuous parents, and the parameters of this linear function (coefficients and variance) depend on the specific configuration of the discrete parents:\n$$P(X | d, c) = \\mathcal{N}(\\mu_{d} + \\sum w_{d,i} c_i, \\sigma^2_{d})$$\nThis allows for exact inference provided that discrete nodes do not have continuous children.",
+        "references": [
+            "Lauritzen, S. L. (1992). Propagation of probabilities, means, and variances in mixed graphical association models.",
+            "Koller, D., & Friedman, N. (2009). Probabilistic Graphical Models: Principles and Techniques."
+        ]
+    },
+    {
+        "question": "What are Conjunctive Bayesian Networks (CBN) and in what context are they primarily applied?",
+        "answer": "Conjunctive Bayesian Networks (CBN) are a specialized class of Bayesian networks designed to model the accumulation of discrete events where the order of occurrence is restricted. In a CBN, an event (represented by a node) can only occur if all its parent events in the graph have previously occurred. Mathematically, this is modeled by assuming that the conditional probability of a node being active is zero if any of its parents are inactive. These networks are particularly useful in computational biology for modeling the accumulation of genetic mutations in evolutionary processes, such as the development of drug resistance in HIV or tumor progression in cancer.",
+        "references": [
+            "Beerenwinkel, N., et al. (2007). Conjunctive Bayesian networks.",
+            "Szabo, A., & Boucher, K. (2002). Estimating an oncogenetic tree when false negatives and positives are present."
+        ]
+    },
+    {
+        "question": "What advantage do Copula Bayesian Networks offer over Gaussian Bayesian Networks?",
+        "answer": "Copula Bayesian Networks allow for the modeling of complex multivariate dependencies between continuous variables without being restricted to the multivariate normality assumption of Gaussian Bayesian Networks (GBN). While GBNs assume linear dependencies and Gaussian marginal distributions, Copula networks decompose the joint distribution into marginal density functions (which can be arbitrary) and a copula function that captures the dependency structure. Specifically, pair-copula constructions allow for the modeling of non-linear, asymmetric, and heavy-tailed dependencies through a cascade of bivariate copulas associated with the edges of the graph.",
+        "references": [
+            "Bauer, A., & Czado, C. (2016). Pair-copula Bayesian networks.",
+            "Chatrabgoun, O., et al. (2020). Constructing gene regulatory networks from microarray data using non-Gaussian pair-copula Bayesian networks."
+        ]
+    },
+    {
+        "question": "What does Bayesian Network structure learning as a bi-objective optimization problem consist of?",
+        "answer": "Traditional structure learning typically optimizes a single objective, such as the BIC or BDeu score. The bi-objective approach formulates learning as the search for an optimal trade-off between two conflicting objectives: maximizing the fit to the data (likelihood or accuracy) and minimizing model complexity (number of edges or parameters), explicitly addressing the bias-variance decomposition. Multi-objective evolutionary algorithms, such as NSGA-II, are used to find a set of \"Pareto-optimal\" structures, allowing the user to select the network that best balances predictive capability with parsimony, avoiding both underfitting and overfitting.",
+        "references": [
+            "Aguilera-Rueda, V.-J., et al. (2020). Data-Driven Bayesian Network Learning: A Bi-Objective Approach to Address the Bias-Variance Decomposition."
+        ]
+    },
+    {
+        "question": "How does the EM (Expectation-Maximization) algorithm enable parameter learning in Bayesian Networks with missing data?",
+        "answer": "When a dataset has missing values or latent variables, Maximum Likelihood Estimation (MLE) cannot be calculated directly. The EM algorithm addresses this by iterating through two steps: the E-step (Expectation) and the M-step (Maximization). In the E-step, the expectation of the log-likelihood of the complete data is calculated, using the current network parameters to infer the probability distributions of the missing values. In the M-step, the network parameters (CPTs) are updated by maximizing the expected log-likelihood calculated in the E-step. This process repeats until convergence, finding a locally optimal estimation of the parameters.",
+        "references": [
+            "Dempster, A. P., et al. (1977). Maximum likelihood from incomplete data via the EM algorithm.",
+            "Zhu, J., et al. (2024). Data-Driven Dynamic Bayesian Network Model for Safety Resilience Evaluation."
+        ]
+    },
+    {
+        "question": "How is the PC algorithm used for causal discovery with mixed data (continuous and ordinal/nominal)?",
+        "answer": "The PC (Peter & Clark) algorithm is a constraint-based method that learns causal structure (skeleton and orientations) by performing conditional independence tests. To handle mixed data, the algorithm must employ independence tests suitable for different pairs of variable types. For example, it may use partial correlation or kernel-based tests for continuous variables, and $G^2$ or $X^2$ tests for discrete variables. In more advanced approaches, underlying dependency can be modeled using copulas or the Gaussian copula model, assuming discrete variables are generated by discretizing continuous latent Gaussian variables, allowing for unified treatment via correlations in the latent space.",
+        "references": [
+            "Tsagris, M., et al. (2018). Constraint-based causal discovery with mixed data.",
+            "Spirtes, P., & Glymour, C. (1991). An Algorithm for Fast Recovery of Sparse Causal Graphs."
+        ]
+    },
+    {
+        "question": "What are Influence Diagrams and how can they be transformed into Bayesian Networks for decision making?",
+        "answer": "Influence Diagrams are graphical representations for decision problems under uncertainty that extend Bayesian networks by including, in addition to chance nodes (random variables), decision nodes (rectangles) and value or utility nodes (diamonds). To evaluate decisions using standard probabilistic inference algorithms, an influence diagram can be transformed into a Bayesian network by converting decision nodes into probabilistic nodes with a uniform distribution (initially) and the value node into an observed binary utility node (with states 0 and 1), where the probability of state 1 is equal to the normalized utility. This allows for the calculation of the optimal policy and maximum expected utility through standard inference queries on the transformed network.",
+        "references": [
+            "Peot, M. A., & Shachter, R. D. (1991). Decision making using probabilistic inference methods.",
+            "Mrad, A. B., et al. (2015). Context-aware decision making under uncertainty for voice-based control of smart home."
+        ]
+    },
+    {
+        "question": "What do Relational Bayesian Networks (RBN) consist of and how is compilation to arithmetic circuits used for their exact inference?",
+        "answer": "Relational Bayesian Networks (RBN) extend classic Bayesian networks to model domains with objects, attributes, and relations, based on the semantics of Random Relational Structure Models (RRSM). Unlike traditional BNs that have a fixed set of variables, RBNs define probabilistic templates over object classes. To perform exact inference, an efficient approach is to \"compile\" the propositional instance of the RBN (a BN generated for a specific domain) into an Arithmetic Circuit (AC). This circuit represents the multilinear probability function of the network, allowing for the calculation of marginal and conditional probabilities in linear time relative to the circuit size through evaluation and differentiation, overcoming the limitations of junction tree algorithms in networks with high connectivity or determinism.",
+        "references": [
+            "Chavira, M., et al. (2006). Compiling relational Bayesian networks for exact inference."
+        ]
+    },
+    {
+        "question": "What is the \"Triangle Sparsest Permutation\" algorithm for causal inference and what geometric structure does it explore?",
+        "answer": "The Triangle Sparsest Permutation algorithm is a greedy method for learning the structure of a Bayesian Network (or DAG) from data, based on the concept that the true DAG tends to be the sparsest one consistent with the observed conditional independencies. This algorithm explores the \"DAG associahedron,\" a polytope where each vertex represents a Markov equivalence class compatible with a permutation of nodes. The algorithm navigates this space by performing \"covered edge reversals,\" seeking to minimize the number of edges (or maximize the BIC score) by moving between permutations that differ only in the order of two adjacent nodes in the graph.",
+        "references": [
+            "Solus, L., et al. (2021). Consistency guarantees for greedy permutation-based causal inference algorithms."
+        ]
+    },
+    {
+        "question": "What are \"Staged Trees\" and how do they generalize Bayesian Networks in the representation of statistical equivalence classes?",
+        "answer": "Staged Trees are a class of probabilistic graphical models that generalize discrete Bayesian networks. They are based on event trees where vertices representing situations with identical conditional probability distributions over their future events are grouped into \"stages\". This structure allows for the representation of asymmetric or context-dependent conditional independencies that traditional Bayesian networks (based on DAGs) cannot capture graphically. Two staged trees are considered statistically equivalent if they can represent the same family of probability distributions through a relabeling of their parameters, a property that can be systematically analyzed using computational algebra techniques such as the primary decomposition of polynomial ideals.",
+        "references": [
+            "Görgen, C., et al. (2018). Discovery of statistical equivalence classes using computer algebra."
+        ]
+    },
+    {
+        "question": "How do Multi-Agent Bayesian Networks (MSBN) work and what role do agent interfaces play in distributed inference?",
+        "answer": "Multi-Agent Bayesian Networks (MSBN) are an extension of Bayesian networks to support distributed probabilistic inference in systems where multiple agents have partial but overlapping views of a global domain. Structurally, an MSBN is composed of local Bayesian subnets (one per agent) organized in a \"hypertree\" structure. The \"agent interfaces\" are the sets of shared variables between adjacent subnets in this hypertree. To ensure consistent and exact distributed inference, these interfaces must satisfy the \"d-separation\" condition, acting as channels through which agents exchange probability messages (beliefs) about shared variables, allowing the system to reach a consistent global view without centralizing all data.",
+        "references": [
+            "Xiang, Y., et al. Dynamic multiagent probabilistic inference."
+        ]
+    },
+    {
+        "question": "What does the \"Bias-Variance Decomposition\" method consist of when applied to Bayesian Network structure learning?",
+        "answer": "In the context of Bayesian network learning, the Bias-Variance Decomposition is used to address the problem of overfitting and model selection. Traditionally, the goal is to minimize total error, which is decomposed into a bias term (the model's ability to fit true data) and a variance term (the model's sensitivity to fluctuations in the training sample). A bi-objective approach for structure learning seeks to simultaneously minimize bias (maximizing likelihood or fit) and variance (minimizing graph complexity or the number of arcs). Evolutionary algorithms like NSGA-II are employed to find a set of structures on the Pareto front representing different optimal trade-offs between bias and variance.",
+        "references": [
+            "Aguilera-Rueda, V.-J., et al. (2020). Data-Driven Bayesian Network Learning: A Bi-Objective Approach to Address the Bias-Variance Decomposition."
+        ]
+    },
+    {
+        "question": "What are Interval-valued Influence Diagrams (IID) and how do they manage uncertainty in utility and probability parameters?",
+        "answer": "Interval-valued Influence Diagrams (IID) extend standard influence diagrams by allowing both conditional probabilities and utility functions to be specified using intervals (bounded values) instead of precise point values. This models situations where expert knowledge is imprecise or incomplete. In an IID, beliefs are represented by limited weak conditional interval probabilities. Evaluating an IID involves finding strategies that maximize the expected utility, which in this case also becomes an interval value. Decisions are often made using interval dominance criteria or by maximizing the upper/lower bounds of the expected utility.",
+        "references": [
+            "Lu, X., et al. Decision Making under Uncertainty through Extending Influence Diagrams with Interval-valued Parameters."
+        ]
+    },
+    {
+        "question": "How does the hybrid structure learning algorithm based on decomposition using the \"Maximal Information Coefficient\" (MIC) function?",
+        "answer": "This is an advanced hybrid algorithm for learning Bayesian network structures that aims to improve efficiency in large search spaces. First, it uses the Maximal Information Coefficient (MIC) to establish an initial \"blueprint\" or draft of the network, identifying strong non-linear correlations between variables. Then, it refines this blueprint through conditional independence (CI) tests to \"thicken\" and \"thin\" the edges. A key feature is the decomposition of the problem: it extracts subgraphs based on \"k-path node centrality,\" learns the structure of these subgraphs locally (using genetic algorithms and BIC scoring), and finally assembles the subgraphs into a global network, resolving direction conflicts in overlapping edges to obtain the final structure.",
+        "references": [
+            "Guo, H., & Li, H. (2022). Decomposition-Based Bayesian Network Structure Learning Algorithm for Abnormity Diagnosis Model."
+        ]
+    },
+    {
+        "question": "What is the computational challenge associated with learning the structure of a Bayesian Network and what strategies are used to mitigate it?",
+        "answer": "Learning the structure of a Bayesian Network is an NP-hard problem because the number of possible graph structures grows super-exponentially with the number of nodes. To mitigate this complexity, heuristic search algorithms are used, such as hill-climbing or tabu search, often combined with random restarts. Another strategy is to restrict the search space using local methods to first identify the skeleton or the parents and children of each node (hybrid methods like MMHC) before orienting the arcs.",
+        "references": [
+            "Chickering, D. M. (1996). Learning Bayesian networks is NP-complete.",
+            "Chickering, D. M., et al. (2004). Large-sample learning of Bayesian networks is NP-hard.",
+            "Tsamardinos, I., et al. (2006). The max-min hill-climbing Bayesian network structure learning algorithm."
+        ]
+    },
+    {
+        "question": "What does the \"Model Averaging\" approach using Bootstrap consist of in Bayesian Network learning and what problem does it solve?",
+        "answer": "The model averaging approach via bootstrap is used to address instability and high variance in structure learning when data is limited or noisy. It involves generating multiple data samples through resampling with replacement (bootstrap), learning a network structure for each sample, and then averaging the results (for example, estimating the posterior probability of each arc based on its frequency of appearance in the learned networks). This identifies robust features of the network (high-confidence arcs) and establishes a threshold to build a more reliable consensus network than a single learned network.",
+        "references": [
+            "Friedman, N., et al. (1999). Data analysis with Bayesian networks: A bootstrap approach.",
+            "Scutari, M., & Nagarajan, R. (2013). Identifying significant edges in graphical models of molecular networks.",
+            "Efron, B., & Tibshirani, R. J. (1993). An Introduction to the Bootstrap."
+        ]
+    },
+    {
+        "question": "What advantage do Bayesian Networks offer over traditional regression methods in the context of genetic epidemiology and the analysis of complex diseases?",
+        "answer": "Unlike traditional regression methods that focus on the direct relationship between predictors and an outcome, Bayesian Networks can explicitly model conditional dependencies and complex interactions among multiple variables (genotypes, phenotypes, environmental factors) simultaneously. BNs can distinguish between direct and indirect risk factors, identify epistatic (gene-gene) interactions, and handle uncertainty and incomplete data more flexibly. Furthermore, by identifying the Markov Blanket of the disease, BNs can isolate relevant predictors and eliminate noisy variables that are merely correlated but not causally linked.",
+        "references": [
+            "Jiang, X., Barmada, M. M., & Visweswaran, S. (2010). Identifying genetic interactions from genome-wide data using Bayesian networks. Genetic Epidemiology, 34(6), 575–581.",
+            "Sebastiani, P., Ramoni, M. F., Nolan, V., Baldwin, C. T., & Steinberg, M. H. (2005). Genetic dissection and prognostic modeling of overt stroke in sickle cell anemia. Nature Genetics, 37, 435–440.",
+            "Rodin, A., & Boerwinkle, E. (2005). Mining genetic epidemiology data with Bayesian networks application to APOE gene variation and plasma lipid levels. Journal of Computational Biology, 12(1), 1–11."
+        ]
+    },
+    {
+        "question": "How does the chain rule for Bayesian networks allow for the compact representation of a joint probability distribution?",
+        "answer": "The chain rule for Bayesian networks states that the joint probability distribution of a set of random variables $X = \\{X_1, X_2, \\dots, X_n\\}$ can be factorized as the product of the local conditional probability distributions (CPD) of each variable given its set of parents in the graph, $Pa(X_i)$. Formalized as $P(X_1, \\dots, X_n) = \\prod_{i=1}^{n} P(X_i | Pa(X_i))$. This decomposition exploits the conditional independencies encoded in the graph structure (where each node is independent of its non-descendants given its parents), drastically reducing the number of parameters needed compared to a full tabular representation, which would grow exponentially with the number of variables.",
+        "references": [
+            "Atienza, D., Bielza, C., & Larrañaga, P. (2022). Hybrid semiparametric Bayesian networks. Information Sciences, 584, 564–582. ",
+            "Fuster-Parra, P., et al. (2022). Identifying risk factors of developing type 2 diabetes Frontiers in Public Health, 10. ",
+            "Koller, D., & Friedman, N. (2009). Probabilistic Graphical Models: Principles and Techniques. MIT Press."
+        ]
+    },
+    {
+        "question": "What role does the Dirichlet distribution play in the Bayesian learning of Conditional Probability Table (CPT) parameters?",
+        "answer": "In learning discrete Bayesian network parameters, the Dirichlet distribution is commonly used as the conjugate prior distribution for the multinomial parameters of the Conditional Probability Tables (CPT). If parameter independence is assumed (parameters of different nodes or parent configurations are independent a priori), the posterior distribution of the parameters given a complete dataset also follows a Dirichlet distribution. Specifically, if the prior for parameters $\\theta$ is Dirichlet with hyperparameters $\\alpha$, and data counts $N$ are observed, the posterior is Dirichlet with hyperparameters $\\alpha + N$. This allows for efficient, closed-form belief updating, where hyperparameters $\\alpha$ can be interpreted as an imaginary \"equivalent sample size\" from prior knowledge.",
+        "references": [
+            "Heckerman, D., et al. (1995). Learning Bayesian networks: The combination of knowledge and statistical data.",
+            "Spiegelhalter, D. J., et al. (1993). Bayesian Analysis in Expert Systems."
+        ]
+    },
+    {
+        "question": "How does the observational conditional probability $P(Y | X)$ differ from the interventional probability $P(Y | do(X))$ in a Causal Bayesian Network?",
+        "answer": "Observational conditional probability $P(Y | X=x)$ reflects the probability of $Y$ when one passively observes that $X$ has the value $x$; this can include spurious correlations due to common causes (confounders). Conversely, the interventional probability $P(Y | do(X=x))$ represents the distribution of $Y$ when the value of $X$ is externally forced to be $x$ through an intervention. In graphical terms, the intervention $do(X=x)$ \"mutilates\" the network by removing all incoming arcs to $X$ (disconnecting it from its parents) and fixing its value, thereby eliminating non-causal dependencies from common ancestors. Thus, $P(Y | do(X))$ measures pure causal effect, while $P(Y | X)$ measures statistical association.",
+        "references": [
+            "Chobtham, K., & Constantinou, A. C. (2020). Hybrid Bayesian network discovery Proceedings of Machine Learning Research.",
+            "Pearl, J. (2000). Causality: Models, Reasoning and Inference. Cambridge University Press",
+            "Valtorta, M., & Huang, Y. (2008). Identifiability in Causal Bayesian Network Cybernetics and Systems, 39(4)"
+        ]
+    },
+    {
+        "question": "What are the fundamental differences between Conditional Probability, MAP (Maximum A Posteriori), and Marginal MAP queries in Bayesian inference?",
+        "answer": "Bayesian network inference addresses different query types.\n      * Conditional Probability Query: Seeks to calculate the posterior distribution of a subset of query variables $Y$ given evidence $E=e$, i.e., $P(Y|E=e)$.\n      * MAP Query (Maximum A Posteriori): Also called MPE (Most Probable Explanation), it seeks to find the most probable joint assignment for all unobserved variables $W = X - E$ given the evidence; $MAP(W|e) = \\arg\\max_w P(w,e)$. Note that the MAP assignment does not necessarily coincide with the combination of most probable values for each individual variable (marginal maximizations).\n      * Marginal MAP Query: A hybrid where the goal is to find the most probable assignment for a subset of variables $Y$, summing out (marginalizing) over the remaining unobserved variables $Z$; $MAP(Y|e) = \\arg\\max_y \\sum_z P(y, z|e)$. This is significantly more complex than standard MAP because it involves both maximization and summation.",
+        "references": [
+            "Koller, D., & Friedman, N. (2009). Probabilistic Graphical Models: Principles and Techniques."
+        ]
+    },
+    {
+        "question": "How is the Variable Elimination algorithm used for exact inference and what is its complexity?",
+        "answer": "The Variable Elimination (VE) algorithm is an exact inference method that calculates marginal or conditional probabilities by summing out (or integrating) irrelevant variables from the factorized joint distribution one by one. The process involves multiplying factors that contain the variable to be eliminated and then summing that variable out of the resulting product to create a new intermediate factor. The complexity of VE depends critically on the variable elimination order. The cost is determined by the \"induced width\" of the graph under that ordering; specifically, it is exponential relative to the size of the largest intermediate factor created during the process. Finding the optimal elimination order is an NP-hard problem.",
+        "references": [
+            "Butz, C. J., & Konkel, K. (2009). Join Tree Propagation Utilizing Both Arc Reversal and Variable Elimination.",
+            "Koller, D., & Friedman, N. (2009). Probabilistic Graphical Models: Principles and Techniques.",
+            "Zhang, N. L., & Yan, L. (1998). Independence of causal influence and clique tree propagation."
+        ]
+    },
+    {
+        "question": "What is the difference between causal, diagnostic, and intercausal (\"explaining away\") reasoning in a Bayesian Network?",
+        "answer": "In Bayesian networks, the direction of inference determines the type of reasoning:\n      * Causal Reasoning (Predictive): Flows from cause to effect (top-down in the graph, $Cause \\to Effect$). It is used to predict the probability of an effect given an observed cause.\n      * Diagnostic Reasoning (Abductive): Flows from effect to cause (bottom-up, $Effect \\to Cause$). It occurs when evidence (a symptom) is observed and the belief regarding its possible causes is updated.\n      * Intercausal Reasoning (Explaining Away): Occurs between causes of the same common effect (v-structure). If the effect is observed and one cause is subsequently confirmed, the probability of the alternative cause decreases, \"explaining away\" the effect and making the other cause less necessary.",
+        "references": [
+            "Pearl, J. (1988). Probabilistic Reasoning in Intelligent Systems.",
+            "Koller, D., & Friedman, N. (2009). Probabilistic Graphical Models: Principles and Techniques."
+        ]
+    },
+    {
+        "question": "Why is iterative simulation (such as Gibbs sampling) necessary for inference in complex Bayesian models and what is the risk of using a single simulation sequence?",
+        "answer": "Iterative simulation is used for complex or high-dimensional models where exact inference is computationally intractable; it involves drawing values from a sequence of distributions that converge to the target distribution. However, using a single sequence (one chain) is risky because it may get trapped in a local high-probability region (\"mode\") and fail to explore the entire target distribution space, especially if the distribution is multimodal. A single sequence provides a false sense of security, as the variability within the chain may be much lower than the actual variability of the target distribution, leading to biased inferences and an underestimation of uncertainty.",
+        "references": [
+            "Gelman, A., & Rubin, D. B. (1992). Inference from iterative simulation using multiple sequences."
+        ]
+    },
+    {
+        "question": "How does the causal semantics of a Bayesian Network contribute to the interpretability of interventions versus mere observations?",
+        "answer": "The causal interpretability of a BN lies in its ability to distinguish between observing an event and performing an intervention (action). Semantically, the graph represents stable mechanisms. An intervention (e.g., \"turning on the sprinkler\") is modeled by removing incoming arcs to the intervened node, isolating it from its natural causes, whereas an observation (seeing the sprinkler is on) keeps the structure intact and allows for diagnostic inferences about causes (e.g., \"it is likely summer\"). This explicit distinction allows agents to reason about the consequences of their actions in a way that systems based purely on rules or correlations cannot.",
+        "references": [
+            "Pearl, J. (1996). Decision Making Under Uncertainty."
+        ]
+    },
+    {
+        "question": "In the context of approximate methods, how is an overdispersed starting distribution constructed to ensure robust inference?",
+        "answer": "To prevent inference from depending excessively on initial conditions and to ensure the exploration of all important modes, an initial distribution must be created that is overdispersed relative to the target distribution. The suggested process includes:\n      * Locating high-density regions (modes) of the target distribution using optimization algorithms.\n      * Creating an approximation (such as a mixture of multivariate normals) based on these modes and their second derivatives (Hessians).\n      * Sampling starting points from a mixture of t-Student distributions (rather than pure normals) with low degrees of freedom or by rescaling variance to ensure heavier tails and broader coverage of the exact distribution space.",
+        "references": [
+            "Gelman, A., & Rubin, D. B. (1992). Inference from iterative simulation using multiple sequences."
+        ]
+    },
+    {
+        "question": "What are the fundamental differences between causal (predictive) reasoning and diagnostic reasoning in a Bayesian Network?",
+        "answer": "In Bayesian Networks, reasoning is classified by the direction of inference relative to the graph structure. Causal reasoning, or \"top-down\" predictive analysis, involves inferring probabilities of effects based on known evidence regarding causes (parent nodes). In contrast, diagnostic reasoning, or \"bottom-up\" inverse analysis, occurs when effects or symptoms are observed (evidence in child nodes) to calculate the posterior probabilities of the causes or latent variables (parent nodes) that might have originated that evidence. This allows for updated beliefs about an event given an observed result.",
+        "references": [
+            "Zhu, J., et al. (2024). Data-Driven Dynamic Bayesian Network Model for Safety Resilience Evaluation of Prefabricated Building Construction.",
+            "Simba, et al. (2021). Developing a framework for dynamic risk assessment using Bayesian networks and reliability data.",
+            "Nait-Said, R., et al. (2020). Data-Based Fault Diagnosis Model Using a Bayesian Causal Analysis Framework"
+        ]
+    },
+    {
+        "question": "What does the \"Explaining Away\" phenomenon (or Berkson's paradox) consist of in the context of Bayesian inference?",
+        "answer": "\"Explaining Away\" is a type of intercausal reasoning occurring in a v-structure (convergent arcs) where a child variable has multiple parents. If the child event is observed (evidence), the probability of all its possible causes (parents) increases. However, if evidence subsequently confirms one of the parents is true, it \"explains\" the observed effect and consequently reduces the posterior probability of the other competitive parents, even if those parents were marginally independent a priori. This allow for the adjustment of beliefs regarding competitive causes as new information arrives.",
+        "references": [
+            "Nazerfard, E., & Cook, D. J. (2015). CRAFFT: an activity prediction model based on Bayesian networks.",
+            "Kerdjidj, O., et al. (2014). Dynamic Bayesian Networks for Context-Aware Fall Risk Assessment."
+        ]
+    },
+    {
+        "question": "How does the \"Likelihood Weighting\" (LW) method function as an approximate inference technique?",
+        "answer": "Likelihood Weighting is an approximate inference technique based on stochastic simulations, useful when exact inference is computationally expensive. The method generates samples (particles) from a sampling distribution defined by the network but fixes the values of nodes that have observed evidence. To compensate for the fact that samples are not generated from the actual posterior distribution, each sample is weighted by the likelihood of the observed evidence given the configuration of its parents in that sample. The posterior probability is then approximated by normalizing the sum of the weights of the samples that match the query state.",
+        "references": [
+            "Vundavilli, et al. (2019). Detecting drought regulators using stochastic inference in Bayesian networks."
+        ]
+    },
+    {
+        "question": "What characteristics make Bayesian Networks considered interpretable models compared to other \"black box\" algorithms?",
+        "answer": "Bayesian Networks are considered interpretable \"white box\" models because they offer an explicit graphical representation (Directed Acyclic Graph) of dependency and independence relationships between variables. Unlike neural networks, BNs allow for:\nVisualizing direct cause-effect relationships.\n      - Incorporating and validating explicit expert knowledge.\n      - Performing transparent sensitivity analysis and \"what-if\" scenarios.\n      - Explaining the reasoning behind a prediction by tracing the probability flow through the network. This facilitates domain understanding for non-technical specialists.",
+        "references": [
+            "Qazi, A., et al. (2021). Customized risk assessment in military shipbuilding. Excerpts from source.",
+            "Bielza, C., & Larrañaga, P. (2014). Discrete Bayesian Network Classifiers: A Survey. Excerpts from source.",
+            "Ramos, et al. (2021). Data-Driven Network Dynamical Model of Rat Brains During Acute Ictogenesis. Excerpts from source."
+        ]
+    }
+]

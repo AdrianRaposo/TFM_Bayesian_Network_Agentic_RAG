@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "question": "How many publications are there in total in this dataset?",
+    "expected_tables": ["doc_metadata"],
+    "difficulty": "easy",
+    "gold_sql": "SELECT COUNT(*) AS total_publications FROM doc_metadata;"
+  },
+  {
+    "id": 2,
+    "question": "Are there any publications recorded for the year 1995?",
+    "expected_tables": ["doc_metadata"],
+    "difficulty": "easy",
+    "gold_sql": "SELECT COUNT(*) AS publications_1995 FROM doc_metadata WHERE year = 1995;"
+  },
+  {
+    "id": 3,
+    "question": "Which author has the most publications in this dataset?",
+    "expected_tables": ["doc_author"],
+    "difficulty": "medium",
+    "gold_sql": "SELECT COALESCE(given, '') || CASE WHEN given IS NOT NULL AND family IS NOT NULL THEN ' ' ELSE '' END || COALESCE(family, '') AS author_name, COUNT(*) AS publication_count FROM doc_author GROUP BY given, family ORDER BY publication_count DESC, author_name ASC LIMIT 1;"
+  },
+  {
+    "id": 4,
+    "question": "How many distinct authors are there in the dataset?",
+    "expected_tables": ["doc_author"],
+    "difficulty": "medium",
+    "gold_sql": "SELECT COUNT(*) AS distinct_authors FROM (SELECT DISTINCT normalized_given, normalized_family FROM doc_author) AS unique_authors;"
+  },
+  {
+    "id": 5,
+    "question": "List all papers published by Concha Bielza.",
+    "expected_tables": ["doc_author", "doc_metadata"],
+    "difficulty": "medium",
+    "gold_sql": "SELECT dm.title FROM doc_author da JOIN doc_metadata dm ON da.doc_id = dm.doc_id WHERE da.normalized_given ILIKE 'CONCHA' AND da.normalized_family ILIKE 'BIELZA' ORDER BY dm.year DESC NULLS LAST, dm.title ASC;"
+  },
+  {
+    "id": 6,
+    "question": "Give me a list of articles written by Herskovits.",
+    "expected_tables": ["doc_author", "doc_metadata"],
+    "difficulty": "medium",
+    "gold_sql": "SELECT dm.title FROM doc_author da JOIN doc_metadata dm ON da.doc_id = dm.doc_id WHERE da.normalized_family ILIKE 'HERSKOVITS' ORDER BY dm.year DESC NULLS LAST, dm.title ASC;"
+  },
+  {
+    "id": 7,
+    "question": "How many papers did Judea Pearl publish in 1990?",
+    "expected_tables": ["doc_author", "doc_metadata"],
+    "difficulty": "medium",
+    "gold_sql": "SELECT COUNT(*) AS paper_count FROM doc_author da JOIN doc_metadata dm ON da.doc_id = dm.doc_id WHERE da.normalized_given ILIKE 'JUDEA' AND da.normalized_family ILIKE 'PEARL' AND dm.year = 1990;"
+  },
+  {
+    "id": 8,
+    "question": "Who are the co-authors of Daphne Koller in this database?",
+    "expected_tables": ["doc_author"],
+    "difficulty": "hard",
+    "gold_sql": "SELECT DISTINCT COALESCE(co.given, '') || CASE WHEN co.given IS NOT NULL AND co.family IS NOT NULL THEN ' ' ELSE '' END || COALESCE(co.family, '') AS coauthor_name FROM doc_author target JOIN doc_author co ON target.doc_id = co.doc_id WHERE target.normalized_given ILIKE 'DAPHNE' AND target.normalized_family ILIKE 'KOLLER' AND NOT (co.normalized_given = target.normalized_given AND co.normalized_family = target.normalized_family) ORDER BY coauthor_name ASC;"
+  },
+  {
+    "id": 9,
+    "question": "Find papers co-authored by Concha Bielza and Pedro Larranaga.",
+    "expected_tables": ["doc_author", "doc_metadata"],
+    "difficulty": "hard",
+    "gold_sql": "SELECT dm.title FROM doc_metadata dm WHERE dm.doc_id IN (SELECT da1.doc_id FROM doc_author da1 JOIN doc_author da2 ON da1.doc_id = da2.doc_id WHERE da1.normalized_given ILIKE 'CONCHA' AND da1.normalized_family ILIKE 'BIELZA' AND da2.normalized_given ILIKE 'PEDRO' AND da2.normalized_family ILIKE 'LARRANAGA') ORDER BY dm.year DESC NULLS LAST, dm.title ASC;"
+  },
+  {
+    "id": 10,
+    "question": "Which journals published the most papers last year?",
+    "expected_tables": ["doc_metadata"],
+    "difficulty": "medium",
+    "gold_sql": "SELECT journal_name, COUNT(*) AS paper_count FROM doc_metadata WHERE year = EXTRACT(YEAR FROM CURRENT_DATE)::int - 1 AND journal_name IS NOT NULL GROUP BY journal_name ORDER BY paper_count DESC, journal_name ASC;"
+  },
+  {
+    "id": 11,
+    "question": "Show me all papers published in 'Machine Learning' between 2010 and 2015.",
+    "expected_tables": ["doc_metadata"],
+    "difficulty": "medium",
+    "gold_sql": "SELECT title, year FROM doc_metadata WHERE journal_name = 'Machine Learning' AND year BETWEEN 2010 AND 2015 ORDER BY year ASC, title ASC;"
+  },
+  {
+    "id": 12,
+    "question": "Give me the titles of the papers published by IEEE.",
+    "expected_tables": ["doc_metadata"],
+    "difficulty": "easy",
+    "gold_sql": "SELECT title FROM doc_metadata WHERE publisher = 'IEEE' ORDER BY title ASC;"
+  },
+  {
+    "id": 13,
+    "question": "I need the DOI for 'Belief networks revisited'.",
+    "expected_tables": ["doc_metadata"],
+    "difficulty": "easy",
+    "gold_sql": "SELECT doi, doi_url FROM doc_metadata WHERE title ILIKE 'Belief networks revisited';"
+  },
+  {
+    "id": 14,
+    "question": "What is the DOI of the paper titled 'A Bayesian method for the induction of probabilistic networks from data'?",
+    "expected_tables": ["doc_metadata"],
+    "difficulty": "easy",
+    "gold_sql": "SELECT doi, doi_url FROM doc_metadata WHERE title = 'A Bayesian method for the induction of probabilistic networks from data';"
+  },
+  {
+    "id": 15,
+    "question": "Return the title and abstract of papers published between 1993 and 1995 by Heckerman.",
+    "expected_tables": ["doc_author", "doc_metadata", "doc_abstract"],
+    "difficulty": "hard",
+    "gold_sql": "SELECT dm.title, da2.abstract FROM doc_author da JOIN doc_metadata dm ON da.doc_id = dm.doc_id JOIN doc_abstract da2 ON dm.doc_id = da2.doc_id WHERE da.normalized_family ILIKE 'HECKERMAN' AND dm.year BETWEEN 1993 AND 1995;"
+  },
+  {
+    "id": 16,
+    "question": "Show me the abstract for the paper 'Bayesian networks in neuroscience: a survey'.",
+    "expected_tables": ["doc_metadata", "doc_abstract"],
+    "difficulty": "easy",
+    "gold_sql": "SELECT da.abstract FROM doc_metadata dm JOIN doc_abstract da ON dm.doc_id = da.doc_id WHERE dm.title = 'Bayesian networks in neuroscience: a survey';"
+  },
+  {
+    "id": 17,
+    "question": "Give me the abstracts of the top 5 most recent papers.",
+    "expected_tables": ["doc_metadata", "doc_abstract"],
+    "difficulty": "medium",
+    "gold_sql": "SELECT dm.title, dm.year, da.abstract FROM doc_metadata dm JOIN doc_abstract da ON dm.doc_id = da.doc_id WHERE dm.year IS NOT NULL ORDER BY dm.year DESC, dm.title ASC LIMIT 5;"
+  },
+  {
+    "id": 18,
+    "question": "Is there any paper in the database that has zero authors listed?",
+    "expected_tables": ["doc_metadata", "doc_author"],
+    "difficulty": "hard",
+    "gold_sql": "SELECT COUNT(*) AS papers_without_authors FROM doc_metadata dm LEFT JOIN doc_author da ON dm.doc_id = da.doc_id WHERE da.doc_id IS NULL;"
+  }
+]

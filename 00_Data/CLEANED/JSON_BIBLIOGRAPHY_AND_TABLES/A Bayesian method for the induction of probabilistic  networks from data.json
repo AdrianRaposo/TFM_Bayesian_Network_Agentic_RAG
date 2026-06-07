@@ -1,0 +1,493 @@
+{
+  "extraction_date": "2025-08-31T17:58:35.513644",
+  "file": "A Bayesian method for the induction of probabilistic  networks from data.md",
+  "references": {
+    "header": "# References",
+    "content": "Agogino, A.M., \\& Rege, A. (1987). IDES: Influence diagram based expert system. Mathematical Modelling, 8, 227-233.\nAndreassen, S., Woldbye, M., Falck, B., \\& Andersen, S.K. (1987). MUNIN-A causal probabilistic network for interpretation of electromyographic findings. Proceedings of the International Joint Conference on Artificial Intelligence (pp. 366-372). Milan, Italy: Morgan Kaufmann.\nBeinlich, I.A., Suermondt, H.J., Chavez, R.M., \\& Cooper, G.F. (1989). The ALARM monitoring system: A case study with two probabilistic inference techniques for belief networks. Proceedings of the Second European Conference on Artificial Intelligence in Medicine (pp. 247-256). London, England.\nBlum, R.L. (1982). Discovery, confirmation, and incorporation of causal relationships from a large time-oriented clinical database: The RX project. Computers and Biomedical Research, 15, 164-187.\nBreiman, L., Friedman, J.H., Olshen, R.A., \\& Stone, C.J. (1984). Classification and regression trees. Belmont, CA: Wadsworth.\n\nBuntine, W.L. (1990a). Myths and legends in learning classification rules. Proceedings of AAAI (pp. 736-742). Boston, MA: MIT Press.\nBuntine, W.L. (1990b). A theory of learning classification rules. Doctoral dissertation, School of Computing Science, University of Technology, Sydney, Australia.\nCarbonell, J.G. (Ed.) (1990). Special volume on machine learning. Artificial Intelligence, 40, 1-385.\nChavez, R.M. \\& Cooper, G.F. (1990). KNET: Integrating hypermedia and normative Bayesian modeling. In R.D. Shachter, T.S. Levitt, L.N. Kanal, \\& J.F. Lemmer (Eds.), Uncertainty in artificial intelligence 4. Amsterdam: North-Holland.\nCheeseman, P. (1983). A method of computing generalized Bayesian probability values for expert systems. Proceedings of the International Joint Conference on Artificial Intelligence (pp. 198-202). Karlsruhe, West Germany: Morgan Kaufmann.\nCheeseman, P., Self, M., Kelly, J., Taylor, W., Freeman, D., \\& Stutz, J. (1988). Bayesian classification. Proceedings of AAAI (pp. 607-611). St. Paul, MN: Morgan Kaufmann.\nChow, C.K. \\& Liu, C.N. (1968). Approximating discrete probability distributions with dependence trees. IEEE Transactions on Information Theory, 14, 462-467.\nCooper, G.F. (1984). NESTOR: A computer-based medical diagnostic aid that integrates causal and probabilistic knowledge. Doctoral dissertation, Medical Information Sciences, Stanford University, Stanford, CA.\nCooper G.F. (1989). Current research directions in the development of expert systems based on belief networks. Applied Stochastic Models and Data Analysis, 5, 39-52.\nCooper, G.F. \\& Herskovits, E.H. (1991). A Bayesian method for the induction of probabilistic networks from data (Report SMI-91-1). Pittsburgh PA: University of Pittsburgh, Section of Medical Informatics. (Also available as Report KSL-91-02, from the Section on Medical Informatics, Stanford University, Stanford, CA.)\nCrawford, S.L. \\& Fung, R.M. (1991). An analysis of two probabilistic model induction techniques. Proceedings of the Third International Workshop on AI and Statistics (in press).\ndeGroot, M.H. (1970). Optimal statistical decisions. New York: McGraw-Hill.\nFung, R. \\& Shachter, R.D. (1991). Contingent influence diagrams (Research report 90-10). Mountain View, CA: Advanced Decision Systems.\nFung, R.M. \\& Crawford, S.L. (1990a). Constructor: A system for the induction of probabilistic models. Proceedings of AAAI (pp. 762-769). Boston, MA: MIT Press.\nFung, R.M., Crawford, S.L., Appelbaum, L.A., \\& Tong, R.M. (1990b). An architecture for probabilistic conceptbased information retrieval. Proceedings of the Conference on Uncertainty in Artificial Intelligence (pp. 392-404). Cambridge, MA.\nGeiger, D. \\& Heckerman, D.E. (1991). Advances in probabilistic reasoning. Proceedings of the Conference on Uncertainty in Artificial Intelligence (pp. 118-126). Los Angeles, CA: Morgan Kaufmann.\nGeiger, D., Paz, A., \\& Pearl, J. (1990). Learning causal trees from dependence information. Proceedings of AAAI (pp. 770-776). Boston, MA: MIT Press.\nGevarter, W.B. (1986). Automatic probabilistic knowledge acquisition from data NASA Technical Memorandum 88224). Mt. View, CA: NASA Ames Research Center.\n\nGlymour, C., Scheines, R., Spirtes, P., \\& Kelley, K. (1987). Discovering causal structure. New York: Academic Press.\nGlymour, C. \\& Spirtes, P. (1988). Latent variables, causal models and overidentifying constraints. Journal of Econometrics, 39, 175-198.\nGolmard, J.L., \\& Mallet, A. (1989). Learning probabilities in causal trees from incomplete databases. Proceedings of the IJCAI Workshop on Knowledge Discovery in Databases (pp. 117-126). Detroit, MI.\nHeckerman, D.E. (1990). Probabilistic similarity networks. Networks, 20, 607-636.\nHeckerman, D.E., Horvitz, E.J., \\& Nathwani, B.N. (1989). Update on the Pathfinder project. Proceedings of the Symposium on Computer Applications in Medical Care (pp. 203-207). Washington, DC: IEEE Computer Society Press.\nHenrion, M. (1988). Propagating uncertainty in Bayesian networks by logic sampling. In J.F. Lemmer \\& L.N. Kanal (Eds.), Uncertainty in artificial intelligence 2. Amsterdam: North-Holland.\nHenrion, M. (1990). An introduction to algorithms for inference in belief nets. In M. Henrion, R.D. Shachter, L.N. Kanal, \\& J.F. Lemmer (Eds.), Uncertainty in artificial intelligence 5. Amsterdam: North-Holland.\n\nHenrion, M. \\& Cooley, D.R. (1987). An experimental comparison of knowledge engineering for expert systems and for decision analysis. Proceedings of AAAI (pp. 471-476). Seattle, WA: Morgan Kaufmann.\n\nHerskovits, E.H. (1991). Computer-based probabilistic network construction. Doctoral dissertation, Medical Information Sciences, Stanford University, Stanford, CA.\nHerskovits, E.H. \\& Cooper, G.F. (1990). Kutató: An entropy-driven system for the construction of probabilistic expert systems from databases. Proceedings of the Conference on Uncertainty in Artificial Intelligence (pp. 54-62). Cambridge, MA.\nHinton, G.E. (1990). Connectionist learning procedures. Artificial Intelligence, 40, 185-234.\nHoltzman, S. (1989). Intelligent decision systems. Reading, MA: Addison-Wesley.\nHorvitz, E.J., Breese, J.S. \\& Henrion, M. (1988). Decision theory in expert systems and artificial intelligence. International Journal of Approximate Reasoning, 2, 247-302.\nHoward, R.A. (1988). Uncertainty about probability: A decision analysis perspective. Risk Analysis, 8, 91-98.\nHunt, E.B., Marin, J., \\& Stone, P.T. (1966). Experiments in induction. New York: Academic Press.\nJames, M. (1985). Classification algorithms. New York: John Wiley \\& Sons.\nJohnson, R.A. \\& Wichern, D.W. (1982). Applied multivariate statistical analysis. Englewood Cliffs, NJ: Prentice-Hall.\nKiiveri, H., Speed, T.P., \\& Carlin, J.B. (1984). Recursive causal models. Journal of the Australian Mathematical Society, 36, 30-52.\nKwok, S.W. \\& Carter, C. (1990). Multiple decision trees. In R.D. Shachter, T.S. Levitt, L.N. Kanal, \\& J.F. Lemmer (Eds.), Uncertainty in artificial intelligence 4. Amsterdam: North-Holland.\nLauritzen, S.L. \\& Spiegelhalter, D.J. (1988). Local computations with probabilities on graphical structures and their application to expert systems. Journal of the Royal Statistical Society (Series B), 50, 157-224.\nLiu, L., Wilkins, D.C., Ying, X., \\& Bian, Z. (1990). Minimum error tree decomposition. Proceedings of the Conference on Uncertainty in Artificial Intelligence (pp. 180-185). Cambridge, MA.\nMichalski, R.S., Carbonell, J.G., \\& Mitchell, T.M. (Eds.) (1983). Machine learning: An artificial intelligence approach (Vol. 1). Palo Alto, CA: Tioga Press.\nMichalski, R.S., Carbonell, J.G., \\& Mitchell, T.M. (Eds.) (1986). Machine learning: An artificial intelligence approach (Vol. 2). Los Altos, CA: Morgan Kaufmann.\nMitchell, T.M. (1980). The need for biases in learning generalizations (Report CBM-TR-5-110). New Brunswick, NJ: Rutgers University, Department of Computer Science.\nNeapolitan, R. (1990). Probabilistic reasoning in expert systems. New York: John Wiley \\& Sons.\nPearl, J. (1986). Fusion, propagation and structuring in belief networks. Artificial Intelligence, 29, 241-288.\nPearl, J. (1988). Probabilistic reasoning in intelligent systems. San Mateo, CA: Morgan Kaufmann.\nPearl. J. \\& Verma, T.S. (1991). A theory of inferred causality. Proceedings of the Second International Conference on the Principles of Knowledge Representation and Reasoning (pp. 441-452). Boston, MA: Morgan Kaufmann.\nPittarelli, M. (1990). Reconstructability analysis: An overview. Revue Internationale de Systemique, 4, 5-32. Quinlan, J.R. (1986). Induction of decision trees. Machine Learning, 1, 81-106.\nRebane, G. \\& Pearl, J. (1987). The recovery of causal poly-trees from statistical data. Proceedings of the Workshop on Uncertainty in Artificial Intelligence (pp. 222-228). Seattle, Washington.\nRobinson, R.W. (1977). Counting unlabeled acyclic digraphs. In C.H.C. Little (Ed.), Lecture notes in mathematics, 622: Combinatorial mathematics V. New York: Springer-Verlag. (Note: This paper also discusses counting of labeled acyclic graphs.)\nShachter, R.D. (1986). Intelligent probabilistic inference. In L.N. Kanal \\& J.F. Lemmer (Eds.), Uncertainty in artificial intelligence 1. Amsterdam: North-Holland.\nShachter, R.D. (1988). Probabilistic inference and influence diagrams. Operations Research 36, 589-604.\nShachter, R.D. (1990). A linear approximation method for probabilistic inference. In R.D. Shachter, T.S. Levitt, L.N. Kanal, \\& J.F. Lemmer (Eds.), Uncertainty in artificial intelligence 4. Amsterdam: North-Holland.\nShachter, R.D. \\& Kenley, C.R. (1989). Gaussian influence diagrams. Management Science, 35, 527-550.\nSpiegelhalter, D.J. \\& Lauritzen, S.L. (1990). Sequential updating of conditional probabilities on directed graphical structures. Networks, 20, 579-606.\nSpirtes, P. \\& Glymour, C. (1990). Causal structure among measured variables preserved with unmeasured variables (Report CMU-LCL-90-5). Pittsburgh, PA: Carnegie Mellon University, Department of Philosophy.\nSpirtes, P., Glymour, C., \\& Scheines, R. (1990a). Causal hypotheses, statistical inference, and automated model specification (Research report). Pittsburgh, PA: Carnegie Mellon University, Department of Philosophy.\n\nSpirtes, P., Glymour, C., \\& Scheines, R. (1990b). Causality from probability. In G. McKee (Ed.), Evolving knowledge in natural and artificial intelligence. London: Pitman.\nSpirtes, P., Glymour, C., \\& Scheines, R. (1991). An algorithm for fast recovery of sparse causal graphs. Social Science Computer Review, 9, 62-72.\nSpirtes, P., Scheines, R., \\& Glymour, C. (1990c). Simulation studies of the reliability of computer-aided model specification using the Tetrad II, EQS, and LISREL programs. Sociological Methods and Research, 19, 3-66.\nSrinivas, S., Russell, S., \\& Agogino, A. (190). Automated construction of sparse Bayesian networks for unstructured probabilistic models and domain information. In M. Henrion, R.D. Shachter, L.N. Kanal, \\& J.F. Lemmer (Eds.), Uncertainty in artificial intelligence 5. Amsterdam: North-Holland.\nSuermondt, H.J. \\& Amylon, M.D. (1989). Probabilistic prediction of the outcome of bone-marrow transplantation. Proceedings of the Symposium on Computer Applications in Medical Care (pp. 208-212). Washington, DC: IEEE Computer Society Press.\nUtgoff, P.E. (1986). Machine learning of inductive bias. Boston, MA: Kluwer Academic.\nVerma, T.S. \\& Pearl, J. (1990). Equivalence and synthesis of causal models. Proceedings of the Conference on Uncertainty in Artificial Intelligence (pp. 220-227). Cambridge, MA.\nWermuth, N. \\& Lauritzen, S. (1983). Graphical and recursive models for contingency tables. Biometrika, 72, $537-552$.\nWilks, S.S. (1962). Mathematical statistics. New York: John Wiley \\& Sons.",
+    "references": [
+      {
+        "ref_id": "1",
+        "text": "Agogino, A.M., \\& Rege, A. (1987). IDES: Influence diagram based expert system. Mathematical Modelling, 8, 227-233."
+      },
+      {
+        "ref_id": "2",
+        "text": "Andreassen, S., Woldbye, M., Falck, B., \\& Andersen, S.K. (1987). MUNIN-A causal probabilistic network for interpretation of electromyographic findings. Proceedings of the International Joint Conference on Artificial Intelligence (pp. 366-372). Milan, Italy: Morgan Kaufmann."
+      },
+      {
+        "ref_id": "3",
+        "text": "Beinlich, I.A., Suermondt, H.J., Chavez, R.M., \\& Cooper, G.F. (1989). The ALARM monitoring system: A case study with two probabilistic inference techniques for belief networks. Proceedings of the Second European Conference on Artificial Intelligence in Medicine (pp. 247-256). London, England."
+      },
+      {
+        "ref_id": "4",
+        "text": "Blum, R.L. (1982). Discovery, confirmation, and incorporation of causal relationships from a large time-oriented clinical database: The RX project. Computers and Biomedical Research, 15, 164-187."
+      },
+      {
+        "ref_id": "5",
+        "text": "Breiman, L., Friedman, J.H., Olshen, R.A., \\& Stone, C.J. (1984). Classification and regression trees. Belmont, CA: Wadsworth."
+      },
+      {
+        "ref_id": "6",
+        "text": "Buntine, W.L. (1990a). Myths and legends in learning classification rules. Proceedings of AAAI (pp. 736-742). Boston, MA: MIT Press."
+      },
+      {
+        "ref_id": "7",
+        "text": "Buntine, W.L. (1990b). A theory of learning classification rules. Doctoral dissertation, School of Computing Science, University of Technology, Sydney, Australia."
+      },
+      {
+        "ref_id": "8",
+        "text": "Carbonell, J.G. (Ed.) (1990). Special volume on machine learning. Artificial Intelligence, 40, 1-385."
+      },
+      {
+        "ref_id": "9",
+        "text": "Chavez, R.M. \\& Cooper, G.F. (1990). KNET: Integrating hypermedia and normative Bayesian modeling. In R.D. Shachter, T.S. Levitt, L.N. Kanal, \\& J.F. Lemmer (Eds.), Uncertainty in artificial intelligence 4. Amsterdam: North-Holland."
+      },
+      {
+        "ref_id": "10",
+        "text": "Cheeseman, P. (1983). A method of computing generalized Bayesian probability values for expert systems. Proceedings of the International Joint Conference on Artificial Intelligence (pp. 198-202). Karlsruhe, West Germany: Morgan Kaufmann."
+      },
+      {
+        "ref_id": "11",
+        "text": "Cheeseman, P., Self, M., Kelly, J., Taylor, W., Freeman, D., \\& Stutz, J. (1988). Bayesian classification. Proceedings of AAAI (pp. 607-611). St. Paul, MN: Morgan Kaufmann."
+      },
+      {
+        "ref_id": "12",
+        "text": "Chow, C.K. \\& Liu, C.N. (1968). Approximating discrete probability distributions with dependence trees. IEEE Transactions on Information Theory, 14, 462-467."
+      },
+      {
+        "ref_id": "13",
+        "text": "Cooper, G.F. (1984). NESTOR: A computer-based medical diagnostic aid that integrates causal and probabilistic knowledge. Doctoral dissertation, Medical Information Sciences, Stanford University, Stanford, CA."
+      },
+      {
+        "ref_id": "14",
+        "text": "Cooper G.F. (1989). Current research directions in the development of expert systems based on belief networks. Applied Stochastic Models and Data Analysis, 5, 39-52."
+      },
+      {
+        "ref_id": "15",
+        "text": "Cooper, G.F. \\& Herskovits, E.H. (1991). A Bayesian method for the induction of probabilistic networks from data (Report SMI-91-1). Pittsburgh PA: University of Pittsburgh, Section of Medical Informatics. (Also available as Report KSL-91-02, from the Section on Medical Informatics, Stanford University, Stanford, CA.)"
+      },
+      {
+        "ref_id": "16",
+        "text": "Crawford, S.L. \\& Fung, R.M. (1991). An analysis of two probabilistic model induction techniques. Proceedings of the Third International Workshop on AI and Statistics (in press)."
+      },
+      {
+        "ref_id": "17",
+        "text": "Fung, R. \\& Shachter, R.D. (1991). Contingent influence diagrams (Research report 90-10). Mountain View, CA: Advanced Decision Systems."
+      },
+      {
+        "ref_id": "18",
+        "text": "Fung, R.M. \\& Crawford, S.L. (1990a). Constructor: A system for the induction of probabilistic models. Proceedings of AAAI (pp. 762-769). Boston, MA: MIT Press."
+      },
+      {
+        "ref_id": "19",
+        "text": "Fung, R.M., Crawford, S.L., Appelbaum, L.A., \\& Tong, R.M. (1990b). An architecture for probabilistic conceptbased information retrieval. Proceedings of the Conference on Uncertainty in Artificial Intelligence (pp. 392-404). Cambridge, MA."
+      },
+      {
+        "ref_id": "20",
+        "text": "Geiger, D. \\& Heckerman, D.E. (1991). Advances in probabilistic reasoning. Proceedings of the Conference on Uncertainty in Artificial Intelligence (pp. 118-126). Los Angeles, CA: Morgan Kaufmann."
+      },
+      {
+        "ref_id": "21",
+        "text": "Geiger, D., Paz, A., \\& Pearl, J. (1990). Learning causal trees from dependence information. Proceedings of AAAI (pp. 770-776). Boston, MA: MIT Press."
+      },
+      {
+        "ref_id": "22",
+        "text": "Gevarter, W.B. (1986). Automatic probabilistic knowledge acquisition from data NASA Technical Memorandum 88224). Mt. View, CA: NASA Ames Research Center."
+      },
+      {
+        "ref_id": "23",
+        "text": "Glymour, C., Scheines, R., Spirtes, P., \\& Kelley, K. (1987). Discovering causal structure. New York: Academic Press."
+      },
+      {
+        "ref_id": "24",
+        "text": "Glymour, C. \\& Spirtes, P. (1988). Latent variables, causal models and overidentifying constraints. Journal of Econometrics, 39, 175-198."
+      },
+      {
+        "ref_id": "25",
+        "text": "Golmard, J.L., \\& Mallet, A. (1989). Learning probabilities in causal trees from incomplete databases. Proceedings of the IJCAI Workshop on Knowledge Discovery in Databases (pp. 117-126). Detroit, MI."
+      },
+      {
+        "ref_id": "26",
+        "text": "Heckerman, D.E. (1990). Probabilistic similarity networks. Networks, 20, 607-636."
+      },
+      {
+        "ref_id": "27",
+        "text": "Heckerman, D.E., Horvitz, E.J., \\& Nathwani, B.N. (1989). Update on the Pathfinder project. Proceedings of the Symposium on Computer Applications in Medical Care (pp. 203-207). Washington, DC: IEEE Computer Society Press."
+      },
+      {
+        "ref_id": "28",
+        "text": "Henrion, M. (1988). Propagating uncertainty in Bayesian networks by logic sampling. In J.F. Lemmer \\& L.N. Kanal (Eds.), Uncertainty in artificial intelligence 2. Amsterdam: North-Holland."
+      },
+      {
+        "ref_id": "29",
+        "text": "Henrion, M. (1990). An introduction to algorithms for inference in belief nets. In M. Henrion, R.D. Shachter, L.N. Kanal, \\& J.F. Lemmer (Eds.), Uncertainty in artificial intelligence 5. Amsterdam: North-Holland."
+      },
+      {
+        "ref_id": "30",
+        "text": "Henrion, M. \\& Cooley, D.R. (1987). An experimental comparison of knowledge engineering for expert systems and for decision analysis. Proceedings of AAAI (pp. 471-476). Seattle, WA: Morgan Kaufmann."
+      },
+      {
+        "ref_id": "31",
+        "text": "Herskovits, E.H. (1991). Computer-based probabilistic network construction. Doctoral dissertation, Medical Information Sciences, Stanford University, Stanford, CA."
+      },
+      {
+        "ref_id": "32",
+        "text": "Herskovits, E.H. \\& Cooper, G.F. (1990). Kutató: An entropy-driven system for the construction of probabilistic expert systems from databases. Proceedings of the Conference on Uncertainty in Artificial Intelligence (pp. 54-62). Cambridge, MA."
+      },
+      {
+        "ref_id": "33",
+        "text": "Hinton, G.E. (1990). Connectionist learning procedures. Artificial Intelligence, 40, 185-234."
+      },
+      {
+        "ref_id": "34",
+        "text": "Holtzman, S. (1989). Intelligent decision systems. Reading, MA: Addison-Wesley."
+      },
+      {
+        "ref_id": "35",
+        "text": "Horvitz, E.J., Breese, J.S. \\& Henrion, M. (1988). Decision theory in expert systems and artificial intelligence. International Journal of Approximate Reasoning, 2, 247-302."
+      },
+      {
+        "ref_id": "36",
+        "text": "Howard, R.A. (1988). Uncertainty about probability: A decision analysis perspective. Risk Analysis, 8, 91-98."
+      },
+      {
+        "ref_id": "37",
+        "text": "Hunt, E.B., Marin, J., \\& Stone, P.T. (1966). Experiments in induction. New York: Academic Press."
+      },
+      {
+        "ref_id": "38",
+        "text": "James, M. (1985). Classification algorithms. New York: John Wiley \\& Sons."
+      },
+      {
+        "ref_id": "39",
+        "text": "Johnson, R.A. \\& Wichern, D.W. (1982). Applied multivariate statistical analysis. Englewood Cliffs, NJ: Prentice-Hall."
+      },
+      {
+        "ref_id": "40",
+        "text": "Kiiveri, H., Speed, T.P., \\& Carlin, J.B. (1984). Recursive causal models. Journal of the Australian Mathematical Society, 36, 30-52."
+      },
+      {
+        "ref_id": "41",
+        "text": "Kwok, S.W. \\& Carter, C. (1990). Multiple decision trees. In R.D. Shachter, T.S. Levitt, L.N. Kanal, \\& J.F. Lemmer (Eds.), Uncertainty in artificial intelligence 4. Amsterdam: North-Holland."
+      },
+      {
+        "ref_id": "42",
+        "text": "Lauritzen, S.L. \\& Spiegelhalter, D.J. (1988). Local computations with probabilities on graphical structures and their application to expert systems. Journal of the Royal Statistical Society (Series B), 50, 157-224."
+      },
+      {
+        "ref_id": "43",
+        "text": "Liu, L., Wilkins, D.C., Ying, X., \\& Bian, Z. (1990). Minimum error tree decomposition. Proceedings of the Conference on Uncertainty in Artificial Intelligence (pp. 180-185). Cambridge, MA."
+      },
+      {
+        "ref_id": "44",
+        "text": "Michalski, R.S., Carbonell, J.G., \\& Mitchell, T.M. (Eds.) (1983). Machine learning: An artificial intelligence approach (Vol. 1). Palo Alto, CA: Tioga Press."
+      },
+      {
+        "ref_id": "45",
+        "text": "Michalski, R.S., Carbonell, J.G., \\& Mitchell, T.M. (Eds.) (1986). Machine learning: An artificial intelligence approach (Vol. 2). Los Altos, CA: Morgan Kaufmann."
+      },
+      {
+        "ref_id": "46",
+        "text": "Mitchell, T.M. (1980). The need for biases in learning generalizations (Report CBM-TR-5-110). New Brunswick, NJ: Rutgers University, Department of Computer Science."
+      },
+      {
+        "ref_id": "47",
+        "text": "Neapolitan, R. (1990). Probabilistic reasoning in expert systems. New York: John Wiley \\& Sons."
+      },
+      {
+        "ref_id": "48",
+        "text": "Pearl, J. (1986). Fusion, propagation and structuring in belief networks. Artificial Intelligence, 29, 241-288."
+      },
+      {
+        "ref_id": "49",
+        "text": "Pearl, J. (1988). Probabilistic reasoning in intelligent systems. San Mateo, CA: Morgan Kaufmann."
+      },
+      {
+        "ref_id": "50",
+        "text": "Pearl. J. \\& Verma, T.S. (1991). A theory of inferred causality. Proceedings of the Second International Conference on the Principles of Knowledge Representation and Reasoning (pp. 441-452). Boston, MA: Morgan Kaufmann."
+      },
+      {
+        "ref_id": "51",
+        "text": "Pittarelli, M. (1990). Reconstructability analysis: An overview. Revue Internationale de Systemique, 4, 5-32. Quinlan, J.R. (1986). Induction of decision trees. Machine Learning, 1, 81-106."
+      },
+      {
+        "ref_id": "52",
+        "text": "Rebane, G. \\& Pearl, J. (1987). The recovery of causal poly-trees from statistical data. Proceedings of the Workshop on Uncertainty in Artificial Intelligence (pp. 222-228). Seattle, Washington."
+      },
+      {
+        "ref_id": "53",
+        "text": "Robinson, R.W. (1977). Counting unlabeled acyclic digraphs. In C.H.C. Little (Ed.), Lecture notes in mathematics, 622: Combinatorial mathematics V. New York: Springer-Verlag. (Note: This paper also discusses counting of labeled acyclic graphs.)"
+      },
+      {
+        "ref_id": "54",
+        "text": "Shachter, R.D. (1986). Intelligent probabilistic inference. In L.N. Kanal \\& J.F. Lemmer (Eds.), Uncertainty in artificial intelligence 1. Amsterdam: North-Holland."
+      },
+      {
+        "ref_id": "55",
+        "text": "Shachter, R.D. (1988). Probabilistic inference and influence diagrams. Operations Research 36, 589-604."
+      },
+      {
+        "ref_id": "56",
+        "text": "Shachter, R.D. (1990). A linear approximation method for probabilistic inference. In R.D. Shachter, T.S. Levitt, L.N. Kanal, \\& J.F. Lemmer (Eds.), Uncertainty in artificial intelligence 4. Amsterdam: North-Holland."
+      },
+      {
+        "ref_id": "57",
+        "text": "Shachter, R.D. \\& Kenley, C.R. (1989). Gaussian influence diagrams. Management Science, 35, 527-550."
+      },
+      {
+        "ref_id": "58",
+        "text": "Spiegelhalter, D.J. \\& Lauritzen, S.L. (1990). Sequential updating of conditional probabilities on directed graphical structures. Networks, 20, 579-606."
+      },
+      {
+        "ref_id": "59",
+        "text": "Spirtes, P. \\& Glymour, C. (1990). Causal structure among measured variables preserved with unmeasured variables (Report CMU-LCL-90-5). Pittsburgh, PA: Carnegie Mellon University, Department of Philosophy."
+      },
+      {
+        "ref_id": "60",
+        "text": "Spirtes, P., Glymour, C., \\& Scheines, R. (1990a). Causal hypotheses, statistical inference, and automated model specification (Research report). Pittsburgh, PA: Carnegie Mellon University, Department of Philosophy."
+      },
+      {
+        "ref_id": "61",
+        "text": "Spirtes, P., Glymour, C., \\& Scheines, R. (1990b). Causality from probability. In G. McKee (Ed.), Evolving knowledge in natural and artificial intelligence. London: Pitman."
+      },
+      {
+        "ref_id": "62",
+        "text": "Spirtes, P., Glymour, C., \\& Scheines, R. (1991). An algorithm for fast recovery of sparse causal graphs. Social Science Computer Review, 9, 62-72."
+      },
+      {
+        "ref_id": "63",
+        "text": "Spirtes, P., Scheines, R., \\& Glymour, C. (1990c). Simulation studies of the reliability of computer-aided model specification using the Tetrad II, EQS, and LISREL programs. Sociological Methods and Research, 19, 3-66."
+      },
+      {
+        "ref_id": "64",
+        "text": "Srinivas, S., Russell, S., \\& Agogino, A. (190). Automated construction of sparse Bayesian networks for unstructured probabilistic models and domain information. In M. Henrion, R.D. Shachter, L.N. Kanal, \\& J.F. Lemmer (Eds.), Uncertainty in artificial intelligence 5. Amsterdam: North-Holland."
+      },
+      {
+        "ref_id": "65",
+        "text": "Suermondt, H.J. \\& Amylon, M.D. (1989). Probabilistic prediction of the outcome of bone-marrow transplantation. Proceedings of the Symposium on Computer Applications in Medical Care (pp. 208-212). Washington, DC: IEEE Computer Society Press."
+      },
+      {
+        "ref_id": "66",
+        "text": "Utgoff, P.E. (1986). Machine learning of inductive bias. Boston, MA: Kluwer Academic."
+      },
+      {
+        "ref_id": "67",
+        "text": "Verma, T.S. \\& Pearl, J. (1990). Equivalence and synthesis of causal models. Proceedings of the Conference on Uncertainty in Artificial Intelligence (pp. 220-227). Cambridge, MA."
+      },
+      {
+        "ref_id": "68",
+        "text": "Wermuth, N. \\& Lauritzen, S. (1983). Graphical and recursive models for contingency tables. Biometrika, 72, $537-552$."
+      },
+      {
+        "ref_id": "69",
+        "text": "Wilks, S.S. (1962). Mathematical statistics. New York: John Wiley \\& Sons."
+      }
+    ],
+    "reference_count": 69
+  },
+  "tables": [
+    {
+      "table_number": "1",
+      "table_title": "A database example. The term case in the first column denotes a single training instance (record) in the databaseas for example, a patient case. For brevity, in the text we sometimes use 0 to denote absent and 1 to denote present.",
+      "headers": [
+        "",
+        "Variable values for each case",
+        "",
+        ""
+      ],
+      "rows": [
+        [
+          "Case",
+          "$x_{1}$",
+          "$x_{2}$",
+          "$x_{3}$"
+        ],
+        [
+          "1",
+          "present",
+          "absent",
+          "absent"
+        ],
+        [
+          "2",
+          "present",
+          "present",
+          "present"
+        ],
+        [
+          "3",
+          "absent",
+          "absent",
+          "present"
+        ],
+        [
+          "4",
+          "present",
+          "present",
+          "present"
+        ],
+        [
+          "5",
+          "absent",
+          "absent",
+          "absent"
+        ],
+        [
+          "6",
+          "absent",
+          "present",
+          "present"
+        ],
+        [
+          "7",
+          "present",
+          "present",
+          "present"
+        ],
+        [
+          "8",
+          "absent",
+          "absent",
+          "absent"
+        ],
+        [
+          "9",
+          "present",
+          "present",
+          "present"
+        ],
+        [
+          "10",
+          "absent",
+          "absent",
+          "absent"
+        ]
+      ],
+      "row_count": 11,
+      "column_count": 4
+    },
+    {
+      "table_number": "2",
+      "table_title": "The probability assignments associated with the belief-network structure $B_{S 1}$ in figure 1. We shall denote these probability assignments as $B_{P 1}$.",
+      "headers": [
+        "$P\\left(x_{1}=\\right.$ present $)$",
+        "$=0.6$",
+        "$P\\left(x_{1}=\\right.$ absent $)$",
+        "$=0.4$"
+      ],
+      "rows": [],
+      "row_count": 0,
+      "column_count": 4
+    },
+    {
+      "table_number": "3",
+      "table_title": "The database for the hidden variable example.",
+      "headers": [
+        "Case",
+        "$x_{2}$",
+        "$x_{3}$"
+      ],
+      "rows": [
+        [
+          "1",
+          "absent",
+          "absent"
+        ],
+        [
+          "2",
+          "present",
+          "present"
+        ]
+      ],
+      "row_count": 2,
+      "column_count": 3
+    },
+    {
+      "table_number": "4",
+      "table_title": "The database used in the example of the application of equation (20).",
+      "headers": [
+        "Case",
+        "$x_{1}$",
+        "$x_{2}$"
+      ],
+      "rows": [
+        [
+          "1",
+          "present",
+          "present"
+        ],
+        [
+          "2",
+          "present",
+          "present"
+        ],
+        [
+          "3",
+          "present",
+          "present"
+        ],
+        [
+          "4",
+          "absent",
+          "present"
+        ],
+        [
+          "5",
+          "absent",
+          "absent"
+        ]
+      ],
+      "row_count": 5,
+      "column_count": 3
+    },
+    {
+      "table_number": "5",
+      "table_title": "The results of applying K2 with subsets of the 10,000 ALARM cases.",
+      "headers": [
+        "100",
+        "5",
+        "33",
+        "19"
+      ],
+      "rows": [
+        [
+          "200",
+          "4",
+          "19",
+          "29"
+        ],
+        [
+          "500",
+          "2",
+          "7",
+          "55"
+        ],
+        [
+          "1,000",
+          "1",
+          "5",
+          "108"
+        ],
+        [
+          "2,000",
+          "1",
+          "3",
+          "204"
+        ],
+        [
+          "3,000",
+          "1",
+          "1",
+          "297"
+        ],
+        [
+          "10,000",
+          "1",
+          "1",
+          "998"
+        ]
+      ],
+      "row_count": 6,
+      "column_count": 4
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+# Computational dynamic approaches for temporal omics data with applications to systems medicine 
+
+Yulan Liang ${ }^{1 *}$ and Arpad Kelemen ${ }^{2}$<br>* Correspondence:<br>liang@son.umaryland.edu<br>${ }^{1}$ Department of Family and Community Health, University of Maryland, Baltimore, MD 21201, USA<br>Full list of author information is available at the end of the article
+
+
+#### Abstract
+
+Modeling and predicting biological dynamic systems and simultaneously estimating the kinetic structural and functional parameters are extremely important in systems and computational biology. This is key for understanding the complexity of the human health, drug response, disease susceptibility and pathogenesis for systems medicine. Temporal omics data used to measure the dynamic biological systems are essentials to discover complex biological interactions and clinical mechanism and causations. However, the delineation of the possible associations and causalities of genes, proteins, metabolites, cells and other biological entities from high throughput time course omics data is challenging for which conventional experimental techniques are not suited in the big omics era. In this paper, we present various recently developed dynamic trajectory and causal network approaches for temporal omics data, which are extremely useful for those researchers who want to start working in this challenging research area. Moreover, applications to various biological systems, health conditions and disease status, and examples that summarize the state-of-the art performances depending on different specific mining tasks are presented. We critically discuss the merits, drawbacks and limitations of the approaches, and the associated main challenges for the years ahead. The most recent computing tools and software to analyze specific problem type, associated platform resources, and other potentials for the dynamic trajectory and interaction methods are also presented and discussed in detail.
+
+
+Keywords: Temporal omics data, Dynamic approaches, Trajectory prediction, Causal network, Systems medicine, Computational dynamic approaches for temporal omics data with applications to systems medicine
+
+## Introduction
+
+Recent advancement in the omics fields (i.e., genomics, transcriptomics, variomics, proteomics, metabolomics, and interactomics) and the associated technologies (from microarray. RNA sequencing, whole genome sequences (WGS), mass spectrometry (MS)) have provided huge amount of information for delineating the roles of biological entities (i.e., gene mutants, DNA methylations, metabolites) in complex diseases and biological system states for the human organisms [1-7]. On the other hand, the systems and precision medicine known as P4 medicine - Predictive, Preventive, Personalized and Participatory, have been hot topics given the amount of big omics
+
+[^0]
+[^0]:    (c) The Author(s). 2017 Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/ publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated.
+
+data and knowledge accumulated in the past decades from translational medicine and human genomic/proteomic research [8-11]. In systems medicine, the human organism is envisioned as a system of systems or network of networks, which is hierarchically and biologically organized from genomic/proteomic to molecular, to cellular, to organ, to individual human body, to social/environmental human systems. At each level/scale, those are dynamically embedding each other (as opposed to being static) [8-11].
+
+Despite considerable computational and statistical efforts over the decades with thousands of computational tools, algorithms and models developed ranging from single model to multi-level (such as meta-frame), the key computational challenges of system medicine remains: how to best mine and learn the continuing arrival of big omics data given thousands of interacting entities (e.g., genes or proteins) with relatively weak or small accumulative effects over time on health conditions or diseases [12-14]. The overwhelming number of confounded traits or highly correlated phenotypes with the unavoidable measurement noises makes the integrations even harder, not just metadata or models, but also the results. Moreover, the different topological characteristics of the biological omics data require different sets of algorithms and models (i.e., supervised versus unsupervised; generative or discriminative) for deriving meaningful interpretable relationships. Nevertheless, omics data aggregations, linkage, curation, validation issues from diverse platforms, software outputs, inconsistent data standardizations make clinical implementations harder [15-17]. In addition, analyzing and processing too much combined large data may cause over fitting issues, too complex unstable model, sacrificing predictive accuracy.
+
+From the clinical or biomedical perspective, the challenge issue is the reliability for avoiding false discovery, and reproducibility across different patient cohorts and the associated biological interpretability of the findings. These are all crucial in order to extract fully confirmed actionable knowledge for systems medicine and P4 solutions. But the evolving, heterogeneous and dynamic information with low intensity signals with respect to noise from omics technologies make the key drivers led to complex diseases difficult to characterize. Fig. 1 display the various omics data types and associated challenges. Time-course or temporal omics (i.e., genomic/proteomic/metabolites) experiments are often used to measure and study dynamic biological and medical systems. Knowing when or whether a biological entities including genes or proteins are
+![img-0.jpeg](img-0.jpeg)
+
+Fig. 1 Various Omics data types and challenges
+
+expressed or regulated, and how one interacts with others can provide a strong clue of their biological roles and potential causality for disease conditions that may have therapeutic implication, i.e., not treated versus combination of treatments; recurring disease patterns, disease subtypes, and key regulatory pathways of drug effects [18-22].
+
+To tackle those dynamic, interacting, hidden but valuable biomedical information, various analytical tools ranging from single level to more sophisticated hybrid data mining, machine learning tools, and advanced statistical models are needed, especially the advanced approaches for causal network inferences and dynamic trajectory predictions for drug and disease responses [5, 6, 8-11]. This paper focuses on the various trajectory and interaction approaches for temporal omics data, ranging from single level to multilevel network/cloud computing. These approaches can be either model based (statistical, mathematical, neural network (NN)) or algorithm based (machine learning or data mining) or hybrid ensemble approaches (i.e. with knowledge integration). The examples and recently developed computing tools/resources for comparing various trajectory and interaction methods regarding the merits and drawbacks use the same data sets or different data sets are presented. More applications to pathway, regulations, function, and integrative meta-analysis for various human health, conditions, and diseases are given special attention. Other potentials for future directions (intelligent approaches with deep learning, automatic reasoning; consensus predictions with boosts and bagging) are discussed.
+
+# Computational apparoches for temporal experiments 
+
+To process and model the temporal omics data, several layer/levels analyses could be applied to meet the needs of the state-of-the-art omics data in order to overcome the challenges. Fig. 2 provides an overview of various computational methods starting from
+![img-1.jpeg](img-1.jpeg)
+
+Fig. 2 Computational approaches for omics data from single level to multi-level, network/pathway and clinical outcomes
+
+low-level fundamental analysis to immediate, then to advanced analysis. Fundamental analyses include data acquisition, noise filtering, system effect detection, etc. to ensure the quality of the data and outcomes. Immediate analyses include different data reduction techniques for high dimensionality issue, i.e., statistical variable selection/screening, machine-learning algorithm with feature extractions, and mathematical modeling (i.e., optimization). For instance, using supervised learning with wrapper methods for feature/gene selections, the significantly differentially expressed gene can be identified out of thousands of genes.
+
+One of the goals of modeling temporal omics data is to infer and predict the biological networks and interactions and for further causal, pathway, function and integrative analysis. The advanced level analysis is the focus of the paper, which includes dynamic trajectory, interactions, network/module based modeling, and knowledge/data integrations with pathway, regulatory and function analysis. Figure 3 provides a Venn diagram of general dynamic computational framework for different types of high dimensional time course omics data. All layers/levels of analyses are critical steps when modeling the high dimensional omics data, especially when time dimensions are added with various types of time course experiment data. As the omics data continues to grow, the analytical scheme needs to be switched from correlation or module, pattern based approaches towards to network, module based, then causal, pathway, function integrative based (see Fig. 3: outside circle towards to the center) for actionable P4 solution. Table 1 summarizes an overview of the comparison of the various dynamic modeling approaches for temporal omics data from computational perspective, which are presented in details next.
+
+# Mathematical modeling: discrete static versus continuous dynamic approaches 
+
+The synergistic system formalism is a static differential equation based deterministic approach that has been applied to genetic, immune and biochemical network data [23-25]. Nonlinear discrete dynamical systems also have been developed and applied for temporal
+![img-2.jpeg](img-2.jpeg)
+
+Fig. 3 Venn Diagram of general computational framework for high dimensional time course Omics data for System and precision medicine
+
+Table 1 Comparison of the dynamic modeling approaches for temporal omics data, the detailed methods, mining tasks, and type of problems, examples, and related references
+
+Stochastic, dynamic | Differential equations, Fourier transform, topology based matrix factorization Stochastic differential equations, Gaussian graphical models, Probabilistic Boolean networks State space model and or hidden Markov model, Markov random fields | Parameter/rate estimations, network inference, prediction, time course (I-III) Dynamic parameter estimations transition process Causal or non-causal temporal relationships | Fixed, stable parameter, structure estimation, time invaried, non-causal Direct relationship, Nonlinear or linear. Probabilistic time varied, Nonlinear or linear Direct or indirect relationship time course (I-III) | [23-30] [36-40] [31-35] [41, 42] [43]  |
+|  Statistical based
+Frequentist/classical
+Bayesian methods | Regression vector autoregressive (VAR) models, Curve fitting, spline methods, Granger causality Bayesian models (linear or nonlinear model), growth model | Parameter estimations, predictions, hypothesis testing, biomarker/target identifications Heterogeneity discovery | Explanatory relationship without prior knowledge, pure data based time course (I-III) or phenotype dependent (IV) With prior or empirical Knowledge, probabilistic | [35, 44, 45] [46] [41, 42, 47-57]  |
+Distance or correlation based
+Supervised classification with wrapper
+Feedback Forward NN, time recurrent NN, convolution NN, Bayesian NN | Subtypes, modular, and heterogeneity discovery, Pattern discovery and identification Dynamic changes and trajectories Complex relationship, structure | Time course (I-III) or phenotype dependent (IV) Without knowing the outcome, classes, Defined outcomes/classes conditional joint analysis Time varied or invariaed Nonlinear or linear Direct or indirect relationship, Explanatory or predictive time course (I-III) or phenotype dependent (IV) | [26-29] [58-66] [68-75]  |
+
+data analysis [25-28]. As an example, discrete Boolean networks are developed as probabilistic models of gene regulatory interactions. The corresponding networks are able to cope with uncertainty in order to discover the relative sensitivity of gene-gene interactions [26, 27]. These systems are non-linear and many advanced computational algorithms such as genetic algorithms and linear programming have been implemented for time courses of gene expression. Such types of deterministic interaction models can potentially provide valuable quantitative and mechanistic descriptions of gene activities that may be mediated by drugs and pharmacological agents. However, these traditional mathematical models have not incorporated the stochastic nature of biological process; the time delay or order information and they often treat the biological parameters as fixed values and model them in deterministic ways involved in the estimations.
+
+Singular value decomposition has also been developed for modeling the dynamics of microarray experimental data through matrix decomposition and eigenvalue analysis [29, 30]. The difficulties of these methods are the estimation of the dimensionality of large matrix with ill-posed problems due to large p small n. Dynamic matrix-variate graphical models have demonstrated promising results for dynamic genetic network constructions, have applied for identification of age-related patterns in a public, prefrontal cortex gene expression dataset [31-35]. Topology network and graph based multi-scale approaches decompose the network into subsystems (such as modules and pathways) utilizing various metric measures [7], which could be further used for predicting the specific functions or phenotypes.
+
+Stochastic paradigm treats the dynamic process of temporal change as a stochastic process and describes it as a probability system in time with uncertainty [36-40]. Examples of stochastic processes are Gaussian process, Markov process, and point process. The advantage of using a stochastic process is that it accounts for the temporal information in the model. The drawback is that it makes some assumptions to model the process, which may not be valid. Chen and colleagues (2005) combine the stochastic process with differential equation and developed a stochastic differential equation model for quantifying transcriptional regulatory network in Saccharomyces cerevisiae [39].
+
+State space model (dynamic linear models) and hidden Markov model are two important applications of statistical models combined with stochastic process techniques. State space model combines the stochastic process with the observation data model uniformly to model a continuous process for capturing the change of gene states [41]. Hidden Markov model can be used to model the gene activity systems in which the gene states are unobservable, discrete, but can be represented by a state transition structure determined by the state parameters and the state transition matrix while processing the patterns over time [42].
+
+State space models have greater flexibility in modeling non-stationary and nonlinear short time course data and were implemented and applied to genomic studies [41]. However, some existing algorithms for these models were based on standard Kalman filter methods, which rely on the linear state transitions and Gaussian errors. Perrin et al. used a penalized likelihood maximization implemented through an extended version of EM algorithm to learn the parameters of the model [43]. Rangel, et al. used classical crossvalidations and Bootstrap techniques and Beal et al. used variation approximations with linear time invariant Gaussian setting for constructions of the regulatory network [41].
+
+Statistical approaches: frequentist versus Bayesian methods
+
+The choice of statistical modeling approaches for temporal omics data depends on the features and types of the data (univariate (I), multivariate (II), cycling (III), phenotype dependent (IV), Fig. 3). The statistical approaches also depend on the scale of the observed outcomes (continuous, discrete: ordinal, binary) and the structure of the balanced or unbalanced data (i.e. diseases type with much more sample than the comparison sample). The associated analysis can be 1) analysis of univariate time course (I) in which each outcome/condition is analyzed separately; 2) Using a joint multivariate modeling strategy for time course II and III for a) assessing the relation between some covariate and all temporal outcomes simultaneously; b) studying how the association between the various temporal outcomes evolves over time; c) investigating the associations among the evolutions of all temporal outcomes and correlated phenotypes, (e.g. periodical or cycling expression data, time course IV).
+
+Moreover, they are also related to the way the association between and across outcomes is modeled (i.e. with or without latent variables); or how the effects of the variables are treated (random, fixed). So the related approaches can be categorized into classical frequentist inferential approaches (fixed effects), Bayesian models (random effects), or mixed of the classical inferential techniques and Bayesian model, which lead to mixed models [44, 45] (see Fig. 3).
+
+### Frequentist approaches
+
+Conventional time series techniques such as autoregressive or moving averaging models and Fourier analysis require stationary conditions, linearity for lower order autoregressive models, and uniformly spaced distributed time points, which are not present in short time course omic experiments and therefore are not suitable for unevenly spaced or distributed omic experiment [46, 47]. The repeated analyses of variances (ANOVA), Generalized estimation equation (GEE) or generalized linear mixed models have been applied to time course microarray data. They can model the nonlinear relations between genes, deal with the unevenly time spaced data, and may produce a good fit. But they do not fascinate prediction and may cause over-fitting problems. In addition they do not include the time order information. Functional data analysis methods have been applied to model the temporal data as linear combinations of basis functions (spines) [48, 49].
+
+### Bayesian methods
+
+The probability and confidence measures play important roles in omic temporal data not only due to the variations, high noise levels and experimental errors resident in the experiments but also the stochastic nature involved in the biological process. The Bayesian paradigm is very well suited for examining these features and other properties in the temporal data, such as highly correlated inputs (genes, time points) and phenotypes, missing data, and small sample size [50--56]. In Bayesian models, the parameters are assumed to be random variables and they are associated with some probability distribution, and the posterior probability of these parameters can be expressed as marginal distribution of those remaining parameters.
+
+Moreover, Bayesian approaches can account for the variability induced by the collection of models and construct credible intervals accounting for model uncertainty through investigating the impact of the choice of priors on model space. Then they can construct new search algorithms that take advantage of parallel processing with Markov Chain
+
+Monte Carlo (MCMC) algorithm. Bayesian approaches can be used in the case when there are more covariates than observations. Bayesian method is a hybrid generativediscriminative model that can add prior knowledge (such as distributions of the input) or encode the domain knowledge to improve the learning or training phases. Bayesian approaches can well capture linear, non-linear, combinatorial, and stochastic types of relationships among variables across multiple levels of biological organization and have been extensively applied for the time course gene expression study with various hierarchical settings [41, 42, 47-57].
+
+# Computer sciences approaches 
+
+## Machine learning: unsupervised learning versus supervised classifications
+
+Clustering analyses or unsupervised learning without class labels are the most commonly used methods for time course genomic experiments. These approaches are based on similarity or correlation or distance measures for identification of groups of genes with 'similar' temporal patterns of expression, which is a critical step in the analysis of kinetic data given the large number of genes involved [58-66]. Hierarchical clustering with heat map, principal component analysis with scatter plots, or dynamic Bayesian clustering (DBC) approaches are a few popular examples [26-28]. DBC can uncover the underlying temporal structure and enable cluster memberships to change for better understanding the development of complex biological organisms and systems [29].
+
+Supervised clustering or classification approaches incorporate known disease status or the prior known genomic knowledge (e.g., functional annotation tools or publications) as class labels for classifying the genomic temporal patterns and disease/health outcomes [66-70]. Support vector machines (SVM), generalized linear model, discriminant analysis, decision tree, random forest, or neural network are popular examples, which were applied to time course genomic experiments. Semi-supervised learning considers the problem of classification when only a small subset of the observations has corresponding class labels. Vibrational approximations or stochastic variational inference algorithm for semi-supervised learning have also been explored with the omics data and have shown an improved predictive accuracy for the disease/clinical outcomes [71, 72].
+
+## Discriminative compared with generative approaches
+
+Classification or supervised clustering approaches can be also distinguished as either generative versus discriminative models. Generative approaches learn the joint probability of inputs x (e.g., genes) and output class label y (e.g., normal versus disease status), then make prediction based on the conditional probability obtained through Bayes rules. Naïve Bayesian classifier is a simple example of generative approaches [73] while Bayesian or Gaussian mixture models are more sophisticated [55]; while discriminative approaches directly estimate the conditional probability and learn the direct mapping between the input x to class label y , which is preferred due to many compelling reasons, and a popular example is logistic regression model.
+
+Neural network (feed forward NN, convolutional NN, Bayesian NN) is popular computational approach for prediction problems, which can either apply discriminative or generative strategies [70, 71, 74]. Both unsupervised (i.e., self-organized map) and supervised NN (hierarchical Bayesian NN) have been applied to temporal genomic data for pattern/disease subtype discovery/identifications, or disease classifications/predictions.
+
+Neural network with traditional incremental learning and gradient descent algorithms have good classification performance, but such algorithms could be trapped by local minimum solutions when one optimizes a performance/score function, i.e., optimizing the expected reward or minimizing loss functions. In order to find the global optimal solution, recent developed deep learning approach on convolutional NN uses higher order derivative of score functions to obtain the higher order of moments for global optimizations that can handle the convex and local trap issues that may cause misclassifications [75].
+
+# Advanced network and module based approaches 
+
+The computational or statistical approaches for network construction include various levels such as transcriptional regulation network, metabolic network, protein-protein, and disease-drug-genes network [76-88]. Networks and module-based approaches reveal hidden patterns in the original unstructured data by transforming raw temporal data into logically structured, clustered, and interconnected graphs [89-95]. These graphs can be visualized with nodes representing genes, proteins and metabolites, and with edges indicating interactions, the potential causal relationships between biological entities (i.e., genes/proteins) or clusters that share similar molecular functions [96-103].
+
+For instance, weighted correlation network analyses identify modules/clusters of highly correlated transcripts, genes, proteins, metabolites [104, 105]. Bayesian network approaches utilize and integrate prior biological domain knowledge (e.g., biochemical pathways, biological processes) with omics data to estimate probabilistic interactions for pathway and biochemical ontology-based integration [106-112]. Friedman and coworkers have used static Bayesian networks, which are graph based models of joint multivariate probability distributions that assess conditional independence between variables. The network obtains simpler sub-models to describe gene interactions from micorarray data [113]. Kimm et al. developed an algorithm to identify interaction network and coupled it with non-parametric regression methods [64].
+
+Dynamic Bayesian networks (DBN) have been popular for learning and inferring the gene regulatory networks, which have been compared with Granger causality and probabilistic Boolean network [43, 106-109, 114-116]. DBN was also combined with other techniques such as Bayesian regularization in order to handle the non-homogeneous, nonstationary and gradually time-varying structure of time course omics data [106, 116].
+
+For examining the potential causal relationships and network structure, autoregressive models for gene regulatory network inference using time course data for sparsity, stability and causality were investigated [117]. Granger causality approach have been developed for genetic network constructions, and applied for measuring the predictive causality of temporal data [57, 114, 118-122]. Furqan and Siyal proposed the LASSO-based Elastic-Net Copula Granger causality for biological network modeling [118]. Their proposed method shows the merits of overcoming high dimensionality issues of ordinary least-squares methods and linear constraints. Marinazzo et al. (2015) propose a kernel Granger causality method for dynamical networks. They address both the nonlinearity (choosing the kernel function) and false causalities issues (selection strategy of the eigenvectors of a reduced Gram matrix). The results showed that the proposed method is a better choice than using L1 minimization methods [57]. However, Granger causality does not account for latent confounding effects and may not be able to capture instantaneous causal relationships [118, 119].
+
+To investigate the dynamic aspects of gene regulatory networks measured through system variables at multiple time points, Acerbi et al. (2014) proposed continuous time Bayesian networks for network reconstruction. They compared two state-of-the-art methods: dynamic Bayesian networks and Granger causality analysis [123]. Results showed that continuous time Bayesian networks were effective on networks of both small and large size, and were particularly feasible when the measurements were not evenly distributed over time. They applied to the reconstruction of the murine Th17 cell differentiation network, and revealed several autocrine loops, suggesting that Th17 cells may be auto regulating their own differentiation process.
+
+# Pathway and function integrative approaches 
+
+Two general categories for data integrations are either through meta-analysis (e.g., Venn diagram), which performs analysis for each individual dataset first, then combines the results; or mega-analysis, which combines the data first then conducts the analysis. No matter which strategy, for better interpretations and visualization purposes, pathway and functional analysis need be conducted. The pathway based analysis move to next level of analysis (complementary to the DAVID and KEGG) to define how the selected individually regulated genes, transcripts, or metabolites interact as parts of complex pathways, such as signaling, metabolic pathways based on known knowledge and published literature [124-126].
+
+For instance, using Ingenuity Pathway Analysis software (http://www.ingenuity.com/) that computes a score for each network according to the fit of the network, one can select a cut-off score of 3 for identifying gene networks significantly affected by the specific gene or genotypes. This score indicates that there is a $1 / 1000$ chance that the genes are in a network due to random chance and therefore, scores of 3 or higher have a $99.9 \%$ confidence of not being generated by random chance alone. Then one may compare the selected pathways and networks between DEG lists obtained from individual comparisons (allele carrier vs. not) to find the common and unique pathways between each compartment. These comparisons will indicate the difference of specific genes at the pathway level in addition to our biological process and molecular function analyses, pinpointing the relationship among potential candidate driver genes, chromosomal abnormalities, and pathways.
+
+However, biological pathways are inherently complex and dynamic, pathway annotations in different pathway databases vary significantly in pathway models and in a number of other aspects. For instance, specific protein forms, dynamic complex formation, subcellular locations, and pathway cross talks. Interpretation of pathway mapping results from the fact that pathway annotations currently take little consideration of tissue/urine/serum specificities of genes or proteins in the pathway, thus, specific steps of a pathway may not be actually active in tissues/cells from which the data may be generated which is a limitation.
+
+Further function over-representation analysis through the Database for Annotation, Visualization and Integrated Discovery (DAVID; https://david.ncifcrf.gov) identify modules and entities that are enriched and statistically significant over-representation of particular functional categories and major gene/metabolites groups/families [83, 84, 127-129]. Combining with other enrichment and function analysis can facilitate biological interpretation to interrogate complex biological systems for more accurate P4 outcomes [85, 130].
+
+Applications, software, resources
+
+DREAM (The Dialogue for Reverse Engineering Assessment and Methods project (http://www.the-dream-project.org/) provided excellent examples for temporal omics data sets that involve various most updated biomedical challenge questions (e.g. regulatory network inference, causal inferences, dynamic trajectory predictions) through multiple team competitions [16, 17, 86, 118, 119, 131, 132]. For instance, in DREAM 8 (breast cancer network inference challenge), four breast cancer cell lines were stimulated (under inhibitor perturbations) with eight ligands, which comprised of protein abundance time-courses (from 0 min, to, 5, 15, 30, 60, 120, 240 min) for inferring causal signaling networks and predicting trajectory of protein phosphorylation dynamics in cancer [131]. Inferring a causal network is extremely challenging, which significantly differs from association or correlation network. Constructing the dynamical models that can predict trajectories under specific biological perturbations lead to different signaling responses in different backgrounds is also nontrivial task. Results suggest that learning causal relationships may be feasible in complex settings, such as disease states and incorporating known biology was generally advantageous. For drug prediction challenge, the hybrid, Bayesian multitask approaches, which combines nonlinear regression, multiview learning, multitask learning and Bayesian inference (using prior biological knowledge) has showed best performance for predicting drug response based on a cohort of genomic, epigenomic and proteomic profiling data sets measured in human breast cancer cell lines [132].
+
+Furqan and Siyal (2016) utilized silico temporal gene expression data sets from DREAM4 for inferring network structures and predicting the response of the networks to novel perturbations in an optional “bonus round” [118]. They proposed bidirectional Random Forest Granger causality using the random forest regularization together with the idea of reusing the time series data by reversing the time stamp to extract more causal information. The ensembing approach was applied to HeLa cell dataset to map gene network involved in cancer [119]. From another study, Marinazzo et al. applied Kernel Granger causality using the same data set with 94 genes and 48 time points. Results showed evidence of 19 causal relationships, all involving genes related to tumor development [57].
+
+Eren et al. (2015) developed an advanced automated and human-guided characterization and visualization platform for microbial genomes in metagenomic assemblies. The platform has interactive interfaces that can link omics data from multiple sources into a single, intuitive display [87]. The software includes multi-levels from data preprocessing (i.e. merging, profiling), to unsupervised and supervised learning, hidden Markov model for metagenomics shot read RNA-seq data. They analyzed time course infant gut metagenomes data set (at days 15--19 and 22--24 after birth), and explored temporal genomic changes within naturally occurring microbial populations through de novo characterization of single nucleotide variations. They also linked those with cultivar and single-cell genomes with metagenomic and metatranscriptomic data. They identified systematic emergence of nucleotide variation in an abundant draft genome bin in an infant's gut. Other applications to different common disease and health conditions by integrations of temporal omics data ranged from single cell analysis to multiple tissues/organs and have been extended by leveraging to social environmental interactions [88, 133--147].
+
+The most popular software packages for conducting computations are omics data are the Bioconductor from R, toolboxes from Matlab, Genomics from SAS/JMP. In
+
+addition, C++, Visual Basic, Python, Java, and JavaScript, WinBugs are often used programming languages for developing various types of analytic, visualization tools, pipelines [148-155]. For instance, Bioconductor and R include more than 1290 packages extending the basic functionality of R or connect R to other software, which conduct various types of omics data analysis discussed in section II. More importantly, those packages can incorporate the correlation analysis with other types of relationships such as biochemical reactions and molecular structural and mass spectral similarity (MetaMapR).
+
+In addition, they provide a dynamic interface (Grinn) to integrate gene, protein, and metabolite data using more advanced biological-network-based approaches such as Gaussian graphical models, partial correlation and Bayesian networks for omics data integration (glasso, qpgraph). For instance, time-vaRying enriCHment integrOmics Subpathway aNalysis tOol (CHRONOS) is an R package built to extract regulatory subpathways along with their miRNA regulators at each time point based on KEGG pathway maps and user-defined time series mRNA and microRNA (if available) expression profiles for microarray experiments [156, 157]. It can assist significantly in complex disease analysis by enabling the experimentalists to shift from the dynamic to the more realistic time-varying view of the involved perturbed mechanisms. NSPEcT is based on differential equation that describes the process of synthesis and processing of pre-mRNA and the degradation of mature mRNA. It's a package used for estimation of total mRNA levels, pre-mRNA levels, and degradation rates over time for each gene (from time course RNA-seq) [158]. Furthermore, NSPEcT can test different models of transcriptional regulation to identify the most likely combination of rates explaining the observed changes in gene expression.
+
+Some popular interaction and network analysis resources and databases for biological systems resulted from literatures including IntAct, BioGRID, and MINT. Other network construction software could be useful such as Genetic Network Analyzer (GNA), which is a computer tool for modeling and simulation of gene regulatory networks. GNA allows the dynamics of a gene regulatory network to be analyzed without quantitative information on parameter values, analyzing its dynamical behavior in a qualitative way [159]. For efficient and fast learning the network, Dojer et al. and Wilczyński designed faster Bayesian network learning algorithms and software [160, 161]. Ingenuity Pathway Analysis demonstrates that a module and network based analysis leads to more significant functional enrichment results than a standard analysis based on differential analysis. Table 2 provides some popular platform, software and database links for various types of temporal omics data ranged from fundamental data preprocessing, to immediate analysis to advanced network and pathway and integration analysis.
+
+## Discussion
+
+Learning and integrating dynamic omics temporal data and gene-protein-disease-drug/ treatment correlation, interdependence and causal networks between hybrid systems may improve our understanding of system-wide dynamics and errors of pharmacological and biomedical agents and their genetic and environmental modifiers. Most available dynamic approaches and existing applications focus on the genomic time course data, but the same techniques or methodologies can be extended and employed to various types of omics data (such as metagenomics) with the applications to other biological networks and pathways. For instance, RNA-Seq data has revealed far more about the transcriptome than
+
+Table 2: Temporal omic data software, libraries and packages, tools and web resources ranged from fundamental data preprocessing, immediate analysis to advanced network and pathway and integration analysis
+
+
+Table 2 Temporal omic data software, libraries and packages, tools and web resources ranged from fundamental data preprocessing, immediate analysis to advanced network and pathway and integration analysis (Continued)
+
+
+microarrays, primarily because analysis is not limited to known genes. This opens possibly for splicing analysis, analyzing differential allele expression, variant detection, alternative start/stop, gene fusion detection, RNA editing and eQTL mapping.
+
+Either from computational complexity or clinical reproducibility point of view, one cost effective resolutions and future directions would be develop more intelligent AI based data integrations, learning and automations with hierarchical ensemble approaches, not just connectivity. With efficient multi-task learning algorithms (with automatic reasoning and consensus predictions with boosts and bagging) embedded into multilayer computational automated ensemble model systems with pipelines, the latent component of correlated biological entities can be divided and the key components/pathway or elements can be captured through utilizing continuously arriving, evolving, temporal omics data. Investigating the causality rather than the association among various biological entities ranging from RNA, microRNA, DNA, gene, protein, disease, and drug in an integrative perspective would be important, to which relative a few integrative efforts have been dedicated so far.
+
+To overcome other bottleneck issues for omics data that may partially arisen from the biomedical systems' complexity, that encompasses biological/genetic, behavioral, psychosocial, societal, environmental, systems-related, ethical and other intertwined factors. Further incorporations of electronic health records linked to behavioral, psychosocial, societal, environmental, and clinical lab measures with temporal omics data in hierarchical ensemble automated system will provide us more interpretable and reproducible scientific results and practical clinical decision making for P4 patient outcomes.
+
+# Acknowledgements 
+
+Not applicable.
+
+## Funding
+
+Not applicable.
+
+## Availability of data and materials
+
+Data sharing not applicable to this article as no datasets were generated or analysed during the current study.
+
+## Authors' contributions
+
+Both authors contributed to all aspects of this research. All authors read and approved the final manuscript.
+
+## Authors' information
+
+About the Authors
+Yulan Liang is an associate professor at the University of Maryland. She holds a Ph.D. in biostatistics. She published extensively in the biostatistics, bioinformatics, statistical genomics and methodological fields for biomedical research with applications to common diseases and health conditions.
+Arpad Kelemen is an associate professor of informatics at the University of Maryland. He holds a Ph.D. in computer science. He published extensively in biomedical informatics, health informatics, and computer science, primarily about software design, development, application, evaluation, and usability.
+
+## Competing interests
+
+The authors declare that they have no competing interests.
+
+## Consent for publication
+
+Not applicable.
+
+## Ethics approval and consent to participate
+
+Not applicable.
+
+## Publisher's Note
+
+Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+# Author details 
+
+${ }^{1}$ Department of Family and Community Health, University of Maryland, Baltimore, MD 21201, USA. ${ }^{2}$ Department of Organizational Systems and Adult Health, University of Maryland, Baltimore, MD 21201, USA.
+
+Received: 6 November 2016 Accepted: 2 June 2017
+Published online: 17 June 2017
+
+# Submit your next manuscript to BioMed Central and we will help you at every step: 
+
+- We accept pre-submission inquiries
+- Our selector tool helps you to find the most relevant journal
+- We provide round the clock customer support
+- Convenient online submission
+- Thorough peer review
+- Inclusion in PubMed and all major indexing services
+- Maximum visibility for your research
+
+Submit your manuscript at www.biomedcentral.com/submit
+(1) BioMed Central

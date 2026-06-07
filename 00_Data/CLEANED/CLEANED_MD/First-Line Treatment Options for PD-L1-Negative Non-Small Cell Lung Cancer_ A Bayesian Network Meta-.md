@@ -1,0 +1,175 @@
+# First-Line Treatment Options for PD-L1-Negative Non-Small Cell Lung Cancer: A Bayesian Network Meta-Analysis 
+
+Ling Peng ${ }^{1 \dagger}$, Wen-Hua Liang ${ }^{2 \dagger}$, De-Guang Mu ${ }^{1}$, Song Xu ${ }^{3}$, Shao-Dong Hong ${ }^{4}$, Justin Stebbing ${ }^{3}$, Fei Liang ${ }^{5 *}$ and Yang Xia ${ }^{7 *}$<br>${ }^{1}$ Department of Respiratory Disease, Zhejiang Provincial People's Hospital, Hangzhou, China, ${ }^{2}$ National Clinical Research Center for Respiratory Disease, The First Affiliated Hospital of Guangzhou Medical University, Guangzhou, China, ${ }^{3}$ Department of Lung Cancer Surgery, Lung Cancer Institute, Tianjin Medical University General Hospital, Tianjin, China, ${ }^{4}$ Department of Medical Oncology, Sun Yat-sen University Cancer Center, Guangzhou, China, ${ }^{5}$ Division of Cancer, Department of Surgery and Cancer, Imperial College London, London, United Kingdom, ${ }^{6}$ Department of Biostatistics, Zhongshan Hospital, Fudan University, Shanghai, China, ${ }^{7}$ Department of Respiratory and Critical Care Medicine, The Second Affiliated Hospital, School of Medicine, Zhejiang University, Key Laboratory of Respiratory Disease of Zhejiang<br>Correspondence:<br>Yang Xia<br>yxia@zju.edu.cn<br>Fei Liang<br>liangfei0726@163.com<br>${ }^{1}$ These authors have contributed equally to this work
+
+Specialty section:
+This article was submitted to Thoracic Oncology, a section of the journal Frontiers in Oncology
+Received: 23 January 2021
+Accepted: 04 June 2021
+Published: 23 June 2021
+Citation:
+Peng L, Liang W-H, Mu D-G, Xu S, Hong S-D, Stebbing J, Liang F and Xia Y (2021) First-Line Treatment Options for PD-L1-Negative NonSmall Cell Lung Cancer: A Bayesian Network Meta-Analysis. Front. Oncol. 11:657545. doi: 10.3389/fonc.2021.657545
+
+Background: First-line treatment strategies for programmed death-ligand 1 (PD-L1) negative non-small cell lung cancer (NSCLC) patients include chemotherapy and combination with anti-angiogenesis drugs and/or immune checkpoint inhibitor. We conducted a Bayesian network meta-analysis to evaluate the efficacy of these therapeutic options.
+Methods: We included phase III randomized controlled trials comparing two or more treatments in the first-line setting for NSCLC, including data in PD-L1-negative patients. First-line strategies were compared and ranked based on the effectiveness in terms of overall survival (OS) and progression-free survival (PFS). A rank was assigned to each treatment after Markov Chain Monte Carlo analyses.
+Results: Fourteen trials involving 14 regimens matched our eligibility criteria. For OS, none of the treatment were significantly more effective than chemotherapy. Nivolumab plus ipilimumab plus chemotherapy was probably the best option based on analysis of the treatment ranking (probability $=30.1 \%$ ). For PFS, nivolumab plus chemotherapy plus bevacizumab, atezolizumab plus chemotherapy plus bevacizumab, and atezolizumab plus chemotherapy were statistically superior to chemotherapy in pairwise comparison. Nivolumab plus chemotherapy plus bevacizumab was likely to be the preferred option based on the analysis of the treatment ranking (probability $=72.9 \%$ ).
+Conclusions: Nivolumab plus chemotherapy, in combination with angiogenesis inhibition or anti-cytotoxic T-lymphocyte-associated antigen 4 (CTLA-4), had maximal benefits for NSCLC patient of PD-L1-negative expression. These findings may facilitate individualized treatment strategies. Safety at an individual patient level should be considered in decision making. Further validation is warranted.
+
+Keywords: programmed death-ligand 1, non-small cell lung cancer, immune checkpoint inhibitor, network meta-analysis, immunotherapy
+
+# INTRODUCTION 
+
+Non-small cell lung cancer (NSCLC) accounts for $\sim 85 \%$ of all lung cancer cases, and the prognosis for patients with advanced/metastatic NSCLC remains limited (1). Platinum-based chemotherapy has long been the first-line treatment of choice for advanced NSCLC patients who do not harbor activating driver mutations. Checkpoint blockade has led to a paradigm shift in the treatment landscape of NSCLC, making long-term survival possible (2).
+
+Thus far, several effective first-line systemic treatment options have been shown to be effective in advanced NSCLC. Programmed death-ligand (PD-L1) expression on tumor or immune cells emerged as the first potential predictive biomarker for the sensitivity to immune checkpoint blockade and patient stratification (3). For NSCLC patients with PD-L1 expression in $\geq 50 \%$ of tumor cells, pembrolizumab confers a superior progressionfree survival (PFS) and overall survival (OS) compared with platinum-doublet chemotherapy in the first-line setting (4). For PD-L1 expression of $1 \%$ to $49 \%$, programmed death-1 (PD-1) or PD-L1 inhibition has been shown to be comparable to chemotherapy $(5,6)$. In contrast, for patients with negative PD-L1 expression, no definite optimal therapeutic strategy has been defined. Most importantly, this group accounts for about half of the whole NSCLC patient population (7). A lack of head-to-head randomized controlled trials (RCTs) comparing chemotherapy, anti-angiogenesis drugs, and immunotherapies leaves uncertainty regarding optimal first-line treatment for advanced NSCLC patients with negative PD-L1 expression.
+
+Network meta-analysis offers the unique opportunity to perform indirect comparisons between treatments never directly compared in RCTs but compared to a common treatment, as well as to rank multiple treatments (8). The present study aims to probe optimal therapeutic management with advanced NSCLC with negative PD-L1 expression.
+
+## MATERIALS AND METHODS
+
+## Search Strategy
+
+A literature search was performed using databases including PubMed, Embase, and Cochrane databases. The upper date limit of October 30, 2020, was applied, with no lower date limit. Our search strategy included the following Medical Subject Headings (MeSH) terms and keywords: "NSCLC", "(advanced) or (metastatic) or (stage IV)", "(first-line) or (untreated) or (frontline)". Searches were performed using the filter "clinical trial" or "study" or "investigation" or "phase 3". We also reviewed abstracts and presentations from conference proceedings, including American Society of Clinical Oncology (ASCO), World Conference on Lung Cancer (WCLC), European Society for Medical Oncology (ESMO), European Lung Cancer Conference (ELCC), and American Association for Cancer Research (AACR). To ensure that no RCTs were missing, reference lists of published reviews, meta-analyses, and included RCTs were manually checked, and www.clinicaltrials.gov was searched.
+
+## Study Selection
+
+Eligibility criteria for inclusion in this meta-analysis were as follows: (1) prospective phase III RCTs in patients with advanced NSCLC who had received no previous treatment for metastatic disease; (2) English language; (3) data available regarding PD-L1 expression negative population; and (4) in cases of duplicate
+![img-0.jpeg](img-0.jpeg)
+
+FIGURE 1 | Selection process for the trials included in the meta-analysis. PRISMA diagram. NSCLC, non-small cell lung cancer; RCT, randomized-controlled trial.
+
+publications, only the most recent and updated report of the clinical trial were also included. Review articles, non-randomized trials, and observational studies, non-English studies were excluded from the analysis. The selection process is shown in Figure 1.
+
+Articles that could not be categorized based on title and abstract alone were retrieved for full-text review. Disagreements were resolved by consensus between the authors. To determine the issue of multiple publications from the same data sets, we confirmed clinical trial information, such as the trial number and the period of patient recruitment of the articles. We also assessed the eligibility of the articles and abstracts identified by the search, and discrepancies were resolved by consensus. Study quality was assessed using the Jadad five-item scale, which takes into account randomization, double blinding, and withdrawals. The final score ranged from 0 to 5 (9).
+
+# Data Extraction 
+
+The meta-analysis was performed based on outcomes coming from the included studies. Data were extracted from eligible studies, which include the following items: study name, year of publication, source of publication, histology, number of patients, treatment arm and control arm, hazard ratio (HR), and 95\% confidence intervals (CIs) of PFS and OS. In the case of trials that did not report PD-L1 expression subgroup, we reviewed each published trial's supplementary material. If data from any of the above categories were not reported in the study, items were treated as NR (not reported). The primary variables of interest were HRs with $95 \%$ CIs for OS or PFS.
+
+## Statistical Analysis
+
+All calculations were performed using R (version 4.0.2) and STATA (version 14.0, Stata Corp LP, College Station, TX). OS and PFS were treated as time-to-event variables; therefore, these parameters were expressed as HR and $95 \%$ CI for each study. The primary endpoints of this network meta-analysis were the HRs for OS and PFS in PD-L1-negative patients. The Bayesian network meta-analysis (NMA) used a non-informative uniform prior to distribution to the parameters. For each outcome, three Markov chains with different starting values, generated using the method described by Gelman and Rubin were run in parallel for 100,000 iterations to obtain the posterior distribution. We used 10,000 burn-ins and a thinning interval of 10 for each chain. The model fit of each analysis was assessed by deviance information criterion (DIC) (10). Result heterogeneity across studies was evaluated with Cochrane's Q statistic and quantified with the inconsistency statistic $\left(I^{2}\right)$. Statistical significance was considered at $p$ less than 0.05 , and heterogeneity was considered low, moderate, or high for $I^{2}$ values under $25 \%$, between $25 \%$ and $50 \%$, and over $50 \%$, respectively (11). Effect sizes for the Bayesian network meta-analysis were described with $95 \%$ credible interval (CrL), the Bayesian equivalent of $95 \%$ CIs. Relative ranking of OS and PFS was presented as the probabilities. The probability of each regimen being the best among all regimens was computed by ranking the relative efficacies of all regimens in each iteration and then calculating the proportion of each regimen being ranked first across all iterations, which equals to 1 when a treatment is certain to be the best and 0 when a treatment is certain to be the worst.
+
+TABLE 1 | Main characteristics and results of the eligible studies.
+
+
+Summary table of studies included in the meta-analysis.
+OS, overall survival; PFS, progression-free survival; CI, confidence interval; CT, chemotherapy; Atezc, atezolizumab; Bex, bevacizumab; Nivo, nivolumab; Ipi, ipilimumab; Pembro, pembrolizumab; Carem, caremilizumab; Dunia, durvalumab; Treme, tremelimumab; Tisle, tisleizumab; Sinti, sintilimab; NR, not reported.
+
+# RESULTS
+
+## Study Selection and Characteristics
+
+We found 4,125 potentially relevant articles. After initial exclusion of irrelevant, duplicate, and non-randomized studies, 14 original studies were considered eligible for the meta-analysis (**Figure 1**). The major baseline characteristics of the 14 eligible studies were represented in **Table 1**. Ten studies were double-arm design, whereas the remaining four referring three-arms. Overall, there were 14 different treatment strategies: chemotherapy, chemotherapy plus bevacizumab, atezolizumab plus chemotherapy, atezolizumab plus chemotherapy plus bevacizumab, nivolumab plus chemotherapy, nivolumab plus ipilimumab, nivolumab plus ipilimumab plus chemotherapy, nivolumab plus chemotherapy plus bevacizumab, pembrolizumab plus chemotherapy, caremilizumab plus chemotherapy, durvalumab, durvalumab plus tremelimumab, tislezumab plus chemotherapy, and sintilimab plus chemotherapy.
+
+Studies were chosen and systemically reviewed in accordance with the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) statement (26). Similarity was evaluated by reviewing characteristics of the trials with respect to any of those characteristics that are potential treatment effect modifiers, assuring validity of making indirect comparisons. It was impossible to calculate the Jadad's score for 2 of the studies (RATIONALE-304 and ONO-4538-52), which have not yet been published at the time of the analysis. The Jadad's score was evaluated for the rest 12 studies with scores ranging from 3 to 5.
+
+![img-1.jpeg](img-1.jpeg)
+
+**FIGURE 2** | Network plot for effectiveness of 10 and 9 different treatment modalities for patients with PD-L1–negative expression for OS (**A**) and PFS (**B**), respectively. Circles represent the intervention as a node in the network and their size is proportional to the number of included studies; lines represent direct comparisons within the frame of randomized clinical trials (RCTs); the line thickness indicates the number of RCTs included in each comparison. CT, chemotherapy; Atezo, atezolizumab; Bev, bevacizumab; Nivo, nivolumab; Ipi, ipilimumab, Pembro, pembrolizumab; Carem, caremilizumab; Durva, durvalumab; Treme, tremelimumab; Tisle, tislezumab; Sinti, sintilimab; NR, not reported.
+
+![img-2.jpeg](img-2.jpeg)
+
+**FIGURE 3** | Forest plots showing OS (**A**) and PFS (**B**) hazard ratio analyses. Efficacy of 10 and 11 treatment modalities for OS and PFS, respectively. Outcome measure: hazard ratio (HR). PrI, predictive interval; CT, chemotherapy; Atezo, atezolizumab; Bev, bevacizumab; Nivo, nivolumab; Ipi, ipilimumab; Pembro, pembrolizumab; Carem, caremilizumab; Durva, durvalumab; Treme, tremelimumab; Tisle, tislezumab; Sinti, sintilimab; NR, not reported.
+
+### Network Meta-Analysis of OS
+
+Eight studies provided HR values for OS. The comparisons between treatments were shown by network plot (Figure 2). The forest plot of OS for pairwise comparison results were presented in Figure 3. In pairwise comparison, compared with chemotherapy, none of the treatments had a significant lower hazard risk of OS. The results providing indirect comparisons between treatments are presented in Figure 4, with none of the treatments performing significantly better than other treatment regimen in terms of OS. Comparative efficacy of treatments for OS based on treatment ranking was shown in Figure 5 and Table 2, among which, combination of nivolumab and ipilimumab and chemotherapy was the most possible therapy to be ranked as first for OS (probability = 30.1%), nivolumab plus ipilimumab ranked the second (probability = 22.4%), and pembrolizumab plus chemotherapy ranked the third (probability = 18.8%). Comparing the DIC between the consistency and inconsistency models suggests that the consistency model has a similar fit to the data with inconsistency model (21.35 vs. 21.39). The overall heterogeneity assessment of the results showed that the heterogeneity was low for OS (I^{2} = 0%).
+
+### Network Meta-Analysis of PFS
+
+As for PFS, there were nine studies reported the HR values (Figure 2). As shown in Figure 3, nivolumab plus chemotherapy plus bevacizumab (HR, 0.34; 95% CrI, 0.12--0.89), atezolizumab plus chemotherapy plus bevacizumab (HR, 0.47; 95% CrI, 0.22--0.97), and atezolizumab plus chemotherapy (HR, 0.67; 95% CrI, 0.45--0.95) were statistically superior to chemotherapy in pairwise comparison. Indirect comparison results were illustrated in Figure 4, with nivolumab plus chemotherapy plus bevacizumab, atezolizumab plus chemotherapy plus bevacizumab, and atezolizumab plus chemotherapy have better PFS than chemotherapy. The probabilities of rank plot (Figure 5 and Table 2) were as follows: combination of nivolumab, chemotherapy, and bevacizumab was most likely to be the best regimen (probability = 72.9%), atezolizumab plus chemotherapy plus bevacizumab ranked the second (probability = 11.9%). The DIC between the consistency and inconsistency models suggests that the consistency model has a similar fit to the data inconsistency model (27.05 vs. 27.06). The overall heterogeneity assessment of the results showed that the heterogeneity was low for PFS (I^{2} = 22.1%).
+
+### DISCUSSION
+
+The PD-L1 axis is regulated by different stimuli through multiple levels, including genomic, transcriptional, post-transcriptional, translational, and post-translational levels (27). PD-L1 expression has been proposed as distinct biomarker of response to PD-(L)1 inhibitor. In NSCLC, PD-L1 expression is highly variable and is associated with distinct clinicopathologic and genomic features (28). Clinical studies in NSCLC have
+
+
+
+FIGURE 4 | Comparative efficacy of treatments for OS (A) and PFS (B) in network meta-analysis. Comparisons should be read from left to right. HR (95% credible interval) for comparisons is in cells in common between column-defining and row-defining treatment. Bold cells are significant. HR >1 favors row-defining treatment, and HR <1 favors column-defining treatment. CT, chemotherapy; Atezo, atezolizumab; Bev, bevacizumab; Nivo, nivolumab; Ipi, ipilimumab; Pembro, pembrolizumab; Carem, caremilizumab; Durva, durvalumab; Treme, tremelimumab; Tisle, tisleizumab; Sinti, sintilimab; NR, not reported.
+
+![img-3.jpeg](img-3.jpeg)
+
+FIGURE 5 | Ranking probabilities based on the multiple comparisons on OS (A) and PFS (B) in NSCLC patients with PD-L1-negative expression. CT, chemotherapy; Atezo, atezolizumab; Bev, bevacizumab; Nivo, nivolumab; Ipi, ipilimumab; Pembro, pembrolizumab; Carem, caremilizumab; Durva, durvalumab; Treme, tremelimumab; Tisle, tislezumab; Sinti, sintilimab; NR, not reported.
+
+demonstrated that PD-L1 expression on tumor and/or immune cells has a positive correlation with the efficacy of anti-PD-(L)1 therapy. A real-world EXPRESS study evaluated the PD-L1 expression profile in locally advanced or metastatic NSCLC, revealing that PD-L1-negative patients account for about 40% to 53% (7). Efficacies of PD-(L)1 blockade treatment in patients that are PD-L1 positive or negative are significantly different (29). Here, our analysis is designed to answer the open question of the optimal therapeutic management in advanced NSCLC with negative PD-L1 expression.
+
+The expression of PD-L1 can be classified into constitutive and inducible expression depending on the extrinsic or intrinsic stimuli (30). Constitutive expression is dependent on cell genomics, while inducible PD-L1 expression is dependent on exposure of cells to cytokines, such as IFNγ, TNFα, IL-1α, and IL-1β *via* TLRs or IFN receptors (31). PD-L1-negative expression of a tumor is sometimes considered as the tumor being "cold" to use a somewhat colloquial term (32). The absence of PD-L1 expression on tumor cells might, for example, indicate impaired IFN-γ-signaling (33). By turning "cold" tumors to "hot", combination strategies emerge, which involve different immune checkpoint inhibitors (ICIs) with chemotherapy, antiangiogenesis, and other new classes drugs or, for example, oncolytic viruses (34).
+
+The 14 treatment modalities in our meta-analysis for PD-L1-negative NSCLC can be categorized into seven types:
+
+Table 2: Ranking probabilities of different first-line treatment strategies for PD-L1--negative NSCLC patients.
+
+OS, overall survival; PFS, progression-free survival; CT, chemotherapy; Atezo, atezolizumab; Bev, bevacizumab; Nivo, nivolumab; Ipi, ipilimumab; Pembro, pembrolizumab; Carem, caxemlizumab; Durva, durvalumab; Treme, tremelimumab; Tale, tislezumab; Sinti, sintilimab; NR, not reported.
+
+chemotherapy, chemotherapy plus angiogenesis inhibition, mono anti-PD-(L)1, anti-PD-(L)1 plus chemotherapy, anti-PD-(L)1 plus anti-cytotoxic T-lymphocyte--associated antigen 4 (CTLA-4), anti-PD-(L)1 plus anti-CTLA-4 plus angiogenesis inhibition, and anti-PD-(L)1 plus anti-CTLA-4 plus chemotherapy.
+
+Chemotherapy was previously considered to be immunosuppressive, whereas cytotoxic drugs may also exert an immunomodulatory role in NSCLC and other solid tumors (35). A recent pooled analysis of three randomized trials assessing PD-L1--negative patients receiving pembrolizumab with chemotherapy combination strategy confirmed a clinically meaningful benefit improvement (36). The inclusion of HR from phase II studies might influence the results; therefore, only phase III trials were included in this analysis, leaving phase II KEYNOTE-021G trial (37) ineligible for our analysis.
+
+The rationale for combining anti-angiogenesis drug with ICIs rests in aspects, including immuno-metabolism and tumor microenvironment (38), which leads to a synergistic effect. Therapeutic regimens of chemotherapy with anti-angiogenesis drugs, such as ECOG-4599 (39), BEYOND (40), were not included in the network meta-analysis because of lack of PD-L1 expression status. In the IMpower150 trial, ACP (atezolizumab plus chemotherapy) and BCP (bevacizumab plus chemotherapy) had similar outcomes for the PD-L1--negative population (15).
+
+Another combination choice for PD-(L)1 inhibitor is the combination of a CTLA-4 inhibitor, as used by CheckMate 227. Anti-PD-1 and anti--CTLA-4 dual blockade offers a “chemo-free” choice for PD-L1--negative patients. Dual blockade of CTLA-4 and PD-1 therapy is sufficient to induce unique cellular responses compared with either monotherapy, which has been proven in preclinical studies (41). However, the toxicity of adding another ICI to a PD-(L)1 inhibitor leads to more toxicity (42). In our network meta-analysis, we have no data for toxicity regarding PD-L1--negative patients receiving different treatment strategies. However, based on a previous meta-analysis, combination with CTLA-4 inhibitor might lead to more toxicities (42).
+
+For OS and PFS, based on treatment ranking probabilities, nivolumab plus chemotherapy plus ipilimumab/bevacizumab ranked first, respectively. However, nivolumab plus chemotherapy plus ipilimumab (CheckMate 9LA) did not report PFS subgroup data regarding PD-L1--negative patients, whereas nivolumab plus chemotherapy plus bevacizumab (ONO-4538-52) did not report OS data in PD-L1 negative patients. These subgroup data are missing and will thus impact the result of network meta-analysis comparison. Although these four-drug combinations prevailed in survival than the other regimens by ranking probability, more toxicities might also occur in four-drug combinations. In CheckMate 9LA trial, three times of treatment-related adverse events (TRAEs) of nivolumab plus ipilimumab plus two cycles of chemotherapy than control arm render a four-drug combination, an option for PD-L1 negative patients but may not be the standard of care.
+
+Our meta-analysis has several limitations. First, there were no clinical trials investigating only PD-L1--negative NSCLC patients. Therefore, data were derived from subgroup analysis of each primary study, and none of these trials were powered to detect the difference in OS or PFS in the PD-L1--negative subgroup, which explained why none of the treatment were significantly more effective in OS than chemotherapy. Some of the trials did not report OS, making comparisons not identical between PFS and OS. Second, the antibodies using to detect PD-L1 expression varied in different trials. Spatial and temporal heterogeneity of PD-L1 expression and different test platforms have made PD-L1 an imperfect biomarker. However, PD-L1 expression especially in tumor cells is currently the most widely used biomarker in patient stratification. Third, we have no access to toxicity data for patients with PD-L1--negative expression, and such expression is often heterogenous (43). Balancing the benefit/risk to a specific patient population is always challenging (44).
+
+In summary, our meta-analysis is the first study to systematically investigate the treatment options for PD-L1--negative patients of NSCLC. In the absence of an RCT directly comparing first-line treatment options for NSCLC of PD-L1--negative expression, our findings suggest that two combined therapies, nivolumab plus ipilimumab plus chemotherapy, and nivolumab plus chemotherapy plus bevacizumab, both appear the most effective therapeutic strategies for this patient population in terms of OS and PFS, respectively. Further research, particularly phase III RCTs comparing treatment options in PD-L1--negative patients are required.
+
+## DATA AVAILABILITY STATEMENT
+
+The original contributions presented in the study are included in the article/supplementary material. Further inquiries can be directed to the corresponding authors.
+
+## AUTHOR CONTRIBUTIONS
+
+YX and FL had full access to all the data in the study and takes responsibility for the integrity of the data and the accuracy of the data analysis. YX, WHL, and LP participated in the concept and design. All authors participated in the acquisition, analysis, or interpretation of data. All authors participated in the drafting of the manuscript. All authors participated in the critical revision of the manuscript. LP, FL, and YX participated as the administrative, technical, or material support. YX and FL participated in the supervision. All authors contributed to the article and approved the submitted version.
+
+## FUNDING
+
+This study was partially supported by Natural Science Foundation of Zhejiang Province, China (grant LY19H160041). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.
+
+## ACKNOWLEDGMENTS
+
+We are grateful to the authors of the primary studies.
+
+Randomized Phase III Trial. J Thorac Oncol (2020) 15(8):1351-60. doi: 10.1016/j.jtho.2020.03.028
+14. Nishio M, Barlesi F, West H, Ball S, Bordoni R, Cobo M, et al. Atezolizumab Plus Chemotherapy for First-Line Treatment of Nonsquamous NSCLC: Results From the Randomized Phase 3 IMpower132 Trial. J Thorac Oncol (2021) 16(4):653-64. doi: 10.1016/j.jtho.2020.11.025
+15. Socinski M, Mok TSK, Nishio M, Jotte RM, Cappuzzo F, Orlandi F, et al. Impower150 Final Analysis: Efficacy of Atezolizumab (Atezo) + Bevacizumab (Bev) and Chemotherapy in First- Line (1L) Metastatic Nonsquamous (Nsq) Non-Small Cell Lung Cancer (NSCLC) Across Key Subgroups. AACR (2020) 80(16):CT216. doi: 10.1158/1538-7445.AM2020-CT216
+16. Zhou C, Chen G, Huang Y, Zhou J, Lin L, Feng J, et al. Camrelizumab Plus Carboplatin and Pemetrexed Versus Chemotherapy Alone in ChemotherapyNaive Patients With Advanced Non-Squamous Non-Small-Cell Lung Cancer (Camel.): A Randomised, Open-Label, Multicentre, Phase 3 Trial. Lancet Respir Med (2021) 9(3):305-14. doi: 10.1016/S2213-2600(20)30365-9
+17. Rizvi NA, Cho BC, Reinmuth N, Lee KH, Luft A, Ahn MJ, et al. Durvalumab With or Without Tremelimumab vs Standard Chemotherapy in First-line Treatment of Metastatic Non-Small Cell Lung Cancer: The MYSTIC Phase 3 Randomized Clinical Trial. JAMA Oncol (2020) 6(5):661-74. doi: 10.1001/ jamaoncol.2020.0237
+18. Ramalingam S, Ciuleanu TE, Phizański A, Lee JS, Schenker M, Caro RB, et al. Nivolumab + Ipilimumab Versus Platinum-Doublet Chemotherapy as FirstLine Treatment for Advanced Non-Small Cell Lung Cancer: Three-Year Update From CheckMate 227 Part 1. J Clin Oncol (2020) 15:9500. doi: 10.1200/JCO.2020.38.15_suppl. 9500
+19. Paz-Ares L, Ciuleanu TE, Cobo M, Schenker M, Zurawski B, Menezes J, et al. First-Line Nivolumab Plus Ipilimumab Combined With Two Cycles of Chemotherapy in Patients With Non-Small-Cell Lung Cancer (CheckMate 9LA): An International, Randomised, Open-Label, Phase 3 Trial. Lancet Oncol (2021) 22(2):198-211. doi: 10.1016/S1470-2045(20)30641-0
+20. Lee JS, Sugawara S, Kang JH, Kim HR, Inui N, Hida T. Randomized Phase III Trial of Nivolumab in Combination With Carboplatin, Paclitaxel, and Bevacizumab as First-Line Treatment for Patients With Advanced or Recurrent Non-Squamous NSCLC. Ann Oncol (2020) 31:S1184-5. doi: 10.1016/j.annonc.2020.08.2287
+21. Gandhi L, Rodriguez-Abreu D, Gadgeel S, Esteban E, Felip E, De Angelis F, et al. Pembrolizumab Plus Chemotherapy in Metastatic Non-Small-Cell Lung Cancer. N Engl J Med (2018) 378(22):2078-92. doi: 10.1056/NEJMoa1801005
+22. Paz-Ares L, Luft A, Vicente D, Tafreshi A, Gumus M, Mazieres J, et al. Pembrolizumab Plus Chemotherapy for Squamous Non-Small-Cell Lung Cancer. N Engl J Med (2018) 379(21):2040-51. doi: 10.1056/NEJMoa1810865
+23. Yang Y, Wang Z, Fang J, Yu Q, Han B, Cang S, et al. Efficacy and Safety of Sintilimab Plus Pemetrexed and Platinum as First-Line Treatment for Locally Advanced or Metastatic Nonsquamous NSCLC: A Randomized, DoubleBlind, Phase 3 Study (Oncology pRogram by InnovENT Anti-PD-1-11). J Thorac Oncol (2020) 15(10):1636-46. doi: 10.1016/j.jtho.2020.09.028
+24. Wang J, Lu S, Yu X, Hu Y, Sun Y, Wang Z, et al. Tildelizumab Plus Chemotherapy vs Chemotherapy Alone as First-line Treatment for Advanced Squamous Non-Small-Cell Lung Cancer: A Phase 3 Randomized Clinical Trial. JAMA Oncol (2021) 7(5):709-17. doi: 10.1001/jamaoncol.2021.0366
+
+25. Lu S, Yu Y, Yu X, Hu H-H, Ma Z, Li X, et al. Tislelizumab + Chemotherapy vs Chemotherapy Alone as First-Line Treatment for Locally Advanced/ Metastatic Nonsquamous NSCLC. Ann Oncol (2020) 31:S816-7. doi: 10.1016/j.annonc.2020.08.1577
+26. Moher D, Liberati A, Tetzlaff J, Altman DG. Preferred Reporting Items for Systematic Reviews and Meta-Analyses: The PRISMA Statement. PloS Med (2009) 6(7):e1000097. doi: 10.1371/journal.pmed. 1000097
+27. Zhang J, Dang F, Ren J, Wei W. Biochemical Aspects of PD-L1 Regulation in Cancer Immunotherapy. Trends Biochem Sci (2018) 43(12):1014-32. doi: 10.1016/j.tibs.2018.09.004
+28. Lamberti G, Spurr LF, Li Y, Ricciuti B, Recondo G, Umeton R, et al. Clinicopathological and Genomic Correlates of Programmed Cell Death Ligand 1 (PD-L1) Expression in Nonsquamous Non-Small-Cell Lung Cancer. Ann Oncol (2020) 31(6):807-14. doi: 10.1016/j.annonc.2020.02.017
+29. Shen X, Zhao B. Efficacy of PD-1 or PD-L1 Inhibitors and PD-L1 Expression Status in Cancer: Meta-Analysis. BMJ (2018) 362:k3529. doi: 10.1136/ bmj.k3529
+30. Topalian SL, Taube JM, Anders RA, Pardoll DM. Mechanism-Driven Biomarkers to Guide Immune Checkpoint Blockade in Cancer Therapy. Nat Rev Cancer (2016) 16(5):275-87. doi: 10.1038/nrc. 2016.36
+31. Chen DS, Irving BA, Hodi FS. Molecular Pathways: Next-Generation Immunotherapy-Inhibiting Programmed Death-Ligand 1 and Programmed Death-1. Clin Cancer Res (2012) 18(24):6580-7. doi: 10.1158/1078-0432.CCR-12-1362
+32. Ribas A, Hu-Lieskovan S. What Does PD-L1 Positive or Negative Mean? J Exp Med (2016) 213(13):2835-40. doi: 10.1084/jem.20161462
+33. Theelen W, Kuilman T, Schulze K, Zou W, Krijgsman O, Peters D, et al. Absence of PD-L1 Expression on Tumor Cells in the Context of an Activated Immune Infiltrate may Indicate Impaired IFNgamma Signaling in Non-Small Cell Lung Cancer. PloS One (2019) 14(5):e0216864. doi: 10.1371/ journal.pone. 0216864
+34. Bonaventura P, Shekarian T, Alcazer V, Valladeau-Guilemond J, ValsesiaWittmann S, Amigorena S, et al. Cold Tumors: A Therapeutic Challenge for Immunotherapy. Front Immunol (2019) 10:168. doi: 10.3389/fimmu. 2019.00168
+35. Heinhuis KM, Ros W, Kok M, Steeghs N, Beijnen JH, Schellens JHM. Enhancing Antitumor Response by Combining Immune Checkpoint Inhibitors With Chemotherapy in Solid Tumors. Ann Oncol (2019) 30 (2):219-35. doi: 10.1093/annonc/mdy551
+36. Borghaei H, Langer CJ, Paz-Ares L, Rodriguez-Abreu D, Halmos B, Garassino MC, et al. Pembrolizumab Plus Chemotherapy Versus Chemotherapy Alone in Patients With Advanced Non-Small Cell Lung Cancer Without Tumor PDL1 Expression: A Pooled Analysis of 3 Randomized Controlled Trials. Cancer (2020) 126(22):4867-77. doi: 10.1002/cncr. 33142
+37. Gadgeel S, Rodriguez-Abreu D, Speranza G, Esteban E, Felip E, Domine M, et al. Updated Analysis From KEYNOTE-189: Pembrolizumab or Placebo Plus Pemetrexed and Platinum for Previously Untreated Metastatic
+
+Nonsquamous Non-Small-Cell Lung Cancer. J Clin Oncol (2020) 38 (14):1505-17. doi: 10.1200/JCO.19.03136
+38. Giannone G, Ghisoni E, Genta S, Scotto G, Tuninetti V, Turinetto M, et al. Immuno-Metabolism and Microenvironment in Cancer: Key Players for Immunotherapy. Int J Mol Sci (2020) 21(12):4414. doi: 10.3390/ijms21124414
+39. Tyagi P. Bevacizumab, When Added to Paclitaxel/Carboplatin, Prolongs Survival in Previously Untreated Patients With Advanced Non-Small-Cell Lung Cancer: Preliminary Results From the ECOG 4599 Trial. Clin Lung Cancer (2005) 6(5):276-8. doi: 10.1016/S1525-7304(11)70220-0
+40. Zhou C, Wu YL, Chen G, Liu X, Zhu Y, Lu S, et al. Beyond: A Randomized, Double-Blind, Placebo-Controlled, Multicenter, Phase III Study of First-Line Carboplatin/Paclitaxel Plus Bevacizumab or Placebo in Chinese Patients With Advanced or Recurrent Nonsquamous Non-Small-Cell Lung Cancer. J Clin Oncol (2015) 33(19):2197-204. doi: 10.1200/JCO.2014.59.4424
+41. Wei SC, Anang NAS, Sharma R, Andrews MC, Reuben A, Levine JH, et al. Combination Anti-CTLA-4 Plus Anti-PD-1 Checkpoint Blockade Utilizes Cellular Mechanisms Partially Distinct From Monotherapies. Proc Natl Acad Sci USA (2019) 116(45):22699-709. doi: 10.1073/pnas. 1821218116
+42. Xu C, Chen YP, Du XJ, Liu JQ, Huang CL, Chen L, et al. Comparative Safety of Immune Checkpoint Inhibitors in Cancer: Systematic Review and Network Meta-Analysis. BMJ (2018) 363:k4226. doi: 10.1136/bmj.k4226
+43. McLaughlin J, Han G, Schalper KA, Carvajal-Hausdorf D, Pelekanou V, Rehman J, et al. Quantitative Assessment of the Heterogeneity of PD-L1 Expression in Non-Small-Cell Lung Cancer. JAMA Oncol (2016) 2(1):46-54. doi: 10.1001/jamaoncol.2015.3638
+44. Johnson DB, Jakubovic BD, Sibaud V, Sise ME. Balancing Cancer Immunotherapy Efficacy and Toxicity. J Allergy Clin Immunol Pract (2020) 8(9):2898-906. doi: 10.1016/j.jaip.2020.06.028
+
+Conflict of Interest: JS, the Editor-in-Chief of Oncogene has sat on SABs for Vaccitech, Heat Biologics, Eli Lilly, Alveo Technologies, Pear Bio, Agenus, Equilibre Biopharmaceuticals, Graviton Bioscience Corporation, Celltrion, Volvox, Certis Oncology Solutions, Greenmantle, Zedsen, Bryologyx and Benevolent AI. He has consulted with Lansdowne partners and Vitruvian. He sits on the Board of Directors for Xerion and BB Biotech Healthcare Trust PLC.
+
+The remaining authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
+
+Copyright © 2021 Peng, Liang, Mu, Xu, Hong, Stebbing, Liang and Xia. This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.

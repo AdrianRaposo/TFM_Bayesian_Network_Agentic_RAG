@@ -1,0 +1,131 @@
+/* ============================================== */
+/*  CSS “full-screen + scroll-interno” para Chainlit  */
+/* ============================================== */
+
+/* 0. Reset global y box-sizing para evitar sorpresas */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+/* 1. Contenedor raíz ocupa toda la ventana */
+#root {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden; /* evitar scroll extra del body */
+}
+
+/* 2. Contenedor de chat / mensajes: ocupa toda la pantalla y scrollea solo él */
+div.flex.flex-col.mx-auto.w-full.flex-grow.p-4 {
+  position: absolute !important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem; /* puedes ajustar si quieres */
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* 3. Cada mensaje — limitar ancho y asegurar que no desborde horizontalmente */
+.step {
+  max-width: min(48rem, 100vw) !important;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 4. Dentro de mensaje, contenido fluido */
+.step .flex-grow {
+  min-height: 0 !important;
+}
+
+.message-content {
+  width: 100% !important;
+  overflow-wrap: break-word !important;
+}
+
+/* 5. Bloques de código, KaTeX u otro contenido grande — limitar su altura y permitir scroll interno */
+pre, code, .katex, .katex-display {
+  max-height: 70vh !important; /* evita que un bloque extenso empuje todo */
+  overflow-y: auto !important;
+  overflow-x: auto !important;
+}
+
+/* Forzar inversión de color en modo oscuro para TODOS los iconos de starters */
+.dark #starters button img {
+    filter: invert(1) hue-rotate(180deg) !important;
+}
+
+.logo {
+    width: 500px !important;  /* Cambia 300px por el tamaño que quieras */
+    max-width: none !important; /* Evita límites automáticos */
+}
+
+
+/* =========================================
+   Botón de Enviar (Chat Submit)
+   ========================================= */
+
+/* Modo Claro (Por defecto): Fondo negro, icono blanco */
+#chat-submit {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+#chat-submit:hover {
+    background-color: #333333 !important; /* Un negro más suave al pasar el ratón */
+}
+
+/* Modo Oscuro: Fondo blanco, icono negro */
+.dark #chat-submit {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.dark #chat-submit:hover {
+    background-color: #e5e5e5 !important; /* Un gris muy clarito al pasar el ratón */
+}
+
+
+/* =========================================
+   Avatar del Asistente (Chat Bubbles)
+   ========================================= */
+
+/* Modo Claro (Por defecto): Usamos el logo oscuro para que contraste con el fondo blanco */
+img[alt="Avatar for BN Assistant"] {
+    content: url('/public/favicon_light.png') !important;
+}
+
+/* Modo Oscuro: Usamos el logo blanco para que contraste con el fondo oscuro */
+.dark img[alt="Avatar for BN Assistant"] {
+    content: url('/public/favicon.png') !important;
+}
+
+
+img[alt="Avatar for System"] {
+    content: url('/public/favicon_light.png') !important;
+}
+
+.dark img[alt="Avatar for System"] {
+    content: url('/public/favicon.png') !important;
+}
+
+
+
+
+.bg-primary{
+      background-color: green;
+}
